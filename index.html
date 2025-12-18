@@ -4,46 +4,345 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BridgeKorea</title>
+  <meta name="description" content="한국과 해외를 연결하는 BridgeKorea" />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; }
-    header { padding: 48px 20px; max-width: 920px; margin: 0 auto; }
-    nav a { margin-right: 14px; color: #111; text-decoration: none; }
-    .hero { padding: 0 20px 36px; max-width: 920px; margin: 0 auto; }
-    .card { border: 1px solid #e6e6e6; border-radius: 16px; padding: 18px; margin: 14px 0; }
-    footer { padding: 30px 20px; max-width: 920px; margin: 0 auto; color: #666; }
+    :root{
+      --bg: #0b1020;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.14);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(800px 400px at 15% 10%, rgba(95,132,255,.35), transparent 60%),
+        radial-gradient(700px 420px at 80% 20%, rgba(0,240,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 50% 100%, rgba(255,140,0,.12), transparent 60%),
+        var(--bg);
+      min-height:100vh;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:22px 18px 64px; }
+
+    /* Top bar */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 4px 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(95,132,255,.95), rgba(0,240,255,.9));
+      box-shadow: 0 10px 30px rgba(95,132,255,.22);
+      position:relative; overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), transparent 55%);
+      transform: rotate(25deg);
+      opacity:.55;
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding:6px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.10);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    nav a{
+      padding:9px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+    nav a:hover{ background: rgba(255,255,255,.08); color: var(--text); }
+
+    /* Hero */
+    .hero{
+      margin-top:10px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      border-radius: calc(var(--radius) + 6px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-inner{
+      padding:46px 26px 30px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight:600;
+      font-size:13px;
+      width: fit-content;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:40px;
+      line-height:1.1;
+      letter-spacing:-.4px;
+    }
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      max-width: 56ch;
+    }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius: 14px;
+      font-weight:800;
+      font-size:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.08);
+    }
+    .btn:hover{ background: rgba(255,255,255,.12); }
+    .btn.primary{
+      border-color: rgba(0,240,255,.35);
+      background: linear-gradient(135deg, rgba(95,132,255,.9), rgba(0,240,255,.75));
+      color:#05101a;
+    }
+    .btn.primary:hover{ filter: brightness(1.05); }
+
+    /* Right hero card */
+    .side{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      backdrop-filter: blur(8px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
+      min-height: 220px;
+    }
+    .mini-title{ color: var(--muted); font-weight:700; font-size:13px; margin:0; }
+    .mini-big{ font-size:16px; font-weight:800; margin:6px 0 0; }
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; }
+    .chip{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-weight:700;
+    }
+
+    /* Sections */
+    section{ padding:26px; }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .card h3{ margin:0 0 6px; font-size:16px; letter-spacing:-.2px; }
+    .card p{ margin:0; color: var(--muted); line-height:1.7; font-size:14px; }
+
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px;
+      margin-bottom: 14px;
+    }
+    .section-head h2{ margin:0; font-size:18px; letter-spacing:-.2px; }
+    .section-head span{ color: var(--muted); font-size:13px; }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .field{
+      display:flex; flex-direction:column; gap:8px;
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+    }
+    .field label{ font-size:13px; color: var(--muted); font-weight:700; }
+    .field input, .field textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    .field textarea{ min-height: 120px; resize: vertical; }
+    .note{ color: var(--muted); font-size:13px; line-height:1.6; margin:8px 0 0; }
+
+    footer{
+      padding:18px 6px 0;
+      color: rgba(255,255,255,.55);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+
+    @media (max-width: 860px){
+      .hero-inner{ grid-template-columns:1fr; }
+      .grid{ grid-template-columns:1fr; }
+      .contact{ grid-template-columns:1fr; }
+      h1{ font-size:34px; }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>BridgeKorea</h1>
-    <nav>
-      <a href="#about">소개</a>
-      <a href="#services">서비스</a>
-      <a href="#contact">문의</a>
-    </nav>
-  </header>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>BridgeKorea</div>
+      </div>
+      <nav>
+        <a href="#about">소개</a>
+        <a href="#services">서비스</a>
+        <a href="#contact">문의</a>
+      </nav>
+    </header>
 
-  <main class="hero">
-    <div class="card" id="about">
-      <h2>소개</h2>
-      <p>한국과 해외를 연결하는 BridgeKorea의 기본 랜딩 페이지입니다.</p>
+    <div class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="pill">🇰🇷 ↔ 🌍  Korea · Global Bridge</div>
+          <h1>한국과 해외를<br/>연결하는 브릿지</h1>
+          <p class="lead">
+            BridgeKorea는 파트너십, 프로젝트, 커뮤니티를 통해
+            한국과 해외의 연결을 더 쉽게 만드는 작은 시작점입니다.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">문의하기</a>
+            <a class="btn" href="#services">서비스 보기</a>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div>
+            <p class="mini-title">현재 진행</p>
+            <p class="mini-big">BridgeKorea Landing v1</p>
+          </div>
+          <div class="chips">
+            <span class="chip">파트너 연결</span>
+            <span class="chip">행사/프로젝트</span>
+            <span class="chip">컨설팅/지원</span>
+            <span class="chip">커뮤니티</span>
+          </div>
+        </aside>
+      </div>
+
+      <section id="about">
+        <div class="section-head">
+          <h2>소개</h2>
+          <span>작게 시작해 크게 연결합니다</span>
+        </div>
+        <div class="card">
+          <h3>BridgeKorea는 무엇을 하나요?</h3>
+          <p>
+            한국과 해외(특히 유럽)를 오가며 생기는 정보/사람/기회의 간극을 줄이기 위해,
+            파트너 매칭과 프로젝트 소개, 실행 지원을 제공합니다.
+          </p>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-head">
+          <h2>서비스</h2>
+          <span>필요한 것부터 하나씩</span>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>파트너 연결</h3>
+            <p>기업/기관/개인 간 협업 파트너를 찾아 연결합니다.</p>
+          </div>
+          <div class="card">
+            <h3>프로젝트·행사 소개</h3>
+            <p>유용한 프로젝트와 행사, 커뮤니티 정보를 정리해 공유합니다.</p>
+          </div>
+          <div class="card">
+            <h3>컨설팅·지원</h3>
+            <p>시장/커뮤니케이션/운영 등 실행을 돕는 지원을 제공합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-head">
+          <h2>문의</h2>
+          <span>연락만 주면 다음을 같이 만들어요</span>
+        </div>
+
+        <div class="contact">
+          <div class="field">
+            <label for="name">이름</label>
+            <input id="name" placeholder="홍길동" />
+          </div>
+          <div class="field">
+            <label for="email">이메일</label>
+            <input id="email" placeholder="you@email.com" />
+          </div>
+          <div class="field" style="grid-column:1/-1;">
+            <label for="msg">메시지</label>
+            <textarea id="msg" placeholder="어떤 도움이 필요하신가요?"></textarea>
+            <p class="note">
+              * 이 페이지는 정적 페이지라서 “전송” 버튼만으로 메일이 자동 발송되진 않아요.
+              원하면 다음 단계에서 무료 문의폼(Formspree/Google Form)으로 바로 연결해줄게!
+            </p>
+          </div>
+        </div>
+
+        <div style="padding:0 26px 26px;">
+          <a class="btn primary" href="mailto:your@email.com">메일로 문의하기</a>
+          <a class="btn" href="#about" style="margin-left:8px;">위로</a>
+        </div>
+      </section>
     </div>
 
-    <div class="card" id="services">
-      <h2>서비스</h2>
-      <ul>
-        <li>파트너 연결</li>
-        <li>프로젝트/행사 소개</li>
-        <li>컨설팅/지원</li>
-      </ul>
-    </div>
-
-    <div class="card" id="contact">
-      <h2>문의</h2>
-      <p>이메일: your@email.com</p>
-    </div>
-  </main>
-
-  <footer>© BridgeKorea</footer>
+    <footer>
+      <div>© BridgeKorea</div>
+      <div>Powered by GitHub Pages</div>
+    </footer>
+  </div>
 </body>
 </html>
