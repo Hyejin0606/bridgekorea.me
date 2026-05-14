@@ -1,2 +1,0 @@
-# bridgekorea.me
-BridgeKorea
