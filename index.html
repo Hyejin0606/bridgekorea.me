@@ -549,7 +549,19 @@ footer{
 .footer-links a:hover{color:white}
 
 @media(max-width:920px){
-  nav{display:none}
+  .nav{
+    height:auto;
+    padding:14px 0;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  nav{
+    display:flex;
+    width:100%;
+    flex-wrap:wrap;
+    gap:10px;
+  }
 
   .hero-grid,
   .split{
