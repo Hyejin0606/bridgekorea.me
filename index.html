@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -73,9 +73,7 @@ header{
   line-height:1.05;
 }
 
-.brand-text strong{
-  font-size:22px;
-}
+.brand-text strong{font-size:22px}
 
 .brand-text span{
   font-size:11px;
@@ -160,8 +158,8 @@ nav a:hover{color:var(--blue)}
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:1.12fr .88fr;
-  gap:58px;
+  grid-template-columns:minmax(0,1fr) 420px;
+  gap:48px;
   align-items:center;
 }
 
@@ -181,11 +179,14 @@ nav a:hover{color:var(--blue)}
 
 h1{
   margin:0 0 22px;
-  font-size:clamp(42px,5.2vw,70px);
-  line-height:1.02;
-  letter-spacing:-2.4px;
+  font-size:clamp(34px,4.2vw,58px);
+  line-height:1.08;
+  letter-spacing:-1.8px;
   font-weight:950;
-  max-width:780px;
+  max-width:760px;
+  overflow-wrap:break-word;
+  word-break:normal;
+  hyphens:auto;
 }
 
 .hero-text{
@@ -342,9 +343,7 @@ section{padding:82px 0}
   font-size:14.5px;
 }
 
-.about{
-  background:white;
-}
+.about{background:white}
 
 .grid4{
   display:grid;
@@ -385,9 +384,7 @@ section{padding:82px 0}
   line-height:1.72;
 }
 
-.expertise{
-  background:var(--soft);
-}
+.expertise{background:var(--soft)}
 
 .split{
   display:grid;
@@ -465,15 +462,12 @@ section{padding:82px 0}
   line-height:1.7;
 }
 
-.process{
-  background:white;
-}
+.process{background:white}
 
 .process-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:18px;
-  counter-reset:step;
 }
 
 .process-card{
@@ -502,9 +496,7 @@ section{padding:82px 0}
   line-height:1.7;
 }
 
-.industries{
-  background:var(--soft);
-}
+.industries{background:var(--soft)}
 
 .industry-grid{
   display:grid;
@@ -532,7 +524,6 @@ section{padding:82px 0}
 }
 
 .contact h2{color:white}
-
 .contact p{color:rgba(255,255,255,.8)}
 
 footer{
@@ -604,19 +595,19 @@ footer{
     </a>
 
     <nav>
-      <a href="#home" data-i18n="navHome">Home</a>
-      <a href="#about" data-i18n="navAbout">About</a>
-      <a href="#expertise" data-i18n="navExpertise">Expertise</a>
-      <a href="#process" data-i18n="navProcess">Process</a>
-      <a href="#contact" data-i18n="navContact">Contact</a>
+      <a href="#home" data-i18n="navHome">홈</a>
+      <a href="#about" data-i18n="navAbout">소개</a>
+      <a href="#expertise" data-i18n="navExpertise">전문성</a>
+      <a href="#process" data-i18n="navProcess">진행 과정</a>
+      <a href="#contact" data-i18n="navContact">문의</a>
 
       <div class="lang">
         <button onclick="setLang('de')">DE</button>
-        <button class="active" onclick="setLang('en')">EN</button>
-        <button onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('en')">EN</button>
+        <button class="active" onclick="setLang('kr')">KR</button>
       </div>
 
-      <a class="nav-cta" href="contact.html" data-i18n="navCta">Intro Call</a>
+      <a class="nav-cta" href="contact.html" data-i18n="navCta">상담 문의</a>
     </nav>
   </div>
 </header>
@@ -626,46 +617,46 @@ footer{
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <div class="badge" data-i18n="badge">Korea–Austria Technical Market Entry</div>
+      <div class="badge" data-i18n="badge">한국 기업의 오스트리아 기술 시장 진출</div>
 
-      <h1 data-i18n="heroTitle">Technical market entry support for Korean companies in Austria</h1>
+      <h1 data-i18n="heroTitle">한국 기업의 오스트리아 기술·산업 시장 진출을 지원합니다</h1>
 
       <p class="hero-text" data-i18n="heroText">
-        BridgeKorea helps Korean companies enter the Austrian market through technical understanding, local industry experience, partner development, and professional communication in Korean, German, and English.
+        BridgeKorea는 기술 이해, 오스트리아 현지 산업 경험, 파트너 발굴, 한국어·독일어·영어 비즈니스 커뮤니케이션을 기반으로 한국 기업의 오스트리아 시장 진출을 돕습니다.
       </p>
 
       <div class="cta">
-        <a class="btn primary" href="contact.html" data-i18n="heroBtn1">Contact BridgeKorea</a>
-        <a class="btn secondary" href="#expertise" data-i18n="heroBtn2">View expertise</a>
+        <a class="btn primary" href="contact.html" data-i18n="heroBtn1">BridgeKorea 문의하기</a>
+        <a class="btn secondary" href="#expertise" data-i18n="heroBtn2">전문성 보기</a>
       </div>
     </div>
 
     <aside class="hero-card">
       <div class="hero-card-top">
-        <h3 data-i18n="focusTitle">Why BridgeKorea</h3>
+        <h3 data-i18n="focusTitle">BridgeKorea의 강점</h3>
         <div class="card-tag" data-i18n="focusTag">Technical B2B</div>
       </div>
 
       <ul>
-        <li data-i18n="focus1">Mechanical engineering background</li>
-        <li data-i18n="focus2">Experienced Austrian industry partner</li>
-        <li data-i18n="focus3">Korean · German · English communication</li>
-        <li data-i18n="focus4">Partner search and business development</li>
-        <li data-i18n="focus5">Austria as a gateway to the European market</li>
+        <li data-i18n="focus1">기계공학 기반의 기술 이해</li>
+        <li data-i18n="focus2">경험 있는 오스트리아 현지 산업 파트너</li>
+        <li data-i18n="focus3">한국어 · 독일어 · 영어 커뮤니케이션</li>
+        <li data-i18n="focus4">파트너 발굴 및 비즈니스 개발</li>
+        <li data-i18n="focus5">유럽 시장 진출의 시작점으로서 오스트리아</li>
       </ul>
 
       <div class="metrics">
         <div class="metric">
           <strong>3</strong>
-          <span data-i18n="metric1">Languages</span>
+          <span data-i18n="metric1">언어</span>
         </div>
         <div class="metric">
           <strong>B2B</strong>
-          <span data-i18n="metric2">Market Entry</span>
+          <span data-i18n="metric2">시장 진출</span>
         </div>
         <div class="metric">
           <strong>AT</strong>
-          <span data-i18n="metric3">Local Access</span>
+          <span data-i18n="metric3">현지 접근성</span>
         </div>
       </div>
     </aside>
@@ -675,36 +666,36 @@ footer{
 <section id="about" class="about">
   <div class="container">
     <div class="section-head">
-      <span data-i18n="aboutSmall">About</span>
-      <h2 data-i18n="aboutTitle">A Korea–Austria bridge built for industrial business</h2>
+      <span data-i18n="aboutSmall">소개</span>
+      <h2 data-i18n="aboutTitle">산업 비즈니스를 위한 한국–오스트리아 브릿지</h2>
       <p data-i18n="aboutText">
-        BridgeKorea is designed for Korean companies that need more than translation. We support market entry with technical context, local understanding, and practical partner development in Austria.
+        BridgeKorea는 단순 번역이 아니라 기술적 맥락, 현지 이해, 실질적인 파트너 개발이 필요한 한국 기업을 위해 설계된 시장 진출 파트너입니다.
       </p>
     </div>
 
     <div class="grid4">
       <div class="card">
         <strong>01</strong>
-        <h3 data-i18n="about1Title">Market Entry</h3>
-        <p data-i18n="about1Text">We help Korean companies prepare their first steps into the Austrian and European market.</p>
+        <h3 data-i18n="about1Title">시장 진출</h3>
+        <p data-i18n="about1Text">한국 기업이 오스트리아 및 유럽 시장에 첫 발을 내딛을 수 있도록 지원합니다.</p>
       </div>
 
       <div class="card">
         <strong>02</strong>
-        <h3 data-i18n="about2Title">Partner Search</h3>
-        <p data-i18n="about2Text">We identify potential Austrian companies, distributors, institutions, and industry contacts.</p>
+        <h3 data-i18n="about2Title">파트너 발굴</h3>
+        <p data-i18n="about2Text">오스트리아 기업, 유통사, 기관, 산업 네트워크를 조사하고 연결합니다.</p>
       </div>
 
       <div class="card">
         <strong>03</strong>
-        <h3 data-i18n="about3Title">Technical Communication</h3>
-        <p data-i18n="about3Text">We support communication for technical products, industrial solutions, and B2B discussions.</p>
+        <h3 data-i18n="about3Title">기술 커뮤니케이션</h3>
+        <p data-i18n="about3Text">기술 제품, 산업 솔루션, B2B 미팅에 필요한 커뮤니케이션을 지원합니다.</p>
       </div>
 
       <div class="card">
         <strong>04</strong>
-        <h3 data-i18n="about4Title">Local Business Support</h3>
-        <p data-i18n="about4Text">We help prepare first meetings, presentations, follow-ups, and next business steps.</p>
+        <h3 data-i18n="about4Title">현지 비즈니스 지원</h3>
+        <p data-i18n="about4Text">첫 미팅, 발표 자료, 후속 연락, 다음 비즈니스 단계를 준비합니다.</p>
       </div>
     </div>
   </div>
@@ -713,10 +704,10 @@ footer{
 <section id="expertise" class="expertise">
   <div class="container split">
     <div class="feature-panel">
-      <span data-i18n="expertSmall">Expertise</span>
-      <h2 data-i18n="expertTitle">Technical and local expertise for Korea–Austria business</h2>
+      <span data-i18n="expertSmall">전문성</span>
+      <h2 data-i18n="expertTitle">한국–오스트리아 비즈니스를 위한 기술 및 현지 전문성</h2>
       <p data-i18n="expertText">
-        BridgeKorea combines Korean market understanding, mechanical engineering knowledge, multilingual communication, and Austrian local industry experience.
+        BridgeKorea는 한국 시장 이해, 기계공학 기반 지식, 다국어 커뮤니케이션, 오스트리아 현지 산업 경험을 결합합니다.
       </p>
     </div>
 
@@ -724,32 +715,32 @@ footer{
       <div class="feature-item">
         <div class="icon">01</div>
         <div>
-          <h3 data-i18n="ex1Title">Mechanical Engineering Background</h3>
-          <p data-i18n="ex1Text">We understand technical products, industrial terminology, and the way engineering-driven companies communicate.</p>
+          <h3 data-i18n="ex1Title">기계공학 기반</h3>
+          <p data-i18n="ex1Text">기술 제품, 산업 용어, 엔지니어링 중심 기업의 커뮤니케이션 방식을 이해합니다.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="icon">02</div>
         <div>
-          <h3 data-i18n="ex2Title">Austrian Industry Experience</h3>
-          <p data-i18n="ex2Text">Our Austrian-side partner brings practical experience and local perspective from the mechanical and industrial sector.</p>
+          <h3 data-i18n="ex2Title">오스트리아 산업 경험</h3>
+          <p data-i18n="ex2Text">오스트리아 현지 파트너는 기계 및 산업 분야에서의 실무 경험과 현지 관점을 제공합니다.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="icon">03</div>
         <div>
-          <h3 data-i18n="ex3Title">Multilingual Business Communication</h3>
-          <p data-i18n="ex3Text">We communicate in Korean, German, and English to reduce misunderstandings and support professional cross-border cooperation.</p>
+          <h3 data-i18n="ex3Title">다국어 비즈니스 커뮤니케이션</h3>
+          <p data-i18n="ex3Text">한국어·독일어·영어로 소통하여 오해를 줄이고 전문적인 국제 협업을 지원합니다.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="icon">04</div>
         <div>
-          <h3 data-i18n="ex4Title">Technical Business Matching</h3>
-          <p data-i18n="ex4Text">We support companies that need technical understanding, not only translation, when approaching the Austrian market.</p>
+          <h3 data-i18n="ex4Title">기술 중심 비즈니스 매칭</h3>
+          <p data-i18n="ex4Text">단순 번역이 아니라 기술 이해가 필요한 기업의 오스트리아 시장 접근을 지원합니다.</p>
         </div>
       </div>
     </div>
@@ -759,36 +750,36 @@ footer{
 <section id="process" class="process">
   <div class="container">
     <div class="section-head">
-      <span data-i18n="processSmall">Process</span>
-      <h2 data-i18n="processTitle">From market understanding to first business contact</h2>
+      <span data-i18n="processSmall">진행 과정</span>
+      <h2 data-i18n="processTitle">시장 이해부터 첫 비즈니스 연락까지</h2>
       <p data-i18n="processText">
-        We support Korean companies step by step, from initial positioning to partner mapping, outreach, and meeting preparation.
+        초기 포지셔닝, 파트너 맵핑, 연락, 미팅 준비까지 단계별로 지원합니다.
       </p>
     </div>
 
     <div class="process-grid">
       <div class="process-card">
         <strong>01</strong>
-        <h3 data-i18n="p1Title">Initial Review</h3>
-        <p data-i18n="p1Text">We review your product, company profile, target sector, and potential fit for Austria.</p>
+        <h3 data-i18n="p1Title">초기 검토</h3>
+        <p data-i18n="p1Text">제품, 회사 소개, 목표 산업, 오스트리아 시장 적합성을 검토합니다.</p>
       </div>
 
       <div class="process-card">
         <strong>02</strong>
-        <h3 data-i18n="p2Title">Market & Partner Mapping</h3>
-        <p data-i18n="p2Text">We identify relevant companies, distributors, institutions, and local networks.</p>
+        <h3 data-i18n="p2Title">시장 및 파트너 맵핑</h3>
+        <p data-i18n="p2Text">관련 기업, 유통사, 기관, 현지 네트워크를 파악합니다.</p>
       </div>
 
       <div class="process-card">
         <strong>03</strong>
-        <h3 data-i18n="p3Title">Professional Outreach</h3>
-        <p data-i18n="p3Text">We support localized communication, introductions, and first contact with potential partners.</p>
+        <h3 data-i18n="p3Title">전문적인 현지 연락</h3>
+        <p data-i18n="p3Text">현지화된 커뮤니케이션, 소개, 잠재 파트너와의 첫 연락을 지원합니다.</p>
       </div>
 
       <div class="process-card">
         <strong>04</strong>
-        <h3 data-i18n="p4Title">Meeting & Follow-up</h3>
-        <p data-i18n="p4Text">We help prepare business meetings, follow-ups, and concrete next steps for cooperation.</p>
+        <h3 data-i18n="p4Title">미팅 및 후속 지원</h3>
+        <p data-i18n="p4Text">비즈니스 미팅, 후속 연락, 협력을 위한 다음 단계를 준비합니다.</p>
       </div>
     </div>
   </div>
@@ -797,22 +788,22 @@ footer{
 <section class="industries">
   <div class="container">
     <div class="section-head">
-      <span data-i18n="industrySmall">Industries</span>
-      <h2 data-i18n="industryTitle">Relevant sectors for Korea–Austria cooperation</h2>
+      <span data-i18n="industrySmall">산업 분야</span>
+      <h2 data-i18n="industryTitle">한국–오스트리아 협력 주요 분야</h2>
       <p data-i18n="industryText">
-        BridgeKorea is especially suited for technical, industrial, and B2B-oriented companies looking for structured market access.
+        BridgeKorea는 구조적인 시장 접근이 필요한 기술·산업·B2B 중심 기업에 특히 적합합니다.
       </p>
     </div>
 
     <div class="industry-grid">
-      <div data-i18n="i1">Mechanical Engineering</div>
-      <div data-i18n="i2">Manufacturing</div>
-      <div data-i18n="i3">Industrial Components</div>
-      <div data-i18n="i4">Automation</div>
-      <div data-i18n="i5">Mobility & Parts</div>
-      <div data-i18n="i6">Technology Solutions</div>
-      <div data-i18n="i7">Consumer Products</div>
-      <div data-i18n="i8">Startups & Innovation</div>
+      <div data-i18n="i1">기계공학</div>
+      <div data-i18n="i2">제조업</div>
+      <div data-i18n="i3">산업 부품</div>
+      <div data-i18n="i4">자동화</div>
+      <div data-i18n="i5">모빌리티 & 부품</div>
+      <div data-i18n="i6">기술 솔루션</div>
+      <div data-i18n="i7">소비재</div>
+      <div data-i18n="i8">스타트업 & 혁신</div>
     </div>
   </div>
 </section>
@@ -821,14 +812,14 @@ footer{
   <div class="container">
     <div class="section-head">
       <span>Contact</span>
-      <h2 data-i18n="contactTitle">Start your Austria project</h2>
+      <h2 data-i18n="contactTitle">오스트리아 프로젝트를 시작하세요</h2>
       <p data-i18n="contactText">
-        If you are preparing Austria market entry, looking for local partners, or need technical B2B communication support, contact BridgeKorea.
+        오스트리아 시장 진출, 현지 파트너 발굴, 기술 B2B 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.
       </p>
     </div>
 
     <div class="cta" style="justify-content:center">
-      <a class="btn primary" href="contact.html" data-i18n="contactBtn">Contact BridgeKorea</a>
+      <a class="btn primary" href="contact.html" data-i18n="contactBtn">BridgeKorea 문의하기</a>
     </div>
   </div>
 </section>
@@ -1104,6 +1095,8 @@ function setLang(lang){
     }
   });
 }
+
+setLang("kr");
 </script>
 
 </body>
