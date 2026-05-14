@@ -1,441 +1,501 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | BridgeKorea</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | BridgeKorea</title>
 
-  <style>
-    :root{
-      --navy:#0f2742;
-      --blue:#2f5f9f;
-      --gold:#b68a3a;
-      --bg:#f5f7fa;
-      --text:#152033;
-      --muted:#667085;
-      --line:#d9e1ec;
-      --shadow:0 16px 36px rgba(15,39,66,.14);
-      --radius:22px;
-    }
+<style>
+:root{
+  --ink:#0a1628;
+  --navy:#0e2746;
+  --blue:#1f5fbf;
+  --gold:#b9975b;
+  --bg:#f6f8fb;
+  --line:#e1e7f0;
+  --soft:#eef3f9;
+  --text:#142033;
+  --muted:#617085;
+  --shadow:0 18px 48px rgba(10,22,40,.10);
+  --radius:24px;
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
 
-    body{
-      margin:0;
-      background:var(--bg);
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;
-      color:var(--text);
-      font-size:14px;
-    }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,"Pretendard","Noto Sans KR",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:14px;
+}
 
-    a{text-decoration:none;color:inherit}
+a{text-decoration:none;color:inherit}
 
-    .container{
-      width:min(960px,calc(100% - 32px));
-      margin:auto;
-      padding:34px 0 64px;
-    }
+.container{
+  width:min(1080px,calc(100% - 36px));
+  margin:auto;
+}
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:34px;
-    }
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(10,22,40,.06);
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:22px;
-      font-weight:900;
-      color:var(--navy);
-    }
+.nav{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
 
-    .logo{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--navy),var(--blue));
-      color:white;
-      display:grid;
-      place-items:center;
-      font-weight:900;
-      position:relative;
-      box-shadow:0 8px 20px rgba(15,39,66,.18);
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+  color:var(--ink);
+  letter-spacing:-.5px;
+}
 
-    .logo::after{
-      content:"";
-      width:18px;
-      height:2px;
-      background:var(--gold);
-      position:absolute;
-      bottom:10px;
-      border-radius:999px;
-    }
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
 
-    .top-right{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
+.brand-text strong{font-size:22px}
 
-    .lang{
-      display:flex;
-      gap:6px;
-    }
+.brand-text span{
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-top:4px;
+}
 
-    .lang button{
-      border:1px solid var(--line);
-      background:white;
-      border-radius:9px;
-      padding:7px 10px;
-      font-size:12px;
-      font-weight:850;
-      cursor:pointer;
-    }
+.logo-mark{
+  width:50px;
+  height:50px;
+  display:block;
+}
 
-    .lang button.active{
-      background:var(--navy);
-      color:white;
-      border-color:var(--navy);
-    }
+.top-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    .back{
-      background:var(--navy);
-      color:white;
-      padding:11px 15px;
-      border-radius:10px;
-      font-size:13px;
-      font-weight:850;
-    }
+.lang{
+  display:flex;
+  gap:6px;
+  padding:4px;
+  background:#f0f4f9;
+  border-radius:999px;
+}
 
-    .hero{
-      text-align:center;
-      margin-bottom:30px;
-    }
+.lang button{
+  border:0;
+  background:transparent;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+  font-weight:850;
+  cursor:pointer;
+  color:var(--muted);
+}
 
-    .badge{
-      display:inline-flex;
-      padding:8px 14px;
-      border-radius:999px;
-      background:#eef3fb;
-      color:var(--blue);
-      font-size:12px;
-      font-weight:850;
-      margin-bottom:14px;
-    }
+.lang button.active{
+  background:white;
+  color:var(--ink);
+  box-shadow:0 4px 14px rgba(10,22,40,.08);
+}
 
-    h1{
-      margin:0 0 12px;
-      color:var(--navy);
-      font-size:clamp(34px,4vw,44px);
-      letter-spacing:-1px;
-      line-height:1.1;
-    }
+.back{
+  background:var(--ink);
+  color:white;
+  padding:11px 16px;
+  border-radius:999px;
+  font-weight:850;
+  font-size:13px;
+}
 
-    .intro{
-      margin:0 auto;
-      max-width:720px;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:14px;
-    }
+.hero{
+  background:
+    radial-gradient(760px 380px at 85% 10%,rgba(31,95,191,.18),transparent 60%),
+    radial-gradient(420px 260px at 20% 25%,rgba(185,151,91,.14),transparent 65%),
+    linear-gradient(135deg,#07111f,#0e2746 58%,#143f73);
+  color:white;
+  padding:72px 0 64px;
+}
 
-    .image-box{
-      margin:34px 0 28px;
-      height:310px;
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:
-        linear-gradient(rgba(15,39,66,.18),rgba(15,39,66,.18)),
-        url("https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1400&q=80");
-      background-size:cover;
-      background-position:center;
-    }
+.hero-inner{
+  text-align:center;
+  max-width:820px;
+  margin:auto;
+}
 
-    .email-card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:30px;
-      text-align:center;
-      margin-bottom:24px;
-      display:block;
-      transition:.2s;
-    }
+.badge{
+  display:inline-flex;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);
+  margin-bottom:18px;
+  font-size:12px;
+  font-weight:850;
+}
 
-    .email-card:hover{transform:translateY(-2px)}
+h1{
+  margin:0 0 18px;
+  font-size:clamp(34px,4.8vw,58px);
+  line-height:1.06;
+  letter-spacing:-1.8px;
+  font-weight:950;
+}
 
-    .icon{
-      width:48px;
-      height:48px;
-      border-radius:14px;
-      background:var(--blue);
-      color:white;
-      display:grid;
-      place-items:center;
-      margin:0 auto 12px;
-      font-size:18px;
-      font-weight:900;
-    }
+.hero p{
+  margin:0 auto;
+  max-width:720px;
+  color:rgba(255,255,255,.82);
+  line-height:1.85;
+  font-size:15px;
+}
 
-    .label{
-      color:var(--muted);
-      font-size:12px;
-      font-weight:850;
-      margin-bottom:6px;
-    }
+main{
+  padding:44px 0 76px;
+}
 
-    .value{
-      color:var(--blue);
-      font-size:21px;
-      font-weight:900;
-      word-break:break-word;
-    }
+.image-box{
+  height:320px;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  margin-bottom:28px;
+  background:
+    linear-gradient(rgba(10,22,40,.16),rgba(10,22,40,.16)),
+    url("https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1500&q=80");
+  background-size:cover;
+  background-position:center;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      margin-bottom:30px;
-    }
+.email-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  padding:32px;
+  text-align:center;
+  display:block;
+  margin-bottom:26px;
+  transition:.25s;
+}
 
-    .info-card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:28px;
-      text-align:center;
-    }
+.email-card:hover{
+  transform:translateY(-3px);
+}
 
-    .info-card h3{
-      margin:12px 0 8px;
-      color:var(--blue);
-      font-size:20px;
-    }
+.icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  background:#eaf1fb;
+  color:var(--blue);
+  margin:0 auto 12px;
+  font-weight:950;
+}
 
-    .info-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:14px;
-    }
+.label{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:850;
+  margin-bottom:6px;
+}
 
-    .process{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:30px;
-      margin-bottom:30px;
-    }
+.value{
+  color:var(--blue);
+  font-size:21px;
+  font-weight:950;
+  word-break:break-word;
+}
 
-    .process h2{
-      margin:0 0 18px;
-      color:var(--navy);
-      font-size:24px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-bottom:30px;
+}
 
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
+.info-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:26px;
+  box-shadow:0 12px 30px rgba(10,22,40,.05);
+  padding:30px;
+  text-align:center;
+}
 
-    .step{
-      background:#f8fafc;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
-    }
+.info-card h3{
+  margin:12px 0 8px;
+  color:var(--ink);
+  font-size:20px;
+}
 
-    .step strong{
-      color:var(--gold);
-      font-size:13px;
-      font-weight:900;
-    }
+.info-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.75;
+}
 
-    .step h3{
-      margin:10px 0 8px;
-      color:var(--navy);
-      font-size:17px;
-    }
+.process{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  padding:34px;
+  margin-bottom:30px;
+}
 
-    .step p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:14px;
-    }
+.section-label{
+  color:var(--gold);
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
 
-    .expect{
-      background:
-        radial-gradient(400px 220px at 80% 20%,rgba(182,138,58,.16),transparent 60%),
-        linear-gradient(135deg,var(--navy),#17375e);
-      color:white;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:34px;
-    }
+.process h2,
+.expect h2{
+  margin:10px 0 22px;
+  color:var(--ink);
+  font-size:28px;
+  letter-spacing:-.8px;
+}
 
-    .expect h2{
-      margin:0 0 18px;
-      font-size:24px;
-    }
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
 
-    .expect ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:13px;
-    }
+.step{
+  background:#f8fafc;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:22px;
+}
 
-    .expect li{
-      line-height:1.7;
-      color:rgba(255,255,255,.88);
-    }
+.step strong{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:950;
+}
 
-    .expect li::before{
-      content:"✓";
-      color:var(--gold);
-      margin-right:10px;
-      font-weight:900;
-    }
+.step h3{
+  margin:10px 0 8px;
+  color:var(--ink);
+  font-size:17px;
+}
 
-    footer{
-      margin-top:44px;
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-    }
+.step p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
 
-    @media(max-width:720px){
-      .grid,.steps{grid-template-columns:1fr}
-      .image-box{height:220px}
-    }
-  </style>
+.expect{
+  background:
+    radial-gradient(420px 220px at 80% 20%,rgba(185,151,91,.18),transparent 60%),
+    linear-gradient(135deg,#07111f,#0e2746);
+  color:white;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  padding:34px;
+}
+
+.expect h2{
+  color:white;
+}
+
+.expect ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:13px;
+}
+
+.expect li{
+  color:rgba(255,255,255,.88);
+  line-height:1.7;
+}
+
+.expect li::before{
+  content:"✓";
+  color:var(--gold);
+  margin-right:10px;
+  font-weight:950;
+}
+
+footer{
+  margin-top:46px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+@media(max-width:760px){
+  .top-right{display:none}
+  .grid,.steps{grid-template-columns:1fr}
+  .image-box{height:230px}
+}
+</style>
 </head>
 
 <body>
-<main class="container">
 
-  <div class="top">
+<header>
+  <div class="container nav">
     <a class="brand" href="index.html">
-      <div class="logo">BK</div>
-      <span>BridgeKorea</span>
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop stop-color="#0b1f3a"/>
+            <stop offset="1" stop-color="#1f5fbf"/>
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="18" fill="url(#g)"/>
+        <path d="M18 38c6-13 22-13 28 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+        <path d="M18 27c6-13 22-13 28 0" fill="none" stroke="#c7a55b" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="20" cy="42" r="3" fill="#fff"/>
+        <circle cx="44" cy="42" r="3" fill="#fff"/>
+      </svg>
+
+      <span class="brand-text">
+        <strong>BridgeKorea</strong>
+        <span>Korea · Austria · Industry</span>
+      </span>
     </a>
 
     <div class="top-right">
       <div class="lang">
         <button onclick="setLang('de')">DE</button>
-        <button class="active" onclick="setLang('en')">EN</button>
-        <button onclick="setLang('kr')">KR</button>
+        <button onclick="setLang('en')">EN</button>
+        <button class="active" onclick="setLang('kr')">KR</button>
       </div>
 
-      <a class="back" href="index.html" data-i18n="back">Back to Home</a>
+      <a class="back" href="index.html" data-i18n="back">홈으로</a>
     </div>
   </div>
+</header>
 
-  <section class="hero">
-    <div class="badge" data-i18n="badge">Korea–Austria Market Entry</div>
-    <h1 data-i18n="title">Contact BridgeKorea</h1>
-    <p class="intro" data-i18n="intro">
-      For Korean companies preparing to enter the Austrian market. Contact BridgeKorea for partner search, local communication, and market entry support.
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="badge" data-i18n="badge">한국 기업의 오스트리아 시장 진출</div>
+    <h1 data-i18n="title">BridgeKorea 문의</h1>
+    <p data-i18n="intro">
+      오스트리아 시장 진출, 현지 파트너 발굴, 기술 B2B 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.
     </p>
-  </section>
-
-  <div class="image-box"></div>
-
-  <a class="email-card" href="mailto:bridgekorea.at@gmail.com">
-    <div class="icon">✉</div>
-    <div class="label" data-i18n="email">Email</div>
-    <div class="value">bridgekorea.at@gmail.com</div>
-  </a>
-
-  <div class="grid">
-    <div class="info-card">
-      <div class="icon">⌖</div>
-      <h3 data-i18n="card1Title">Austria</h3>
-      <p data-i18n="card1Text">
-        Local partner search<br>
-        Market entry support<br>
-        Business communication
-      </p>
-    </div>
-
-    <div class="info-card">
-      <div class="icon">🌐</div>
-      <h3 data-i18n="card2Title">Korea ↔ Austria</h3>
-      <p data-i18n="card2Text">
-        German · English · Korean<br>
-        B2B communication<br>
-        First meeting support
-      </p>
-    </div>
   </div>
+</section>
 
-  <section class="process">
-    <h2 data-i18n="processTitle">Inquiry process</h2>
+<main>
+  <div class="container">
 
-    <div class="steps">
-      <div class="step">
-        <strong>01</strong>
-        <h3 data-i18n="step1Title">Initial message</h3>
-        <p data-i18n="step1Text">Send a short introduction of your company, product, and Austria-related goals.</p>
+    <div class="image-box"></div>
+
+    <a class="email-card" href="mailto:bridgekorea.at@gmail.com">
+      <div class="icon">✉</div>
+      <div class="label" data-i18n="email">이메일</div>
+      <div class="value">bridgekorea.at@gmail.com</div>
+    </a>
+
+    <div class="grid">
+      <div class="info-card">
+        <div class="icon">AT</div>
+        <h3 data-i18n="card1Title">오스트리아 시장 진출</h3>
+        <p data-i18n="card1Text">
+          현지 파트너 발굴<br>
+          산업 네트워크 조사<br>
+          비즈니스 개발 지원
+        </p>
       </div>
 
-      <div class="step">
-        <strong>02</strong>
-        <h3 data-i18n="step2Title">Market discussion</h3>
-        <p data-i18n="step2Text">We review your needs and discuss possible market entry or partner search options.</p>
-      </div>
-
-      <div class="step">
-        <strong>03</strong>
-        <h3 data-i18n="step3Title">Next steps</h3>
-        <p data-i18n="step3Text">If there is a fit, we define a practical first step for Austria market development.</p>
+      <div class="info-card">
+        <div class="icon">B2B</div>
+        <h3 data-i18n="card2Title">기술 중심 커뮤니케이션</h3>
+        <p data-i18n="card2Text">
+          한국어 · 독일어 · 영어<br>
+          기술 제품 설명 지원<br>
+          첫 미팅 준비
+        </p>
       </div>
     </div>
-  </section>
 
-  <section class="expect">
-    <h2 data-i18n="expectTitle">What You Can Expect</h2>
+    <section class="process">
+      <span class="section-label" data-i18n="processSmall">Process</span>
+      <h2 data-i18n="processTitle">문의 진행 과정</h2>
 
-    <ul>
-      <li data-i18n="expect1">Response within 24 hours</li>
-      <li data-i18n="expect2">Non-binding initial consultation</li>
-      <li data-i18n="expect3">Support in German, English and Korean</li>
-      <li data-i18n="expect4">Partner search and Austria market entry support</li>
-    </ul>
-  </section>
+      <div class="steps">
+        <div class="step">
+          <strong>01</strong>
+          <h3 data-i18n="step1Title">첫 문의</h3>
+          <p data-i18n="step1Text">회사, 제품 또는 서비스, 오스트리아 진출 목표를 간단히 보내주세요.</p>
+        </div>
 
-  <footer>
-    © BridgeKorea
-  </footer>
+        <div class="step">
+          <strong>02</strong>
+          <h3 data-i18n="step2Title">시장 상담</h3>
+          <p data-i18n="step2Text">필요 사항을 검토하고 시장 진출 또는 파트너 발굴 가능성을 함께 논의합니다.</p>
+        </div>
 
+        <div class="step">
+          <strong>03</strong>
+          <h3 data-i18n="step3Title">다음 단계</h3>
+          <p data-i18n="step3Text">적합성이 있다면 오스트리아 시장 개발을 위한 첫 실행 단계를 정합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="expect">
+      <span class="section-label" data-i18n="expectSmall">What to expect</span>
+      <h2 data-i18n="expectTitle">BridgeKorea가 제공하는 것</h2>
+
+      <ul>
+        <li data-i18n="expect1">24시간 이내 답변</li>
+        <li data-i18n="expect2">부담 없는 초기 상담</li>
+        <li data-i18n="expect3">한국어·독일어·영어 지원</li>
+        <li data-i18n="expect4">오스트리아 시장 진출 및 파트너 발굴 지원</li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2026 BridgeKorea. All rights reserved.
+    </footer>
+
+  </div>
 </main>
 
 <script>
 const translations = {
   en:{
     back:"Back to Home",
-    badge:"Korea–Austria Market Entry",
+    badge:"Korea–Austria Technical Market Entry",
     title:"Contact BridgeKorea",
-    intro:"For Korean companies preparing to enter the Austrian market. Contact BridgeKorea for partner search, local communication, and market entry support.",
+    intro:"If you are preparing Austria market entry, looking for local partners, or need technical B2B communication support, contact BridgeKorea.",
     email:"Email",
-    card1Title:"Austria",
-    card1Text:"Local partner search<br>Market entry support<br>Business communication",
-    card2Title:"Korea ↔ Austria",
-    card2Text:"German · English · Korean<br>B2B communication<br>First meeting support",
+    card1Title:"Austria Market Entry",
+    card1Text:"Local partner search<br>Industry network research<br>Business development support",
+    card2Title:"Technical B2B Communication",
+    card2Text:"Korean · German · English<br>Technical product communication<br>First meeting preparation",
+    processSmall:"Process",
     processTitle:"Inquiry process",
     step1Title:"Initial message",
     step1Text:"Send a short introduction of your company, product, and Austria-related goals.",
@@ -443,22 +503,24 @@ const translations = {
     step2Text:"We review your needs and discuss possible market entry or partner search options.",
     step3Title:"Next steps",
     step3Text:"If there is a fit, we define a practical first step for Austria market development.",
+    expectSmall:"What to expect",
     expectTitle:"What You Can Expect",
     expect1:"Response within 24 hours",
     expect2:"Non-binding initial consultation",
-    expect3:"Support in German, English and Korean",
-    expect4:"Partner search and Austria market entry support"
+    expect3:"Support in Korean, German and English",
+    expect4:"Austria market entry and partner search support"
   },
   de:{
-    back:"Zurück zur Startseite",
-    badge:"Korea–Austria Market Entry",
+    back:"Zurück",
+    badge:"Korea–Austria Technical Market Entry",
     title:"Kontakt BridgeKorea",
-    intro:"Für koreanische Unternehmen, die den österreichischen Markt erschließen möchten. Kontaktieren Sie BridgeKorea für Partnersuche, lokale Kommunikation und Unterstützung beim Markteintritt.",
+    intro:"Wenn Sie den Markteintritt in Österreich vorbereiten, lokale Partner suchen oder technische B2B-Kommunikation benötigen, kontaktieren Sie BridgeKorea.",
     email:"E-Mail",
-    card1Title:"Österreich",
-    card1Text:"Suche nach lokalen Partnern<br>Unterstützung beim Markteintritt<br>Business-Kommunikation",
-    card2Title:"Korea ↔ Österreich",
-    card2Text:"Deutsch · Englisch · Koreanisch<br>B2B-Kommunikation<br>Unterstützung bei Erstgesprächen",
+    card1Title:"Markteintritt Österreich",
+    card1Text:"Suche nach lokalen Partnern<br>Recherche von Industrie-Netzwerken<br>Business Development Support",
+    card2Title:"Technische B2B-Kommunikation",
+    card2Text:"Koreanisch · Deutsch · Englisch<br>Kommunikation technischer Produkte<br>Vorbereitung erster Meetings",
+    processSmall:"Ablauf",
     processTitle:"Ablauf der Anfrage",
     step1Title:"Erste Nachricht",
     step1Text:"Senden Sie eine kurze Vorstellung Ihres Unternehmens, Produkts und Ihrer Ziele für Österreich.",
@@ -466,22 +528,24 @@ const translations = {
     step2Text:"Wir besprechen Ihren Bedarf und mögliche Optionen für Markteintritt oder Partnersuche.",
     step3Title:"Nächste Schritte",
     step3Text:"Wenn es passt, definieren wir einen konkreten ersten Schritt für den österreichischen Markt.",
+    expectSmall:"Was Sie erwarten können",
     expectTitle:"Was Sie erwarten können",
     expect1:"Antwort innerhalb von 24 Stunden",
     expect2:"Unverbindliches Erstgespräch",
-    expect3:"Unterstützung auf Deutsch, Englisch und Koreanisch",
-    expect4:"Partnersuche und Unterstützung beim Markteintritt in Österreich"
+    expect3:"Unterstützung auf Koreanisch, Deutsch und Englisch",
+    expect4:"Partnersuche und Markteintritt in Österreich"
   },
   kr:{
-    back:"홈으로 돌아가기",
+    back:"홈으로",
     badge:"한국 기업의 오스트리아 시장 진출",
     title:"BridgeKorea 문의",
-    intro:"오스트리아 시장 진출을 준비하는 한국 기업을 위한 문의 페이지입니다. 파트너 발굴, 현지 커뮤니케이션, 시장 진출 지원에 대해 문의해보세요.",
+    intro:"오스트리아 시장 진출, 현지 파트너 발굴, 기술 B2B 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.",
     email:"이메일",
-    card1Title:"오스트리아",
-    card1Text:"현지 파트너 발굴<br>시장 진출 지원<br>비즈니스 커뮤니케이션",
-    card2Title:"한국 ↔ 오스트리아",
-    card2Text:"독일어 · 영어 · 한국어<br>B2B 커뮤니케이션<br>초기 미팅 지원",
+    card1Title:"오스트리아 시장 진출",
+    card1Text:"현지 파트너 발굴<br>산업 네트워크 조사<br>비즈니스 개발 지원",
+    card2Title:"기술 중심 커뮤니케이션",
+    card2Text:"한국어 · 독일어 · 영어<br>기술 제품 설명 지원<br>첫 미팅 준비",
+    processSmall:"Process",
     processTitle:"문의 진행 과정",
     step1Title:"첫 문의",
     step1Text:"회사, 제품 또는 서비스, 오스트리아 진출 목표를 간단히 보내주세요.",
@@ -489,10 +553,11 @@ const translations = {
     step2Text:"필요 사항을 검토하고 시장 진출 또는 파트너 발굴 가능성을 함께 논의합니다.",
     step3Title:"다음 단계",
     step3Text:"적합성이 있다면 오스트리아 시장 개발을 위한 첫 실행 단계를 정합니다.",
+    expectSmall:"What to expect",
     expectTitle:"BridgeKorea가 제공하는 것",
     expect1:"24시간 이내 답변",
     expect2:"부담 없는 초기 상담",
-    expect3:"독일어·영어·한국어 지원",
+    expect3:"한국어·독일어·영어 지원",
     expect4:"오스트리아 시장 진출 및 파트너 발굴 지원"
   }
 };
@@ -519,6 +584,8 @@ function setLang(lang){
     }
   });
 }
+
+setLang("kr");
 </script>
 
 </body>
