@@ -6,16 +6,18 @@
   <title>Contact | BridgeKorea</title>
 
   <style>
+
     :root{
-      --navy:#10233f;
-      --blue:#2457a6;
-      --gold:#b58b3b;
-      --bg:#f6f8fb;
+      --navy:#0f2742;
+      --navy-dark:#091728;
+      --blue:#2f5f9f;
+      --gold:#b68a3a;
+      --bg:#f5f7fa;
       --white:#ffffff;
-      --text:#172033;
+      --text:#152033;
       --muted:#667085;
-      --line:#dbe2ec;
-      --shadow:0 18px 40px rgba(16,35,63,.14);
+      --line:#d9e1ec;
+      --shadow:0 16px 36px rgba(15,39,66,.14);
       --radius:22px;
     }
 
@@ -29,6 +31,7 @@
       font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,
       "Segoe UI","Noto Sans KR",Arial,sans-serif;
       color:var(--text);
+      font-size:14px;
     }
 
     a{
@@ -46,21 +49,49 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-bottom:32px;
       gap:16px;
       flex-wrap:wrap;
+      margin-bottom:34px;
     }
 
     .brand{
-      font-size:26px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:22px;
       font-weight:900;
       color:var(--navy);
+    }
+
+    .logo{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:16px;
+      font-weight:900;
+      position:relative;
+      box-shadow:0 8px 20px rgba(15,39,66,.18);
+    }
+
+    .logo::after{
+      content:"";
+      width:18px;
+      height:2px;
+      background:var(--gold);
+      position:absolute;
+      bottom:10px;
+      border-radius:999px;
     }
 
     .top-right{
       display:flex;
       align-items:center;
       gap:12px;
+      flex-wrap:wrap;
     }
 
     .lang{
@@ -71,10 +102,10 @@
     .lang button{
       border:1px solid var(--line);
       background:white;
-      border-radius:10px;
-      padding:8px 11px;
-      font-size:13px;
-      font-weight:800;
+      border-radius:9px;
+      padding:7px 10px;
+      font-size:12px;
+      font-weight:850;
       cursor:pointer;
     }
 
@@ -87,10 +118,10 @@
     .back{
       background:var(--navy);
       color:white;
-      padding:11px 16px;
-      border-radius:11px;
-      font-size:14px;
-      font-weight:800;
+      padding:11px 15px;
+      border-radius:10px;
+      font-size:13px;
+      font-weight:850;
     }
 
     .hero{
@@ -104,8 +135,8 @@
       border-radius:999px;
       background:#eef3fb;
       color:var(--blue);
-      font-size:13px;
-      font-weight:900;
+      font-size:12px;
+      font-weight:850;
       margin-bottom:14px;
     }
 
@@ -114,6 +145,7 @@
       color:var(--navy);
       font-size:42px;
       letter-spacing:-1px;
+      line-height:1.1;
     }
 
     .intro{
@@ -121,19 +153,19 @@
       max-width:700px;
       color:var(--muted);
       line-height:1.8;
-      font-size:15px;
+      font-size:14px;
     }
 
     .image-box{
       margin:34px 0 28px;
-      height:310px;
+      height:320px;
       border-radius:24px;
       overflow:hidden;
       box-shadow:var(--shadow);
 
       background:
-        linear-gradient(rgba(16,35,63,.18),rgba(16,35,63,.18)),
-        url("https://images.unsplash.com/photo-1505764706515-aa95265c5abc?auto=format&fit=crop&w=1400&q=80");
+        linear-gradient(rgba(15,39,66,.18),rgba(15,39,66,.18)),
+        url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80");
 
       background-size:cover;
       background-position:center;
@@ -144,19 +176,10 @@
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-
       padding:30px;
-
       text-align:center;
-
-      margin:0 auto 22px;
-
-      width:100%;
-
+      margin-bottom:24px;
       display:block;
-
-      overflow:hidden;
-
       transition:.2s;
     }
 
@@ -173,14 +196,14 @@
       display:grid;
       place-items:center;
       margin:0 auto 12px;
-      font-size:20px;
+      font-size:18px;
       font-weight:900;
     }
 
     .label{
       color:var(--muted);
-      font-size:13px;
-      font-weight:800;
+      font-size:12px;
+      font-weight:850;
       margin-bottom:6px;
     }
 
@@ -196,7 +219,6 @@
       grid-template-columns:1fr 1fr;
       gap:22px;
       margin-bottom:30px;
-      align-items:stretch;
     }
 
     .info-card{
@@ -222,7 +244,10 @@
     }
 
     .expect{
-      background:linear-gradient(135deg,#10233f,#16345f);
+      background:
+        radial-gradient(400px 220px at 80% 20%,rgba(182,138,58,.16),transparent 60%),
+        linear-gradient(135deg,var(--navy),#17375e);
+
       color:white;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -243,7 +268,7 @@
     }
 
     .expect li{
-      line-height:1.6;
+      line-height:1.7;
       color:rgba(255,255,255,.88);
     }
 
@@ -252,6 +277,13 @@
       color:var(--gold);
       margin-right:10px;
       font-weight:900;
+    }
+
+    footer{
+      margin-top:44px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
     }
 
     @media(max-width:720px){
@@ -267,7 +299,9 @@
       .image-box{
         height:220px;
       }
+
     }
+
   </style>
 </head>
 
@@ -278,18 +312,36 @@
   <div class="top">
 
     <a class="brand" href="index.html">
-      BridgeKorea
+
+      <div class="logo">
+        BK
+      </div>
+
+      <span>
+        BridgeKorea
+      </span>
+
     </a>
 
     <div class="top-right">
 
       <div class="lang">
-        <button class="active" onclick="setLang('en')">EN</button>
-        <button onclick="setLang('de')">DE</button>
-        <button onclick="setLang('kr')">KR</button>
+
+        <button onclick="setLang('de')">
+          DE
+        </button>
+
+        <button class="active" onclick="setLang('en')">
+          EN
+        </button>
+
+        <button onclick="setLang('kr')">
+          KR
+        </button>
+
       </div>
 
-      <a class="back" href="index.html" data-i18n="back">
+      <a class="back" href="index.html">
         Back to Home
       </a>
 
@@ -299,15 +351,15 @@
 
   <section class="hero">
 
-    <div class="badge" data-i18n="badge">
+    <div class="badge">
       Korea–Austria Market Entry
     </div>
 
-    <h1 data-i18n="title">
+    <h1>
       Contact BridgeKorea
     </h1>
 
-    <p class="intro" data-i18n="intro">
+    <p class="intro">
       For Korean companies preparing to enter the Austrian market.
       Contact BridgeKorea for partner search, local communication,
       and market entry support.
@@ -319,9 +371,11 @@
 
   <a class="email-card" href="mailto:bridgekorea.at@gmail.com">
 
-    <div class="icon">✉</div>
+    <div class="icon">
+      ✉
+    </div>
 
-    <div class="label" data-i18n="email">
+    <div class="label">
       Email
     </div>
 
@@ -335,13 +389,15 @@
 
     <div class="info-card">
 
-      <div class="icon">⌖</div>
+      <div class="icon">
+        ⌖
+      </div>
 
-      <h3 data-i18n="card1title">
+      <h3>
         Austria
       </h3>
 
-      <p data-i18n="card1text">
+      <p>
         Local partner search<br>
         Market entry support<br>
         Business communication
@@ -351,13 +407,15 @@
 
     <div class="info-card">
 
-      <div class="icon">🌐</div>
+      <div class="icon">
+        🌐
+      </div>
 
-      <h3 data-i18n="card2title">
+      <h3>
         Korea ↔ Austria
       </h3>
 
-      <p data-i18n="card2text">
+      <p>
         German · English · Korean<br>
         B2B communication<br>
         First meeting support
@@ -369,111 +427,52 @@
 
   <section class="expect">
 
-    <h2 data-i18n="expectTitle">
+    <h2>
       What You Can Expect
     </h2>
 
     <ul>
-      <li data-i18n="expect1">
+
+      <li>
         Response within 24 hours
       </li>
 
-      <li data-i18n="expect2">
+      <li>
         Non-binding initial consultation
       </li>
 
-      <li data-i18n="expect3">
+      <li>
         Support in German, English and Korean
       </li>
 
-      <li data-i18n="expect4">
+      <li>
         Partner search and Austria market entry support
       </li>
+
     </ul>
 
   </section>
+
+  <footer>
+    © BridgeKorea
+  </footer>
 
 </main>
 
 <script>
 
-const translations = {
-
-  en:{
-    back:"Back to Home",
-    badge:"Korea–Austria Market Entry",
-    title:"Contact BridgeKorea",
-    intro:"For Korean companies preparing to enter the Austrian market. Contact BridgeKorea for partner search, local communication, and market entry support.",
-    email:"Email",
-    card1title:"Austria",
-    card1text:"Local partner search<br>Market entry support<br>Business communication",
-    card2title:"Korea ↔ Austria",
-    card2text:"German · English · Korean<br>B2B communication<br>First meeting support",
-    expectTitle:"What You Can Expect",
-    expect1:"Response within 24 hours",
-    expect2:"Non-binding initial consultation",
-    expect3:"Support in German, English and Korean",
-    expect4:"Partner search and Austria market entry support"
-  },
-
-  de:{
-    back:"Zurück",
-    badge:"Korea–Austria Market Entry",
-    title:"Kontakt BridgeKorea",
-    intro:"Für koreanische Unternehmen, die den österreichischen Markt erschließen möchten. Kontaktieren Sie BridgeKorea für Partnersuche, lokale Kommunikation und Unterstützung beim Markteintritt.",
-    email:"E-Mail",
-    card1title:"Österreich",
-    card1text:"Suche nach lokalen Partnern<br>Unterstützung beim Markteintritt<br>Business-Kommunikation",
-    card2title:"Korea ↔ Österreich",
-    card2text:"Deutsch · Englisch · Koreanisch<br>B2B-Kommunikation<br>Unterstützung bei Erstgesprächen",
-    expectTitle:"Was Sie erwarten können",
-    expect1:"Antwort innerhalb von 24 Stunden",
-    expect2:"Unverbindliches Erstgespräch",
-    expect3:"Unterstützung auf Deutsch, Englisch und Koreanisch",
-    expect4:"Partnervermittlung und Markteintritt in Österreich"
-  },
-
-  kr:{
-    back:"홈으로 돌아가기",
-    badge:"한국 기업의 오스트리아 시장 진출",
-    title:"BridgeKorea 문의",
-    intro:"오스트리아 시장 진출을 준비하는 한국 기업을 위한 연락 페이지입니다. 파트너 발굴, 현지 커뮤니케이션, 시장 진출 지원에 대해 문의해보세요.",
-    email:"이메일",
-    card1title:"오스트리아",
-    card1text:"현지 파트너 발굴<br>시장 진출 지원<br>비즈니스 커뮤니케이션",
-    card2title:"한국 ↔ 오스트리아",
-    card2text:"독일어 · 영어 · 한국어<br>B2B 커뮤니케이션<br>초기 미팅 지원",
-    expectTitle:"BridgeKorea가 제공하는 것",
-    expect1:"24시간 이내 답변",
-    expect2:"부담 없는 초기 상담",
-    expect3:"독일어·영어·한국어 지원",
-    expect4:"오스트리아 시장 진출 및 파트너 발굴 지원"
-  }
-
-};
-
 function setLang(lang){
-
-  document.documentElement.lang = lang;
-
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-
-    const key = el.getAttribute("data-i18n");
-
-    if(translations[lang][key]){
-      el.innerHTML = translations[lang][key];
-    }
-
-  });
 
   document.querySelectorAll(".lang button").forEach(btn=>{
     btn.classList.remove("active");
   });
 
   document.querySelectorAll(".lang button").forEach(btn=>{
+
     if(btn.textContent.toLowerCase() === lang){
       btn.classList.add("active");
     }
+
   });
 
 }
