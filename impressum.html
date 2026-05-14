@@ -8,34 +8,130 @@
 
   <style>
 
+    :root{
+      --navy:#0f2742;
+      --blue:#2f5f9f;
+      --gold:#b68a3a;
+      --bg:#f5f7fa;
+      --text:#152033;
+      --muted:#667085;
+      --line:#d9e1ec;
+      --shadow:0 16px 36px rgba(15,39,66,.12);
+      --radius:22px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
     body{
       margin:0;
-      background:#f5f7fa;
-      color:#152033;
+      background:var(--bg);
+      color:var(--text);
       font-family:Inter,Arial,sans-serif;
       line-height:1.8;
     }
 
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1120px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:22px;
+      font-weight:900;
+      color:var(--navy);
+    }
+
+    .logo{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:16px;
+      font-weight:900;
+      position:relative;
+      box-shadow:0 8px 20px rgba(15,39,66,.18);
+    }
+
+    .logo::after{
+      content:"";
+      width:18px;
+      height:2px;
+      background:var(--gold);
+      position:absolute;
+      bottom:10px;
+      border-radius:999px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      font-size:13px;
+      font-weight:750;
+    }
+
+    nav a:hover{
+      color:var(--blue);
+    }
+
+    .nav-cta{
+      background:var(--navy);
+      color:white;
+      padding:10px 15px;
+      border-radius:10px;
+      font-weight:850;
+    }
+
     .wrap{
-      width:min(820px,calc(100% - 40px));
-      margin:60px auto;
+      width:min(860px,calc(100% - 32px));
+      margin:54px auto 80px;
       background:white;
-      border-radius:24px;
+      border-radius:28px;
       padding:54px;
-      box-shadow:0 14px 40px rgba(0,0,0,.08);
+      box-shadow:var(--shadow);
     }
 
     h1{
-      margin:0 0 28px;
+      margin:0 0 18px;
       font-size:48px;
-      color:#0f2742;
+      color:var(--navy);
       letter-spacing:-1px;
     }
 
     h2{
       margin:42px 0 18px;
       font-size:28px;
-      color:#0f2742;
+      color:var(--navy);
     }
 
     p{
@@ -44,23 +140,36 @@
     }
 
     strong{
-      color:#0f2742;
+      color:var(--navy);
     }
 
     .muted{
-      color:#667085;
+      color:var(--muted);
       margin-bottom:34px;
     }
 
-    .back{
-      display:inline-flex;
-      margin-top:42px;
-      padding:12px 18px;
-      background:#0f2742;
-      color:white;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:700;
+    footer{
+      background:#071224;
+      color:rgba(255,255,255,.68);
+      padding:24px 0;
+      font-size:13px;
+      text-align:center;
+    }
+
+    @media(max-width:720px){
+
+      nav{
+        display:none;
+      }
+
+      .wrap{
+        padding:34px 26px;
+      }
+
+      h1{
+        font-size:36px;
+      }
+
     }
 
   </style>
@@ -68,65 +177,104 @@
 
 <body>
 
-  <div class="wrap">
+<header>
 
-    <h1>
-      IMPRESSUM
-    </h1>
+  <div class="container nav">
 
-    <p class="muted">
-      Legal information for BridgeKorea
-    </p>
+    <a class="brand" href="index.html">
 
-    <p>
-      <strong>Company name:</strong>
-      BridgeKorea
-    </p>
+      <div class="logo">
+        BK
+      </div>
 
-    <p>
-      <strong>Business type:</strong>
-      Korea–Austria Business Development & Market Entry Support
-    </p>
+      <span>
+        BridgeKorea
+      </span>
 
-    <p>
-      <strong>Registered in:</strong>
-      Republic of Korea
-    </p>
-
-    <p>
-      <strong>Business registration number:</strong>
-      385-45-01202
-    </p>
-
-    <p>
-      <strong>Representative:</strong>
-      Hyejin Yun
-    </p>
-
-    <h2>
-      CONTACT
-    </h2>
-
-    <p>
-      <strong>E-Mail:</strong>
-      bridgekorea.at@gmail.com
-    </p>
-
-    <p>
-      <strong>Website:</strong>
-      bridgekorea.eu
-    </p>
-
-    <p>
-      <strong>Languages:</strong>
-      Korean · English · German
-    </p>
-
-    <a class="back" href="index.html">
-      Back to Home
     </a>
 
+    <nav>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="index.html#about">
+        About
+      </a>
+
+      <a href="index.html#services">
+        Services
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a class="nav-cta" href="contact.html">
+        Intro Call
+      </a>
+
+    </nav>
+
   </div>
+
+</header>
+
+<div class="wrap">
+
+  <h1>
+    IMPRESSUM
+  </h1>
+
+  <p class="muted">
+    Legal information for BridgeKorea
+  </p>
+
+  <p>
+    <strong>Company name:</strong>
+    BridgeKorea
+  </p>
+
+  <p>
+    <strong>Business type:</strong>
+    Korea–Austria Business Development & Market Entry Support
+  </p>
+
+  <p>
+    <strong>Registered in:</strong>
+    Republic of Korea
+  </p>
+
+  <p>
+    <strong>Business registration number:</strong>
+    385-45-01202
+  </p>
+
+  <p>
+    <strong>Representative:</strong>
+    Hyejin Yun
+  </p>
+
+  <h2>
+    CONTACT
+  </h2>
+
+  <p>
+    <strong>E-Mail:</strong>
+    bridgekorea.at@gmail.com
+  </p>
+
+  <p>
+    <strong>Languages:</strong>
+    Korean · English · German
+  </p>
+
+</div>
+
+<footer>
+  © 2026 BridgeKorea. All rights reserved.
+</footer>
 
 </body>
 </html>
