@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>BridgeKorea | Korea–Austria Market Entry</title>
 
   <style>
@@ -22,23 +20,17 @@
       --radius:18px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
 
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI","Noto Sans KR",Arial,sans-serif;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
       font-size:14px;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{text-decoration:none;color:inherit}
 
     .container{
       width:min(1120px,calc(100% - 32px));
@@ -103,9 +95,7 @@
       font-weight:750;
     }
 
-    nav a:hover{
-      color:var(--blue);
-    }
+    nav a:hover{color:var(--blue)}
 
     .lang{
       display:flex;
@@ -197,9 +187,7 @@
       transition:.2s;
     }
 
-    .btn:hover{
-      transform:translateY(-1px);
-    }
+    .btn:hover{transform:translateY(-1px)}
 
     .btn.primary{
       background:white;
@@ -249,9 +237,7 @@
       font-weight:900;
     }
 
-    section{
-      padding:72px 0;
-    }
+    section{padding:72px 0}
 
     .section-head{
       text-align:center;
@@ -324,9 +310,7 @@
       font-size:20px;
     }
 
-    .panel.dark h3{
-      color:white;
-    }
+    .panel.dark h3{color:white}
 
     .panel ul{
       margin:0;
@@ -344,9 +328,7 @@
       font-size:14px;
     }
 
-    .panel.dark li{
-      color:rgba(255,255,255,.84);
-    }
+    .panel.dark li{color:rgba(255,255,255,.84)}
 
     .panel li::before{
       content:"•";
@@ -355,7 +337,7 @@
       line-height:1;
     }
 
-    .services{
+    .services,.industries{
       background:#edf2f7;
     }
 
@@ -399,23 +381,91 @@
       font-size:14px;
     }
 
+    .process,.insights{background:white}
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .process-card{
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 10px 24px rgba(15,39,66,.05);
+    }
+
+    .process-card strong{
+      color:var(--gold);
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .process-card h3{
+      margin:12px 0 8px;
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    .process-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .industry-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .industry-grid div{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      text-align:center;
+      font-weight:850;
+      color:var(--navy);
+      box-shadow:0 10px 24px rgba(15,39,66,.05);
+    }
+
+    .insight-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .insight-item{
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px 24px;
+    }
+
+    .insight-item h3{
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    .insight-item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
     .contact{
       background:var(--navy-dark);
       color:white;
       text-align:center;
     }
 
-    .contact .section-head{
-      margin-bottom:24px;
-    }
-
-    .contact h2{
-      color:white;
-    }
-
-    .contact p{
-      color:rgba(255,255,255,.78);
-    }
+    .contact .section-head{margin-bottom:24px}
+    .contact h2{color:white}
+    .contact p{color:rgba(255,255,255,.78)}
 
     footer{
       background:#071224;
@@ -432,459 +482,359 @@
     }
 
     @media(max-width:900px){
-
-      nav{
-        display:none;
-      }
+      nav{display:none}
 
       .hero-grid,
       .about-grid,
-      .service-grid{
+      .service-grid,
+      .process-grid,
+      .industry-grid{
         grid-template-columns:1fr;
       }
 
       .trust-grid{
         grid-template-columns:repeat(2,1fr);
       }
-
     }
-
   </style>
 </head>
 
 <body>
 
 <header>
-
   <div class="container nav">
-
     <a class="brand" href="index.html">
-
-      <div class="logo">
-        BK
-      </div>
-
-      <span>
-        BridgeKorea
-      </span>
-
+      <div class="logo">BK</div>
+      <span>BridgeKorea</span>
     </a>
 
     <nav>
-
       <a href="#home" data-i18n="navHome">Home</a>
       <a href="#about" data-i18n="navAbout">About</a>
       <a href="#services" data-i18n="navServices">Services</a>
       <a href="#contact" data-i18n="navContact">Kontakt</a>
 
       <div class="lang">
-
-        <button onclick="setLang('de')">
-          DE
-        </button>
-
-        <button class="active" onclick="setLang('en')">
-          EN
-        </button>
-
-        <button onclick="setLang('kr')">
-          KR
-        </button>
-
+        <button onclick="setLang('de')">DE</button>
+        <button class="active" onclick="setLang('en')">EN</button>
+        <button onclick="setLang('kr')">KR</button>
       </div>
 
-      <a class="nav-cta" href="contact.html" data-i18n="navCta">
-        Intro Call
-      </a>
-
+      <a class="nav-cta" href="contact.html" data-i18n="navCta">Intro Call</a>
     </nav>
-
   </div>
-
 </header>
 
 <main id="home">
 
 <section class="hero">
-
   <div class="container hero-grid">
-
     <div>
+      <div class="badge" data-i18n="badge">Korea–Austria Market Entry</div>
 
-      <div class="badge" data-i18n="badge">
-        Korea–Austria Market Entry
-      </div>
-
-      <h1 data-i18n="heroTitle">
-        Helping Korean companies enter the Austrian market
-      </h1>
+      <h1 data-i18n="heroTitle">Helping Korean companies enter the Austrian market</h1>
 
       <p class="hero-text" data-i18n="heroText">
         BridgeKorea supports Korean companies entering Austria with local market insight, partner development, and professional communication in German, English, and Korean.
       </p>
 
       <div class="cta">
-
-        <a class="btn primary" href="contact.html" data-i18n="heroBtn1">
-          Contact BridgeKorea
-        </a>
-
-        <a class="btn secondary" href="#services" data-i18n="heroBtn2">
-          View services
-        </a>
-
+        <a class="btn primary" href="contact.html" data-i18n="heroBtn1">Contact BridgeKorea</a>
+        <a class="btn secondary" href="#services" data-i18n="heroBtn2">View services</a>
       </div>
-
     </div>
 
     <aside class="hero-card">
-
-      <h3 data-i18n="focusTitle">
-        Focus Areas
-      </h3>
-
+      <h3 data-i18n="focusTitle">Focus Areas</h3>
       <ul>
-
-        <li data-i18n="focus1">
-          Austria market entry
-        </li>
-
-        <li data-i18n="focus2">
-          B2B partner matching
-        </li>
-
-        <li data-i18n="focus3">
-          Local business development
-        </li>
-
-        <li data-i18n="focus4">
-          German · English · Korean communication
-        </li>
-
-        <li data-i18n="focus5">
-          Austria as a gateway to Europe
-        </li>
-
+        <li data-i18n="focus1">Austria market entry</li>
+        <li data-i18n="focus2">B2B partner matching</li>
+        <li data-i18n="focus3">Local business development</li>
+        <li data-i18n="focus4">German · English · Korean communication</li>
+        <li data-i18n="focus5">Austria as a gateway to Europe</li>
       </ul>
-
     </aside>
-
   </div>
-
 </section>
 
 <section>
-
   <div class="container">
-
     <div class="section-head">
-
-      <span data-i18n="trustSmall">
-        Market Access
-      </span>
-
-      <h2 data-i18n="trustTitle">
-        Local access for Korean companies
-      </h2>
-
-      <p data-i18n="trustText">
-        We connect Korean companies with Austrian partners, institutions, industry contacts, and practical market opportunities.
-      </p>
-
+      <span data-i18n="trustSmall">Market Access</span>
+      <h2 data-i18n="trustTitle">Local access for Korean companies</h2>
+      <p data-i18n="trustText">We connect Korean companies with Austrian partners, institutions, industry contacts, and practical market opportunities.</p>
     </div>
 
     <div class="trust-grid">
-
-      <div class="trust-card" data-i18n="trust1">
-        Korean companies
-      </div>
-
-      <div class="trust-card" data-i18n="trust2">
-        Austrian partners
-      </div>
-
-      <div class="trust-card" data-i18n="trust3">
-        Institutions
-      </div>
-
-      <div class="trust-card" data-i18n="trust4">
-        Industry networks
-      </div>
-
+      <div class="trust-card" data-i18n="trust1">Korean companies</div>
+      <div class="trust-card" data-i18n="trust2">Austrian partners</div>
+      <div class="trust-card" data-i18n="trust3">Institutions</div>
+      <div class="trust-card" data-i18n="trust4">Industry networks</div>
     </div>
-
   </div>
-
 </section>
 
 <section id="about">
-
   <div class="container">
-
     <div class="section-head">
-
-      <span data-i18n="aboutSmall">
-        About BridgeKorea
-      </span>
-
-      <h2 data-i18n="aboutTitle">
-        Your partner for Korea–Austria business development
-      </h2>
-
-      <p data-i18n="aboutText">
-        BridgeKorea helps Korean companies understand the Austrian market, identify suitable contacts, and prepare first business opportunities professionally.
-      </p>
-
+      <span data-i18n="aboutSmall">About BridgeKorea</span>
+      <h2 data-i18n="aboutTitle">Your partner for Korea–Austria business development</h2>
+      <p data-i18n="aboutText">BridgeKorea helps Korean companies understand the Austrian market, identify suitable contacts, and prepare first business opportunities professionally.</p>
     </div>
 
-  </div>
+    <div class="about-grid">
+      <div class="panel">
+        <h3 data-i18n="panel1Title">What we do</h3>
+        <ul>
+          <li data-i18n="panel1a">Market opportunity assessment in Austria</li>
+          <li data-i18n="panel1b">Research and outreach to relevant partners</li>
+          <li data-i18n="panel1c">Preparation of company profiles and meetings</li>
+          <li data-i18n="panel1d">Communication in German, English, and Korean</li>
+          <li data-i18n="panel1e">Support for first meetings and follow-ups</li>
+        </ul>
+      </div>
 
+      <div class="panel dark">
+        <h3 data-i18n="panel2Title">Who we support</h3>
+        <ul>
+          <li data-i18n="panel2a">Korean SMEs planning European expansion</li>
+          <li data-i18n="panel2b">Startups with international growth potential</li>
+          <li data-i18n="panel2c">Manufacturing, technology, and consumer goods companies</li>
+          <li data-i18n="panel2d">Companies looking for partners in Austria</li>
+          <li data-i18n="panel2e">Teams without local presence in Europe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="services" id="services">
-
   <div class="container">
-
     <div class="section-head">
-
-      <span data-i18n="servicesSmall">
-        Services
-      </span>
-
-      <h2 data-i18n="servicesTitle">
-        Services for market entry
-      </h2>
-
-      <p data-i18n="servicesText">
-        From initial market orientation to partner outreach and meeting preparation, we support your entry into Austria step by step.
-      </p>
-
+      <span data-i18n="servicesSmall">Services</span>
+      <h2 data-i18n="servicesTitle">Services for market entry</h2>
+      <p data-i18n="servicesText">From initial market orientation to partner outreach and meeting preparation, we support your entry into Austria step by step.</p>
     </div>
 
     <div class="service-grid">
-
       <div class="service-card">
-
-        <div class="num">
-          01
-        </div>
-
-        <h3 data-i18n="s1Title">
-          Market Entry Check
-        </h3>
-
-        <p data-i18n="s1Text">
-          Initial assessment of whether and how your product or service can be positioned for the Austrian market.
-        </p>
-
+        <div class="num">01</div>
+        <h3 data-i18n="s1Title">Market Entry Check</h3>
+        <p data-i18n="s1Text">Initial assessment of whether and how your product or service can be positioned for the Austrian market.</p>
       </div>
 
       <div class="service-card">
-
-        <div class="num">
-          02
-        </div>
-
-        <h3 data-i18n="s2Title">
-          Partner & Lead Research
-        </h3>
-
-        <p data-i18n="s2Text">
-          Research of suitable companies, distributors, institutions, and potential cooperation partners.
-        </p>
-
+        <div class="num">02</div>
+        <h3 data-i18n="s2Title">Partner & Lead Research</h3>
+        <p data-i18n="s2Text">Research of suitable companies, distributors, institutions, and potential cooperation partners.</p>
       </div>
 
+      <div class="service-card">
+        <div class="num">03</div>
+        <h3 data-i18n="s3Title">Business Communication</h3>
+        <p data-i18n="s3Text">Professional support for emails, presentations, company profiles, and multilingual communication.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="num">04</div>
+        <h3 data-i18n="s4Title">Meetings & Follow-up</h3>
+        <p data-i18n="s4Text">Preparation, support, and follow-up for meetings with Austrian business partners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <span data-i18n="processSmall">Process</span>
+      <h2 data-i18n="processTitle">How BridgeKorea supports your market entry</h2>
+      <p data-i18n="processText">We support Korean companies step by step — from initial market understanding to partner outreach and first business conversations in Austria.</p>
     </div>
 
-  </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <strong>01</strong>
+        <h3 data-i18n="p1Title">Market Understanding</h3>
+        <p data-i18n="p1Text">We review your product, target industry, and potential fit for the Austrian market.</p>
+      </div>
 
+      <div class="process-card">
+        <strong>02</strong>
+        <h3 data-i18n="p2Title">Partner Mapping</h3>
+        <p data-i18n="p2Text">We identify relevant companies, distributors, institutions, and local networks.</p>
+      </div>
+
+      <div class="process-card">
+        <strong>03</strong>
+        <h3 data-i18n="p3Title">Business Outreach</h3>
+        <p data-i18n="p3Text">We support professional communication, introductions, and first contact with partners.</p>
+      </div>
+
+      <div class="process-card">
+        <strong>04</strong>
+        <h3 data-i18n="p4Title">Meeting Support</h3>
+        <p data-i18n="p4Text">We help prepare meetings, follow-ups, and next steps for business development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="industries">
+  <div class="container">
+    <div class="section-head">
+      <span data-i18n="industrySmall">Industries</span>
+      <h2 data-i18n="industryTitle">Relevant sectors for Korea–Austria business</h2>
+      <p data-i18n="industryText">BridgeKorea focuses on industries where Korean companies can build meaningful partnerships and market opportunities in Austria and Europe.</p>
+    </div>
+
+    <div class="industry-grid">
+      <div data-i18n="i1">Technology & Software</div>
+      <div data-i18n="i2">Manufacturing</div>
+      <div data-i18n="i3">Consumer Goods</div>
+      <div data-i18n="i4">Beauty & Lifestyle</div>
+      <div data-i18n="i5">Mobility & Components</div>
+      <div data-i18n="i6">Industrial Solutions</div>
+      <div data-i18n="i7">Startups & Innovation</div>
+      <div data-i18n="i8">Public Institutions</div>
+    </div>
+  </div>
+</section>
+
+<section class="insights">
+  <div class="container">
+    <div class="section-head">
+      <span data-i18n="insightSmall">Insights</span>
+      <h2 data-i18n="insightTitle">Market entry topics we support</h2>
+      <p data-i18n="insightText">Practical topics for Korean companies preparing their first steps in Austria.</p>
+    </div>
+
+    <div class="insight-list">
+      <div class="insight-item">
+        <h3 data-i18n="in1Title">Understanding Austrian business culture</h3>
+        <p data-i18n="in1Text">How to communicate professionally with Austrian companies and institutions.</p>
+      </div>
+
+      <div class="insight-item">
+        <h3 data-i18n="in2Title">Finding the right local partner</h3>
+        <p data-i18n="in2Text">How to identify distributors, cooperation partners, and industry contacts.</p>
+      </div>
+
+      <div class="insight-item">
+        <h3 data-i18n="in3Title">Preparing your company profile</h3>
+        <p data-i18n="in3Text">How Korean companies can present their products and value clearly in Europe.</p>
+      </div>
+
+      <div class="insight-item">
+        <h3 data-i18n="in4Title">Using Austria as a gateway to Europe</h3>
+        <p data-i18n="in4Text">Why Austria can be a strategic starting point for broader EU market access.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="contact" id="contact">
-
   <div class="container">
-
     <div class="section-head">
-
-      <span>
-        Contact
-      </span>
-
-      <h2 data-i18n="contactTitle">
-        Start your Austria project
-      </h2>
-
-      <p data-i18n="contactText">
-        Looking for Austrian partners or preparing your first market entry? Contact BridgeKorea for an initial discussion.
-      </p>
-
+      <span>Contact</span>
+      <h2 data-i18n="contactTitle">Start your Austria project</h2>
+      <p data-i18n="contactText">Looking for Austrian partners or preparing your first market entry? Contact BridgeKorea for an initial discussion.</p>
     </div>
 
-    <a class="btn primary" href="contact.html" data-i18n="contactBtn">
-      Contact BridgeKorea
-    </a>
-
+    <a class="btn primary" href="contact.html" data-i18n="contactBtn">Contact BridgeKorea</a>
   </div>
-
 </section>
 
 </main>
 
 <footer>
-
   <div class="container footer-inner">
-
-    <div>
-      © BridgeKorea
-    </div>
-
-    <div data-i18n="footerText">
-      Korea–Austria Market Entry Partner
-    </div>
-
+    <div>© BridgeKorea</div>
+    <div data-i18n="footerText">Korea–Austria Market Entry Partner</div>
   </div>
-
 </footer>
 
 <script>
-
 const translations = {
-
   en:{
-    navHome:"Home",
-    navAbout:"About",
-    navServices:"Services",
-    navContact:"Kontakt",
-    navCta:"Intro Call",
+    navHome:"Home",navAbout:"About",navServices:"Services",navContact:"Kontakt",navCta:"Intro Call",
     badge:"Korea–Austria Market Entry",
     heroTitle:"Helping Korean companies enter the Austrian market",
     heroText:"BridgeKorea supports Korean companies entering Austria with local market insight, partner development, and professional communication in German, English, and Korean.",
-    heroBtn1:"Contact BridgeKorea",
-    heroBtn2:"View services",
-    focusTitle:"Focus Areas",
-    focus1:"Austria market entry",
-    focus2:"B2B partner matching",
-    focus3:"Local business development",
-    focus4:"German · English · Korean communication",
-    focus5:"Austria as a gateway to Europe",
-    trustSmall:"Market Access",
-    trustTitle:"Local access for Korean companies",
-    trustText:"We connect Korean companies with Austrian partners, institutions, industry contacts, and practical market opportunities.",
-    trust1:"Korean companies",
-    trust2:"Austrian partners",
-    trust3:"Institutions",
-    trust4:"Industry networks",
-    aboutSmall:"About BridgeKorea",
-    aboutTitle:"Your partner for Korea–Austria business development",
-    aboutText:"BridgeKorea helps Korean companies understand the Austrian market, identify suitable contacts, and prepare first business opportunities professionally.",
-    servicesSmall:"Services",
-    servicesTitle:"Services for market entry",
-    servicesText:"From initial market orientation to partner outreach and meeting preparation, we support your entry into Austria step by step.",
-    s1Title:"Market Entry Check",
-    s1Text:"Initial assessment of whether and how your product or service can be positioned for the Austrian market.",
-    s2Title:"Partner & Lead Research",
-    s2Text:"Research of suitable companies, distributors, institutions, and potential cooperation partners.",
-    contactTitle:"Start your Austria project",
-    contactText:"Looking for Austrian partners or preparing your first market entry? Contact BridgeKorea for an initial discussion.",
-    contactBtn:"Contact BridgeKorea",
+    heroBtn1:"Contact BridgeKorea",heroBtn2:"View services",
+    focusTitle:"Focus Areas",focus1:"Austria market entry",focus2:"B2B partner matching",focus3:"Local business development",focus4:"German · English · Korean communication",focus5:"Austria as a gateway to Europe",
+    trustSmall:"Market Access",trustTitle:"Local access for Korean companies",trustText:"We connect Korean companies with Austrian partners, institutions, industry contacts, and practical market opportunities.",
+    trust1:"Korean companies",trust2:"Austrian partners",trust3:"Institutions",trust4:"Industry networks",
+    aboutSmall:"About BridgeKorea",aboutTitle:"Your partner for Korea–Austria business development",aboutText:"BridgeKorea helps Korean companies understand the Austrian market, identify suitable contacts, and prepare first business opportunities professionally.",
+    panel1Title:"What we do",panel1a:"Market opportunity assessment in Austria",panel1b:"Research and outreach to relevant partners",panel1c:"Preparation of company profiles and meetings",panel1d:"Communication in German, English, and Korean",panel1e:"Support for first meetings and follow-ups",
+    panel2Title:"Who we support",panel2a:"Korean SMEs planning European expansion",panel2b:"Startups with international growth potential",panel2c:"Manufacturing, technology, and consumer goods companies",panel2d:"Companies looking for partners in Austria",panel2e:"Teams without local presence in Europe",
+    servicesSmall:"Services",servicesTitle:"Services for market entry",servicesText:"From initial market orientation to partner outreach and meeting preparation, we support your entry into Austria step by step.",
+    s1Title:"Market Entry Check",s1Text:"Initial assessment of whether and how your product or service can be positioned for the Austrian market.",s2Title:"Partner & Lead Research",s2Text:"Research of suitable companies, distributors, institutions, and potential cooperation partners.",s3Title:"Business Communication",s3Text:"Professional support for emails, presentations, company profiles, and multilingual communication.",s4Title:"Meetings & Follow-up",s4Text:"Preparation, support, and follow-up for meetings with Austrian business partners.",
+    processSmall:"Process",processTitle:"How BridgeKorea supports your market entry",processText:"We support Korean companies step by step — from initial market understanding to partner outreach and first business conversations in Austria.",
+    p1Title:"Market Understanding",p1Text:"We review your product, target industry, and potential fit for the Austrian market.",p2Title:"Partner Mapping",p2Text:"We identify relevant companies, distributors, institutions, and local networks.",p3Title:"Business Outreach",p3Text:"We support professional communication, introductions, and first contact with partners.",p4Title:"Meeting Support",p4Text:"We help prepare meetings, follow-ups, and next steps for business development.",
+    industrySmall:"Industries",industryTitle:"Relevant sectors for Korea–Austria business",industryText:"BridgeKorea focuses on industries where Korean companies can build meaningful partnerships and market opportunities in Austria and Europe.",
+    i1:"Technology & Software",i2:"Manufacturing",i3:"Consumer Goods",i4:"Beauty & Lifestyle",i5:"Mobility & Components",i6:"Industrial Solutions",i7:"Startups & Innovation",i8:"Public Institutions",
+    insightSmall:"Insights",insightTitle:"Market entry topics we support",insightText:"Practical topics for Korean companies preparing their first steps in Austria.",
+    in1Title:"Understanding Austrian business culture",in1Text:"How to communicate professionally with Austrian companies and institutions.",in2Title:"Finding the right local partner",in2Text:"How to identify distributors, cooperation partners, and industry contacts.",in3Title:"Preparing your company profile",in3Text:"How Korean companies can present their products and value clearly in Europe.",in4Title:"Using Austria as a gateway to Europe",in4Text:"Why Austria can be a strategic starting point for broader EU market access.",
+    contactTitle:"Start your Austria project",contactText:"Looking for Austrian partners or preparing your first market entry? Contact BridgeKorea for an initial discussion.",contactBtn:"Contact BridgeKorea",
     footerText:"Korea–Austria Market Entry Partner"
   },
-
   de:{
-    navHome:"Home",
-    navAbout:"Über uns",
-    navServices:"Services",
-    navContact:"Kontakt",
-    navCta:"Erstgespräch",
+    navHome:"Home",navAbout:"Über uns",navServices:"Services",navContact:"Kontakt",navCta:"Erstgespräch",
     badge:"Korea–Austria Market Entry",
     heroTitle:"Koreanischen Unternehmen den Zugang zum österreichischen Markt erleichtern",
     heroText:"BridgeKorea begleitet koreanische Unternehmen beim Markteintritt in Österreich – mit lokalem Marktverständnis, Partneraufbau und professioneller Kommunikation.",
-    heroBtn1:"BridgeKorea kontaktieren",
-    heroBtn2:"Leistungen ansehen",
-    focusTitle:"Schwerpunkte",
-    focus1:"Markteintritt in Österreich",
-    focus2:"B2B-Partnervermittlung",
-    focus3:"Lokale Geschäftsentwicklung",
-    focus4:"Deutsch · Englisch · Koreanisch",
-    focus5:"Österreich als Einstieg in den EU-Markt",
-    trustSmall:"Market Access",
-    trustTitle:"Lokaler Zugang für koreanische Unternehmen",
-    trustText:"Wir verbinden koreanische Unternehmen mit österreichischen Partnern und konkreten Marktchancen.",
-    trust1:"Koreanische Unternehmen",
-    trust2:"Österreichische Partner",
-    trust3:"Institutionen",
-    trust4:"Branchen-Netzwerke",
-    aboutSmall:"About BridgeKorea",
-    aboutTitle:"Ihr Partner für Korea–Austria Business Development",
-    aboutText:"BridgeKorea unterstützt koreanische Unternehmen beim österreichischen Markteintritt.",
-    servicesSmall:"Services",
-    servicesTitle:"Leistungen für den Markteintritt",
-    servicesText:"Von der ersten Marktorientierung bis zur Partneransprache begleiten wir Ihren Einstieg in Österreich.",
-    s1Title:"Market Entry Check",
-    s1Text:"Erste Einschätzung für den österreichischen Markt.",
-    s2Title:"Partner & Lead Research",
-    s2Text:"Recherche passender Unternehmen und Partner.",
-    contactTitle:"Starten wir Ihr Österreich-Projekt",
-    contactText:"Sie suchen österreichische Partner oder bereiten Ihren Markteintritt vor?",
-    contactBtn:"BridgeKorea kontaktieren",
+    heroBtn1:"BridgeKorea kontaktieren",heroBtn2:"Leistungen ansehen",
+    focusTitle:"Schwerpunkte",focus1:"Markteintritt in Österreich",focus2:"B2B-Partnervermittlung",focus3:"Lokale Geschäftsentwicklung",focus4:"Deutsch · Englisch · Koreanisch",focus5:"Österreich als Einstieg in den EU-Markt",
+    trustSmall:"Market Access",trustTitle:"Lokaler Zugang für koreanische Unternehmen",trustText:"Wir verbinden koreanische Unternehmen mit österreichischen Partnern, Institutionen, Branchenkontakten und konkreten Marktchancen.",
+    trust1:"Koreanische Unternehmen",trust2:"Österreichische Partner",trust3:"Institutionen",trust4:"Branchen-Netzwerke",
+    aboutSmall:"About BridgeKorea",aboutTitle:"Ihr Partner für Korea–Austria Business Development",aboutText:"BridgeKorea unterstützt koreanische Unternehmen dabei, den österreichischen Markt zu verstehen, passende Kontakte zu identifizieren und erste Geschäftschancen professionell vorzubereiten.",
+    panel1Title:"Was wir leisten",panel1a:"Einschätzung von Marktchancen in Österreich",panel1b:"Recherche und Ansprache relevanter Partner",panel1c:"Vorbereitung von Unternehmensprofilen und Meetings",panel1d:"Kommunikation auf Deutsch, Englisch und Koreanisch",panel1e:"Begleitung von Erstgesprächen und Follow-ups",
+    panel2Title:"Für wen",panel2a:"Koreanische KMU mit Europa-Plänen",panel2b:"Startups mit internationalem Wachstumspotenzial",panel2c:"Hersteller, Technologie- und Konsumgüterunternehmen",panel2d:"Unternehmen auf Partnersuche in Österreich",panel2e:"Teams ohne lokale Präsenz in Europa",
+    servicesSmall:"Services",servicesTitle:"Leistungen für den Markteintritt",servicesText:"Von der ersten Marktorientierung bis zur Partneransprache und Meeting-Vorbereitung begleiten wir Ihren Einstieg in Österreich Schritt für Schritt.",
+    s1Title:"Market Entry Check",s1Text:"Erste Einschätzung, ob und wie Ihr Produkt oder Ihre Dienstleistung für den österreichischen Markt positioniert werden kann.",s2Title:"Partner & Lead Research",s2Text:"Recherche passender Unternehmen, Distributoren, Institutionen und potenzieller Kooperationspartner.",s3Title:"Business Communication",s3Text:"Professionelle Unterstützung bei E-Mails, Präsentationen, Unternehmensprofilen und mehrsprachiger Kommunikation.",s4Title:"Meetings & Follow-up",s4Text:"Vorbereitung, Begleitung und Nachbereitung von Gesprächen mit österreichischen Geschäftspartnern.",
+    processSmall:"Process",processTitle:"So unterstützt BridgeKorea Ihren Markteintritt",processText:"Wir begleiten koreanische Unternehmen Schritt für Schritt – von der Markteinschätzung bis zur Partneransprache und ersten Gesprächen in Österreich.",
+    p1Title:"Marktverständnis",p1Text:"Wir prüfen Ihr Produkt, Ihre Zielbranche und die mögliche Passung für den österreichischen Markt.",p2Title:"Partner Mapping",p2Text:"Wir identifizieren relevante Unternehmen, Distributoren, Institutionen und lokale Netzwerke.",p3Title:"Business Outreach",p3Text:"Wir unterstützen professionelle Kommunikation, Einführungen und erste Kontakte.",p4Title:"Meeting Support",p4Text:"Wir helfen bei Vorbereitung, Follow-ups und nächsten Schritten im Business Development.",
+    industrySmall:"Industries",industryTitle:"Relevante Branchen für Korea–Austria Business",industryText:"BridgeKorea fokussiert Branchen, in denen koreanische Unternehmen sinnvolle Partnerschaften und Marktchancen in Österreich und Europa aufbauen können.",
+    i1:"Technologie & Software",i2:"Produktion",i3:"Konsumgüter",i4:"Beauty & Lifestyle",i5:"Mobilität & Komponenten",i6:"Industrielösungen",i7:"Startups & Innovation",i8:"Öffentliche Institutionen",
+    insightSmall:"Insights",insightTitle:"Themen rund um den Markteintritt",insightText:"Praktische Themen für koreanische Unternehmen, die erste Schritte in Österreich vorbereiten.",
+    in1Title:"Österreichische Geschäftskultur verstehen",in1Text:"Wie man professionell mit österreichischen Unternehmen und Institutionen kommuniziert.",in2Title:"Den richtigen lokalen Partner finden",in2Text:"Wie Distributoren, Kooperationspartner und Branchenkontakte identifiziert werden.",in3Title:"Unternehmensprofil vorbereiten",in3Text:"Wie koreanische Unternehmen Produkte und Mehrwert in Europa klar präsentieren.",in4Title:"Österreich als EU-Gateway nutzen",in4Text:"Warum Österreich ein strategischer Startpunkt für breiteren EU-Marktzugang sein kann.",
+    contactTitle:"Starten wir Ihr Österreich-Projekt",contactText:"Sie suchen österreichische Partner oder bereiten Ihren Markteintritt vor? Kontaktieren Sie BridgeKorea für ein Erstgespräch.",contactBtn:"BridgeKorea kontaktieren",
     footerText:"Korea–Austria Market Entry Partner"
   },
-
   kr:{
-    navHome:"홈",
-    navAbout:"소개",
-    navServices:"서비스",
-    navContact:"연락처",
-    navCta:"상담 문의",
+    navHome:"홈",navAbout:"소개",navServices:"서비스",navContact:"연락처",navCta:"상담 문의",
     badge:"한국 기업의 오스트리아 시장 진출",
     heroTitle:"한국 기업의 오스트리아 시장 진출을 돕습니다",
-    heroText:"BridgeKorea는 한국 기업이 오스트리아 시장에 진출할 수 있도록 현지 시장 이해와 파트너 발굴을 지원합니다.",
-    heroBtn1:"BridgeKorea 문의하기",
-    heroBtn2:"서비스 보기",
-    focusTitle:"핵심 분야",
-    focus1:"오스트리아 시장 진출",
-    focus2:"B2B 파트너 매칭",
-    focus3:"현지 비즈니스 개발",
-    focus4:"독일어 · 영어 · 한국어 커뮤니케이션",
-    focus5:"유럽 진출의 시작점",
-    trustSmall:"Market Access",
-    trustTitle:"한국 기업을 위한 오스트리아 현지 연결",
-    trustText:"한국 기업을 오스트리아의 파트너, 기관, 산업 네트워크와 연결합니다.",
-    trust1:"한국 기업",
-    trust2:"오스트리아 파트너",
-    trust3:"기관 및 협회",
-    trust4:"산업 네트워크",
-    aboutSmall:"About BridgeKorea",
-    aboutTitle:"한국–오스트리아 비즈니스 개발 파트너",
-    aboutText:"BridgeKorea는 한국 기업의 오스트리아 시장 진출을 지원합니다.",
-    servicesSmall:"Services",
-    servicesTitle:"시장 진출 지원 서비스",
-    servicesText:"시장 조사부터 파트너 연락까지 단계별로 지원합니다.",
-    s1Title:"Market Entry Check",
-    s1Text:"오스트리아 시장 적합성을 검토합니다.",
-    s2Title:"Partner & Lead Research",
-    s2Text:"적합한 현지 파트너를 조사합니다.",
-    contactTitle:"오스트리아 진출을 시작해보세요",
-    contactText:"오스트리아 파트너 발굴이나 시장 진출 준비가 필요하다면 문의해주세요.",
-    contactBtn:"BridgeKorea 문의하기",
+    heroText:"BridgeKorea는 한국 기업이 오스트리아 시장에 진출할 수 있도록 현지 시장 이해, 파트너 발굴, 독일어·영어·한국어 비즈니스 커뮤니케이션을 지원합니다.",
+    heroBtn1:"BridgeKorea 문의하기",heroBtn2:"서비스 보기",
+    focusTitle:"핵심 분야",focus1:"오스트리아 시장 진출",focus2:"B2B 파트너 매칭",focus3:"현지 비즈니스 개발",focus4:"독일어 · 영어 · 한국어 커뮤니케이션",focus5:"유럽 진출의 시작점으로서 오스트리아",
+    trustSmall:"Market Access",trustTitle:"한국 기업을 위한 오스트리아 현지 연결",trustText:"한국 기업을 오스트리아의 파트너, 기관, 산업 네트워크 및 실질적인 시장 기회와 연결합니다.",
+    trust1:"한국 기업",trust2:"오스트리아 파트너",trust3:"기관 및 협회",trust4:"산업 네트워크",
+    aboutSmall:"About BridgeKorea",aboutTitle:"한국–오스트리아 비즈니스 개발 파트너",aboutText:"BridgeKorea는 한국 기업이 오스트리아 시장을 이해하고, 적합한 현지 연락처를 찾고, 첫 비즈니스 기회를 전문적으로 준비할 수 있도록 지원합니다.",
+    panel1Title:"지원 내용",panel1a:"오스트리아 시장 기회 검토",panel1b:"관련 파트너 조사 및 연락",panel1c:"기업 소개서와 미팅 자료 준비",panel1d:"독일어·영어·한국어 커뮤니케이션",panel1e:"초기 미팅 및 후속 연락 지원",
+    panel2Title:"대상 기업",panel2a:"유럽 진출을 준비하는 한국 중소기업",panel2b:"해외 성장 가능성이 있는 스타트업",panel2c:"제조, 기술, 소비재 분야 기업",panel2d:"오스트리아 파트너를 찾는 기업",panel2e:"유럽 현지 거점이 아직 없는 팀",
+    servicesSmall:"Services",servicesTitle:"시장 진출 지원 서비스",servicesText:"초기 시장 검토부터 파트너 연락, 미팅 준비까지 오스트리아 진출 과정을 단계별로 지원합니다.",
+    s1Title:"Market Entry Check",s1Text:"제품 또는 서비스가 오스트리아 시장에 적합한지, 어떤 방식으로 포지셔닝할 수 있는지 검토합니다.",s2Title:"Partner & Lead Research",s2Text:"오스트리아 내 적합한 기업, 유통사, 기관, 협력 가능 파트너를 조사합니다.",s3Title:"Business Communication",s3Text:"이메일, 발표 자료, 기업 소개서, 다국어 커뮤니케이션을 전문적으로 지원합니다.",s4Title:"Meetings & Follow-up",s4Text:"오스트리아 비즈니스 파트너와의 미팅 준비, 진행 지원, 후속 커뮤니케이션을 돕습니다.",
+    processSmall:"Process",processTitle:"BridgeKorea의 시장 진출 지원 과정",processText:"초기 시장 이해부터 파트너 발굴, 첫 비즈니스 미팅까지 단계별로 지원합니다.",
+    p1Title:"시장 이해",p1Text:"제품, 타깃 산업, 오스트리아 시장 적합성을 검토합니다.",p2Title:"파트너 맵핑",p2Text:"관련 기업, 유통사, 기관, 현지 네트워크를 파악합니다.",p3Title:"비즈니스 연락",p3Text:"전문적인 커뮤니케이션, 소개, 첫 연락을 지원합니다.",p4Title:"미팅 지원",p4Text:"미팅 준비, 후속 연락, 다음 단계 설정을 돕습니다.",
+    industrySmall:"Industries",industryTitle:"한국–오스트리아 비즈니스 주요 분야",industryText:"BridgeKorea는 한국 기업이 오스트리아와 유럽에서 실질적인 파트너십과 시장 기회를 만들 수 있는 분야에 집중합니다.",
+    i1:"기술 & 소프트웨어",i2:"제조업",i3:"소비재",i4:"뷰티 & 라이프스타일",i5:"모빌리티 & 부품",i6:"산업 솔루션",i7:"스타트업 & 혁신",i8:"공공기관",
+    insightSmall:"Insights",insightTitle:"시장 진출 준비 주제",insightText:"오스트리아 진출을 준비하는 한국 기업을 위한 실무 주제입니다.",
+    in1Title:"오스트리아 비즈니스 문화 이해",in1Text:"오스트리아 기업 및 기관과 전문적으로 소통하는 방법을 지원합니다.",in2Title:"적합한 현지 파트너 발굴",in2Text:"유통사, 협력사, 산업 연락처를 찾는 과정을 지원합니다.",in3Title:"기업 소개 자료 준비",in3Text:"한국 기업의 제품과 가치를 유럽 시장에 맞게 명확히 전달합니다.",in4Title:"오스트리아를 유럽 진출 거점으로 활용",in4Text:"오스트리아가 EU 시장 진출의 전략적 시작점이 될 수 있는 이유를 함께 검토합니다.",
+    contactTitle:"오스트리아 진출을 시작해보세요",contactText:"오스트리아 파트너 발굴이나 시장 진출 준비가 필요하다면 BridgeKorea에 문의해주세요.",contactBtn:"BridgeKorea 문의하기",
     footerText:"한국–오스트리아 시장 진출 파트너"
   }
-
 };
 
 function setLang(lang){
-
   document.documentElement.lang = lang === "kr" ? "ko" : lang;
 
   document.querySelectorAll("[data-i18n]").forEach(el=>{
-
     const key = el.getAttribute("data-i18n");
-
     if(translations[lang][key]){
       el.textContent = translations[lang][key];
     }
-
   });
 
   document.querySelectorAll(".lang button").forEach(btn=>{
@@ -894,15 +844,11 @@ function setLang(lang){
   const target = lang === "kr" ? "KR" : lang.toUpperCase();
 
   document.querySelectorAll(".lang button").forEach(btn=>{
-
     if(btn.textContent.trim() === target){
       btn.classList.add("active");
     }
-
   });
-
 }
-
 </script>
 
 </body>
