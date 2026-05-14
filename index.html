@@ -3,442 +3,342 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BridgeKorea | Korea–Austria Business Gateway</title>
-  <meta name="description" content="BridgeKorea unterstützt koreanische Unternehmen beim Markteintritt in Österreich und Europa." />
+  <title>BridgeKorea | Korea–Austria Market Entry</title>
 
   <style>
-    :root {
-      --navy: #10224a;
-      --blue: #1667d9;
-      --sky: #0ea5e9;
-      --bg: #f4f8ff;
-      --white: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --line: #dbe4f0;
-      --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
-      --radius: 16px;
+    :root{
+      --navy:#0f2347;
+      --navy2:#142f63;
+      --blue:#1d6eea;
+      --sky:#38bdf8;
+      --bg:#f4f7fb;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#dbe5f2;
+      --white:#fff;
+      --radius:22px;
+      --shadow:0 20px 50px rgba(15,35,71,.16);
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{text-decoration:none;color:inherit}
+
+    .container{width:min(1160px,calc(100% - 32px));margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:24px;
+      font-weight:900;
+      color:var(--navy);
+    }
+    .logo{
+      width:44px;height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      color:var(--blue);
+      border:2px solid var(--sky);
+      font-weight:900;
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      font-size:14px;
+      font-weight:800;
+    }
+    nav a{color:#1e293b}
+    nav a:hover{color:var(--blue)}
+
+    .lang{display:flex;gap:7px}
+    .lang button{
+      border:1px solid var(--line);
+      background:white;
+      padding:9px 11px;
+      border-radius:10px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .lang button.active{
+      background:var(--blue);
+      color:white;
+      border-color:var(--blue);
     }
 
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+    .nav-cta{
+      background:var(--blue);
+      color:white;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:900;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(700px 400px at 85% 20%,rgba(56,189,248,.22),transparent 60%),
+        linear-gradient(135deg,#0d1d3d,#142f63);
+      color:white;
+      padding:92px 0 86px;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:520px;height:520px;
+      right:-180px;bottom:-220px;
+      background:rgba(255,255,255,.06);
+      border-radius:50%;
+    }
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:56px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 15px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.22);
+      font-size:14px;
+      font-weight:900;
+      margin-bottom:24px;
+    }
+    h1{
+      margin:0 0 24px;
+      font-size:clamp(42px,5vw,68px);
+      line-height:1.04;
+      letter-spacing:-1.8px;
+    }
+    .hero-text{
+      max-width:680px;
+      color:rgba(255,255,255,.84);
+      font-size:18px;
+      line-height:1.8;
+      margin:0;
+    }
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 20px;
+      border-radius:13px;
+      font-size:14px;
+      font-weight:900;
+      border:1px solid transparent;
+    }
+    .btn.primary{background:white;color:var(--navy)}
+    .btn.secondary{border-color:rgba(255,255,255,.35);color:white}
+
+    .hero-card{
+      background:white;
+      color:var(--text);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card h3{
+      margin:0 0 22px;
+      color:var(--navy);
+      font-size:24px;
+    }
+    .hero-card ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:16px;
+    }
+    .hero-card li{
+      font-weight:800;
+      color:#26364f;
+      display:flex;
+      gap:12px;
+    }
+    .hero-card li::before{
+      content:"✓";
+      color:var(--blue);
+      font-weight:900;
     }
 
-    .container {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
+    section{padding:82px 0}
+    .section-head{text-align:center;margin-bottom:42px}
+    .section-head span{
+      color:var(--blue);
+      font-size:14px;
+      font-weight:900;
+    }
+    .section-head h2{
+      margin:10px 0 12px;
+      color:var(--navy);
+      font-size:clamp(30px,4vw,44px);
+      letter-spacing:-.8px;
+    }
+    .section-head p{
+      margin:0 auto;
+      max-width:720px;
+      color:var(--muted);
+      line-height:1.75;
     }
 
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+    .trust-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(15,23,42,.06);
+      font-weight:900;
+      color:var(--navy);
     }
 
-    .nav {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+    .panel{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:32px;
+      box-shadow:0 12px 28px rgba(15,23,42,.07);
+    }
+    .panel.dark{
+      background:var(--navy);
+      color:white;
+    }
+    .panel h3{margin:0 0 18px;color:var(--navy);font-size:23px}
+    .panel.dark h3{color:white}
+    .panel ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:14px;
+    }
+    .panel li{
+      color:#334155;
+      line-height:1.6;
+      font-weight:700;
+      display:flex;
+      gap:10px;
+    }
+    .panel.dark li{color:rgba(255,255,255,.84)}
+    .panel li::before{
+      content:"●";
+      color:var(--sky);
+      font-size:11px;
+      margin-top:5px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      font-size: 22px;
-      color: var(--navy);
+    .services{background:#eaf2ff}
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+    .service-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px;
+      box-shadow:0 10px 26px rgba(15,23,42,.06);
+    }
+    .num{
+      width:44px;height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:#dff3ff;
+      color:var(--blue);
+      font-weight:900;
+      margin-bottom:18px;
+    }
+    .service-card h3{
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:22px;
+    }
+    .service-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
     }
 
-    .logo {
-      width: 44px;
-      height: 44px;
-      border: 2px solid var(--sky);
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      color: var(--blue);
-      font-weight: 900;
+    .contact{
+      background:linear-gradient(135deg,#0d1d3d,#142f63);
+      color:white;
+      text-align:center;
+    }
+    .contact h2{
+      margin:0 0 18px;
+      font-size:clamp(34px,4vw,48px);
+    }
+    .contact p{
+      max-width:760px;
+      margin:0 auto 30px;
+      color:rgba(255,255,255,.78);
+      line-height:1.8;
     }
 
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #334155;
+    footer{
+      background:#08142e;
+      color:rgba(255,255,255,.72);
+      padding:28px 0;
+      font-size:14px;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
     }
 
-    .lang {
-      display: flex;
-      gap: 6px;
-      margin-left: 6px;
-    }
-
-    .lang button {
-      border: 1px solid var(--line);
-      background: var(--white);
-      border-radius: 8px;
-      padding: 7px 9px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .lang button.active {
-      background: var(--blue);
-      color: white;
-      border-color: var(--blue);
-    }
-
-    .top-btn {
-      background: var(--blue);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: 800;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #132653 0%, #0f1f45 70%);
-      color: white;
-      padding: 90px 0 84px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: clamp(36px, 5vw, 60px);
-      line-height: 1.08;
-      margin: 0 0 22px;
-      letter-spacing: -1.2px;
-    }
-
-    .hero p {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 18px;
-      line-height: 1.75;
-      max-width: 680px;
-      margin: 0;
-    }
-
-    .cta {
-      display: flex;
-      gap: 12px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 18px;
-      border-radius: 10px;
-      font-weight: 900;
-      font-size: 14px;
-      border: 1px solid transparent;
-    }
-
-    .btn.primary {
-      background: white;
-      color: var(--navy);
-    }
-
-    .btn.secondary {
-      border-color: rgba(255, 255, 255, 0.38);
-      color: white;
-    }
-
-    .hero-card {
-      background: white;
-      color: var(--text);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card h3 {
-      margin: 0 0 18px;
-      color: var(--navy);
-      font-size: 22px;
-    }
-
-    .hero-card ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .hero-card li {
-      display: flex;
-      gap: 10px;
-      color: #334155;
-      font-weight: 700;
-    }
-
-    .hero-card li::before {
-      content: "✓";
-      color: var(--blue);
-      font-weight: 900;
-    }
-
-    section {
-      padding: 78px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 38px;
-    }
-
-    .section-title span {
-      color: var(--blue);
-      font-weight: 900;
-      font-size: 14px;
-    }
-
-    .section-title h2 {
-      margin: 10px 0 10px;
-      font-size: clamp(28px, 4vw, 42px);
-      color: var(--navy);
-      letter-spacing: -0.7px;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      margin: 0 auto;
-      max-width: 680px;
-      line-height: 1.7;
-    }
-
-    .logos {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
-    }
-
-    .logo-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px;
-      text-align: center;
-      font-weight: 900;
-      color: var(--navy);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .panel {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
-    }
-
-    .panel.dark {
-      background: var(--navy);
-      color: white;
-      border-color: var(--navy);
-    }
-
-    .panel h3 {
-      margin: 0 0 18px;
-      font-size: 22px;
-      color: var(--navy);
-    }
-
-    .panel.dark h3 {
-      color: white;
-    }
-
-    .panel ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .panel li {
-      display: flex;
-      gap: 10px;
-      line-height: 1.55;
-      color: #334155;
-      font-weight: 650;
-    }
-
-    .panel.dark li {
-      color: rgba(255, 255, 255, 0.86);
-    }
-
-    .panel li::before {
-      content: "●";
-      color: var(--sky);
-      font-size: 12px;
-      margin-top: 4px;
-    }
-
-    .services {
-      background: #eaf2ff;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-    }
-
-    .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: #e0f2fe;
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      margin-bottom: 16px;
-    }
-
-    .service-card h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 21px;
-    }
-
-    .service-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .language-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .language-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-
-    .language-card h3 {
-      color: var(--blue);
-      margin: 0 0 12px;
-    }
-
-    .language-card p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .contact {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(30px, 4vw, 44px);
-      margin: 0 0 16px;
-    }
-
-    .contact p {
-      color: rgba(255, 255, 255, 0.78);
-      max-width: 720px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-    }
-
-    footer {
-      background: #08142e;
-      color: rgba(255, 255, 255, 0.7);
-      padding: 28px 0;
-      font-size: 14px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 860px) {
-      .menu {
-        display: none;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .service-grid,
-      .language-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .logos {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero {
-        padding: 70px 0;
-      }
+    @media(max-width:900px){
+      nav{display:none}
+      .hero-grid,.about-grid,.service-grid{grid-template-columns:1fr}
+      .trust-grid{grid-template-columns:repeat(2,1fr)}
+      .hero{padding:72px 0}
     }
   </style>
 </head>
@@ -446,25 +346,24 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="#">
+      <a href="#" class="brand">
         <div class="logo">BK</div>
         <span>BridgeKorea</span>
       </a>
 
-      <nav class="menu">
-        <a href="#home">Home</a>
-        <a href="#about">Über uns</a>
-        <a href="#services">Services</a>
-        <a href="#languages">Languages</a>
-        <a href="#contact">Kontakt</a>
+      <nav>
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#about" data-i18n="navAbout">Über uns</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#contact" data-i18n="navContact">Kontakt</a>
 
         <div class="lang">
-          <button class="active">DE</button>
-          <button>EN</button>
-          <button>KR</button>
+          <button class="active" onclick="setLang('de')">DE</button>
+          <button onclick="setLang('en')">EN</button>
+          <button onclick="setLang('kr')">KR</button>
         </div>
 
-        <a class="top-btn" href="#contact">Erstgespräch</a>
+        <a class="nav-cta" href="#contact" data-i18n="navCta">Erstgespräch</a>
       </nav>
     </div>
   </header>
@@ -473,33 +372,26 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">🇦🇹 Korea–Austria Business Gateway</div>
-
-          <h1>
-            Wir öffnen koreanischen Unternehmen den Weg nach Österreich
-          </h1>
-
-          <p>
-            BridgeKorea unterstützt koreanische Unternehmen beim Markteintritt
-            in Österreich und Europa. Wir verbinden Unternehmen mit lokalen
-            Partnern, Institutionen und Marktchancen – von der ersten Analyse
-            bis zur konkreten Geschäftsanbahnung.
+          <div class="badge" data-i18n="badge">🇦🇹 Korea–Austria Market Entry</div>
+          <h1 data-i18n="heroTitle">Koreanischen Unternehmen den Weg nach Österreich öffnen</h1>
+          <p class="hero-text" data-i18n="heroText">
+            BridgeKorea unterstützt koreanische Unternehmen beim Markteintritt in Österreich und Europa – mit lokaler Marktkenntnis, Partnervermittlung und mehrsprachiger Business-Kommunikation.
           </p>
 
           <div class="cta">
-            <a class="btn primary" href="#contact">Erstgespräch vereinbaren</a>
-            <a class="btn secondary" href="#services">Services ansehen</a>
+            <a class="btn primary" href="#contact" data-i18n="heroBtn1">Erstgespräch vereinbaren</a>
+            <a class="btn secondary" href="#services" data-i18n="heroBtn2">Services ansehen</a>
           </div>
         </div>
 
         <aside class="hero-card">
-          <h3>Focus Areas</h3>
+          <h3 data-i18n="focusTitle">Was wir ermöglichen</h3>
           <ul>
-            <li>Austria Market Entry</li>
-            <li>Business Development</li>
-            <li>Local Partner Matching</li>
-            <li>German · English · Korean Communication</li>
-            <li>Gateway to the European Market</li>
+            <li data-i18n="focus1">Markteintritt in Österreich</li>
+            <li data-i18n="focus2">Lokale Partner & B2B-Kontakte</li>
+            <li data-i18n="focus3">Business Development</li>
+            <li data-i18n="focus4">Deutsch · Englisch · Koreanisch</li>
+            <li data-i18n="focus5">Österreich als Tor zur EU</li>
           </ul>
         </aside>
       </div>
@@ -507,57 +399,53 @@
 
     <section>
       <div class="container">
-        <div class="section-title">
-          <span>Target Groups</span>
-          <h2>Ausgewählte Partner & Zielgruppen</h2>
-          <p>
-            Wir arbeiten mit koreanischen Unternehmen, österreichischen Partnern,
-            Institutionen, Netzwerken und innovationsorientierten Branchen.
+        <div class="section-head">
+          <span data-i18n="trustSmall">TARGET NETWORK</span>
+          <h2 data-i18n="trustTitle">Von Korea nach Österreich — mit lokalem Zugang</h2>
+          <p data-i18n="trustText">
+            Wir verbinden koreanische Unternehmen mit relevanten österreichischen Partnern, Institutionen und Marktchancen.
           </p>
         </div>
 
-        <div class="logos">
-          <div class="logo-card">Korean Companies</div>
-          <div class="logo-card">Austrian Partners</div>
-          <div class="logo-card">Institutions</div>
-          <div class="logo-card">Industry</div>
-          <div class="logo-card">Innovation</div>
+        <div class="trust-grid">
+          <div class="trust-card" data-i18n="trust1">Korean Companies</div>
+          <div class="trust-card" data-i18n="trust2">Austrian Partners</div>
+          <div class="trust-card" data-i18n="trust3">Institutions</div>
+          <div class="trust-card" data-i18n="trust4">Industry Networks</div>
         </div>
       </div>
     </section>
 
     <section id="about">
       <div class="container">
-        <div class="section-title">
-          <span>Korea meets Austria</span>
-          <h2>Strategischer Partner für Markteintritt und Business Development</h2>
-          <p>
-            Wir reduzieren die Distanz zwischen koreanischen Unternehmen und
-            dem österreichischen Markt – mit lokalem Verständnis, Netzwerk und
-            mehrsprachiger Kommunikation.
+        <div class="section-head">
+          <span data-i18n="aboutSmall">ABOUT BRIDGEKOREA</span>
+          <h2 data-i18n="aboutTitle">Ihr lokaler Partner für Korea–Austria Business</h2>
+          <p data-i18n="aboutText">
+            Wir helfen koreanischen Unternehmen, Österreich besser zu verstehen, relevante Kontakte aufzubauen und erste konkrete Geschäftsmöglichkeiten zu entwickeln.
           </p>
         </div>
 
         <div class="about-grid">
           <div class="panel">
-            <h3>Unsere Leistungen</h3>
+            <h3 data-i18n="panel1Title">Leistungen</h3>
             <ul>
-              <li>Analyse von Marktchancen in Österreich</li>
-              <li>Identifikation relevanter Geschäftspartner</li>
-              <li>Vorbereitung von Meetings und Präsentationen</li>
-              <li>Unterstützung bei lokaler Kommunikation</li>
-              <li>Begleitung erster Kooperationsgespräche</li>
+              <li data-i18n="panel1a">Analyse von Marktchancen in Österreich</li>
+              <li data-i18n="panel1b">Identifikation passender Geschäftspartner</li>
+              <li data-i18n="panel1c">Vorbereitung von Meetings und Präsentationen</li>
+              <li data-i18n="panel1d">Unterstützung bei lokaler Kommunikation</li>
+              <li data-i18n="panel1e">Begleitung erster Kooperationsgespräche</li>
             </ul>
           </div>
 
           <div class="panel dark">
-            <h3>Fokusbereiche</h3>
+            <h3 data-i18n="panel2Title">Fokus</h3>
             <ul>
-              <li>Market Entry Strategy</li>
-              <li>Business Matching</li>
-              <li>Local Partnership Development</li>
-              <li>Korea–Austria Communication</li>
-              <li>Austria as Gateway to Europe</li>
+              <li data-i18n="panel2a">Market Entry Strategy</li>
+              <li data-i18n="panel2b">Business Matching</li>
+              <li data-i18n="panel2c">Local Partnership Development</li>
+              <li data-i18n="panel2d">Korea–Austria Communication</li>
+              <li data-i18n="panel2e">Austria as Gateway to Europe</li>
             </ul>
           </div>
         </div>
@@ -566,89 +454,37 @@
 
     <section class="services" id="services">
       <div class="container">
-        <div class="section-title">
-          <span>Services</span>
-          <h2>Unser Leistungsportfolio</h2>
-          <p>
-            Ganzheitliche Unterstützung für koreanische Unternehmen, die in
-            Österreich starten und Europa strategisch erschließen möchten.
+        <div class="section-head">
+          <span data-i18n="servicesSmall">SERVICES</span>
+          <h2 data-i18n="servicesTitle">Unser Leistungsportfolio</h2>
+          <p data-i18n="servicesText">
+            Praktische Unterstützung für koreanische Unternehmen, die Österreich als Einstieg in den europäischen Markt nutzen möchten.
           </p>
         </div>
 
         <div class="service-grid">
           <div class="service-card">
-            <div class="icon">01</div>
-            <h3>Market Entry Support</h3>
-            <p>
-              Unterstützung beim Einstieg in den österreichischen Markt,
-              inklusive Marktverständnis, Positionierung und erster Strategie.
-            </p>
+            <div class="num">01</div>
+            <h3 data-i18n="s1Title">Market Entry Support</h3>
+            <p data-i18n="s1Text">Unterstützung beim Einstieg in den österreichischen Markt, inklusive Positionierung und erster Strategie.</p>
           </div>
 
           <div class="service-card">
-            <div class="icon">02</div>
-            <h3>Business Matching</h3>
-            <p>
-              Vermittlung geeigneter Partner, Unternehmen, Institutionen und
-              Netzwerke in Österreich.
-            </p>
+            <div class="num">02</div>
+            <h3 data-i18n="s2Title">Business Matching</h3>
+            <p data-i18n="s2Text">Vermittlung geeigneter Partner, Unternehmen, Institutionen und Netzwerke in Österreich.</p>
           </div>
 
           <div class="service-card">
-            <div class="icon">03</div>
-            <h3>Communication & Localization</h3>
-            <p>
-              Unterstützung bei Kommunikation, Präsentationen, Übersetzung,
-              kultureller Einordnung und lokaler Ansprache.
-            </p>
+            <div class="num">03</div>
+            <h3 data-i18n="s3Title">Communication & Localization</h3>
+            <p data-i18n="s3Text">Deutsch, Englisch und Koreanisch: Unterstützung bei Präsentationen, Kommunikation und kultureller Einordnung.</p>
           </div>
 
           <div class="service-card">
-            <div class="icon">04</div>
-            <h3>Meetings & Project Support</h3>
-            <p>
-              Vorbereitung, Begleitung und Nachbereitung von Geschäftsterminen,
-              Projekten und Kooperationsgesprächen.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="languages">
-      <div class="container">
-        <div class="section-title">
-          <span>Languages</span>
-          <h2>Deutsch · English · 한국어</h2>
-          <p>
-            BridgeKorea kommuniziert sicher zwischen Korea und Österreich –
-            sprachlich, kulturell und geschäftlich.
-          </p>
-        </div>
-
-        <div class="language-grid">
-          <div class="language-card">
-            <h3>Deutsch</h3>
-            <p>
-              BridgeKorea unterstützt koreanische Unternehmen beim erfolgreichen
-              Markteintritt in Österreich.
-            </p>
-          </div>
-
-          <div class="language-card">
-            <h3>English</h3>
-            <p>
-              BridgeKorea helps Korean companies enter the Austrian and European
-              market through local partnerships and business development.
-            </p>
-          </div>
-
-          <div class="language-card">
-            <h3>한국어</h3>
-            <p>
-              BridgeKorea는 한국 기업이 오스트리아 및 유럽 시장에 진출할 수 있도록
-              현지 파트너 연결, 비즈니스 개발, 커뮤니케이션을 지원합니다.
-            </p>
+            <div class="num">04</div>
+            <h3 data-i18n="s4Title">Meetings & Project Support</h3>
+            <p data-i18n="s4Text">Vorbereitung, Begleitung und Nachbereitung von Geschäftsterminen und Kooperationsgesprächen.</p>
           </div>
         </div>
       </div>
@@ -656,15 +492,11 @@
 
     <section class="contact" id="contact">
       <div class="container">
-        <h2>Starten wir Ihr Österreich-Projekt</h2>
-        <p>
-          오스트리아 시장 진출, 현지 파트너 발굴, 미팅 연결 또는 협업 제안이
-          필요하시면 BridgeKorea로 문의해주세요.
+        <h2 data-i18n="contactTitle">Starten wir Ihr Österreich-Projekt</h2>
+        <p data-i18n="contactText">
+          Wenn Sie österreichische Partner suchen, lokale Kontakte aufbauen oder den Markteintritt vorbereiten möchten, kontaktieren Sie BridgeKorea.
         </p>
-
-        <a class="btn primary" href="mailto:your@email.com">
-          Contact BridgeKorea
-        </a>
+        <a class="btn primary" href="mailto:your@email.com" data-i18n="contactBtn">BridgeKorea kontaktieren</a>
       </div>
     </section>
   </main>
@@ -672,8 +504,98 @@
   <footer>
     <div class="container footer-inner">
       <div>© BridgeKorea</div>
-      <div>Korea–Austria Business Gateway</div>
+      <div data-i18n="footerText">Korea–Austria Market Entry Partner</div>
     </div>
   </footer>
+
+  <script>
+    const translations = {
+      de: {
+        navHome:"Home", navAbout:"Über uns", navServices:"Services", navContact:"Kontakt", navCta:"Erstgespräch",
+        badge:"🇦🇹 Korea–Austria Market Entry",
+        heroTitle:"Koreanischen Unternehmen den Weg nach Österreich öffnen",
+        heroText:"BridgeKorea unterstützt koreanische Unternehmen beim Markteintritt in Österreich und Europa – mit lokaler Marktkenntnis, Partnervermittlung und mehrsprachiger Business-Kommunikation.",
+        heroBtn1:"Erstgespräch vereinbaren", heroBtn2:"Services ansehen",
+        focusTitle:"Was wir ermöglichen",
+        focus1:"Markteintritt in Österreich", focus2:"Lokale Partner & B2B-Kontakte", focus3:"Business Development", focus4:"Deutsch · Englisch · Koreanisch", focus5:"Österreich als Tor zur EU",
+        trustSmall:"TARGET NETWORK", trustTitle:"Von Korea nach Österreich — mit lokalem Zugang", trustText:"Wir verbinden koreanische Unternehmen mit relevanten österreichischen Partnern, Institutionen und Marktchancen.",
+        trust1:"Korean Companies", trust2:"Austrian Partners", trust3:"Institutions", trust4:"Industry Networks",
+        aboutSmall:"ABOUT BRIDGEKOREA", aboutTitle:"Ihr lokaler Partner für Korea–Austria Business", aboutText:"Wir helfen koreanischen Unternehmen, Österreich besser zu verstehen, relevante Kontakte aufzubauen und erste konkrete Geschäftsmöglichkeiten zu entwickeln.",
+        panel1Title:"Leistungen", panel1a:"Analyse von Marktchancen in Österreich", panel1b:"Identifikation passender Geschäftspartner", panel1c:"Vorbereitung von Meetings und Präsentationen", panel1d:"Unterstützung bei lokaler Kommunikation", panel1e:"Begleitung erster Kooperationsgespräche",
+        panel2Title:"Fokus", panel2a:"Market Entry Strategy", panel2b:"Business Matching", panel2c:"Local Partnership Development", panel2d:"Korea–Austria Communication", panel2e:"Austria as Gateway to Europe",
+        servicesSmall:"SERVICES", servicesTitle:"Unser Leistungsportfolio", servicesText:"Praktische Unterstützung für koreanische Unternehmen, die Österreich als Einstieg in den europäischen Markt nutzen möchten.",
+        s1Title:"Market Entry Support", s1Text:"Unterstützung beim Einstieg in den österreichischen Markt, inklusive Positionierung und erster Strategie.",
+        s2Title:"Business Matching", s2Text:"Vermittlung geeigneter Partner, Unternehmen, Institutionen und Netzwerke in Österreich.",
+        s3Title:"Communication & Localization", s3Text:"Deutsch, Englisch und Koreanisch: Unterstützung bei Präsentationen, Kommunikation und kultureller Einordnung.",
+        s4Title:"Meetings & Project Support", s4Text:"Vorbereitung, Begleitung und Nachbereitung von Geschäftsterminen und Kooperationsgesprächen.",
+        contactTitle:"Starten wir Ihr Österreich-Projekt", contactText:"Wenn Sie österreichische Partner suchen, lokale Kontakte aufbauen oder den Markteintritt vorbereiten möchten, kontaktieren Sie BridgeKorea.", contactBtn:"BridgeKorea kontaktieren",
+        footerText:"Korea–Austria Market Entry Partner"
+      },
+
+      en: {
+        navHome:"Home", navAbout:"About", navServices:"Services", navContact:"Contact", navCta:"Book a Call",
+        badge:"🇦🇹 Korea–Austria Market Entry",
+        heroTitle:"Opening Austria for Korean companies",
+        heroText:"BridgeKorea helps Korean companies enter Austria and expand into Europe through local market insight, partner matching and multilingual business communication.",
+        heroBtn1:"Book an Intro Call", heroBtn2:"View Services",
+        focusTitle:"What we enable",
+        focus1:"Austria market entry", focus2:"Local partners & B2B contacts", focus3:"Business development", focus4:"German · English · Korean", focus5:"Austria as a gateway to the EU",
+        trustSmall:"TARGET NETWORK", trustTitle:"From Korea to Austria — with local access", trustText:"We connect Korean companies with relevant Austrian partners, institutions and market opportunities.",
+        trust1:"Korean Companies", trust2:"Austrian Partners", trust3:"Institutions", trust4:"Industry Networks",
+        aboutSmall:"ABOUT BRIDGEKOREA", aboutTitle:"Your local partner for Korea–Austria business", aboutText:"We help Korean companies understand Austria, build relevant contacts and develop concrete business opportunities.",
+        panel1Title:"Services", panel1a:"Analysis of market opportunities in Austria", panel1b:"Identification of suitable business partners", panel1c:"Preparation of meetings and presentations", panel1d:"Support with local communication", panel1e:"Support during first cooperation talks",
+        panel2Title:"Focus", panel2a:"Market entry strategy", panel2b:"Business matching", panel2c:"Local partnership development", panel2d:"Korea–Austria communication", panel2e:"Austria as gateway to Europe",
+        servicesSmall:"SERVICES", servicesTitle:"Our Service Portfolio", servicesText:"Practical support for Korean companies using Austria as an entry point into the European market.",
+        s1Title:"Market Entry Support", s1Text:"Support for entering the Austrian market, including positioning and initial strategy.",
+        s2Title:"Business Matching", s2Text:"Connecting companies with suitable partners, institutions and networks in Austria.",
+        s3Title:"Communication & Localization", s3Text:"German, English and Korean support for presentations, communication and cultural positioning.",
+        s4Title:"Meetings & Project Support", s4Text:"Preparation, support and follow-up for business meetings and cooperation discussions.",
+        contactTitle:"Start your Austria project", contactText:"If you are looking for Austrian partners, local contacts or market entry support, contact BridgeKorea.", contactBtn:"Contact BridgeKorea",
+        footerText:"Korea–Austria Market Entry Partner"
+      },
+
+      kr: {
+        navHome:"홈", navAbout:"소개", navServices:"서비스", navContact:"문의", navCta:"상담하기",
+        badge:"🇦🇹 한국 기업의 오스트리아 시장 진출",
+        heroTitle:"한국 기업의 오스트리아 진출을 현실로 만듭니다",
+        heroText:"BridgeKorea는 한국 기업이 오스트리아를 시작으로 유럽 시장에 진출할 수 있도록 현지 시장 이해, 파트너 연결, 다국어 비즈니스 커뮤니케이션을 지원합니다.",
+        heroBtn1:"상담 문의하기", heroBtn2:"서비스 보기",
+        focusTitle:"BridgeKorea가 돕는 일",
+        focus1:"오스트리아 시장 진출", focus2:"현지 파트너 및 B2B 연결", focus3:"비즈니스 개발", focus4:"독일어 · 영어 · 한국어 커뮤니케이션", focus5:"유럽 시장 진출의 관문",
+        trustSmall:"TARGET NETWORK", trustTitle:"한국에서 오스트리아로 — 현지 네트워크와 함께", trustText:"한국 기업을 오스트리아의 파트너, 기관, 산업 네트워크 및 실질적인 시장 기회와 연결합니다.",
+        trust1:"한국 기업", trust2:"오스트리아 파트너", trust3:"기관 및 협회", trust4:"산업 네트워크",
+        aboutSmall:"ABOUT BRIDGEKOREA", aboutTitle:"한국–오스트리아 비즈니스의 현지 파트너", aboutText:"BridgeKorea는 한국 기업이 오스트리아 시장을 이해하고, 적합한 연락처를 만들고, 실제 사업 기회로 이어질 수 있도록 지원합니다.",
+        panel1Title:"주요 지원", panel1a:"오스트리아 시장 기회 분석", panel1b:"적합한 현지 비즈니스 파트너 발굴", panel1c:"미팅 및 발표 자료 준비", panel1d:"현지 커뮤니케이션 지원", panel1e:"초기 협력 논의 동행 및 지원",
+        panel2Title:"핵심 분야", panel2a:"시장 진출 전략", panel2b:"비즈니스 매칭", panel2c:"현지 파트너십 개발", panel2d:"한국–오스트리아 커뮤니케이션", panel2e:"유럽 진출 게이트웨이",
+        servicesSmall:"SERVICES", servicesTitle:"서비스 포트폴리오", servicesText:"오스트리아를 유럽 시장 진출의 시작점으로 활용하려는 한국 기업을 위한 실질적인 지원을 제공합니다.",
+        s1Title:"Market Entry Support", s1Text:"오스트리아 시장 진입을 위한 초기 전략, 포지셔닝, 시장 이해를 지원합니다.",
+        s2Title:"Business Matching", s2Text:"오스트리아 내 적합한 기업, 기관, 파트너 및 네트워크와 연결합니다.",
+        s3Title:"Communication & Localization", s3Text:"독일어, 영어, 한국어 기반의 발표, 커뮤니케이션, 문화적 이해를 지원합니다.",
+        s4Title:"Meetings & Project Support", s4Text:"비즈니스 미팅, 협력 논의, 프로젝트 준비와 후속 관리를 지원합니다.",
+        contactTitle:"오스트리아 진출을 시작해보세요", contactText:"오스트리아 파트너 발굴, 현지 연락망 구축, 시장 진출 준비가 필요하다면 BridgeKorea에 문의해주세요.", contactBtn:"BridgeKorea 문의하기",
+        footerText:"한국–오스트리아 시장 진출 파트너"
+      }
+    };
+
+    function setLang(lang){
+      document.documentElement.lang = lang === "kr" ? "ko" : lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(translations[lang][key]){
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll(".lang button").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      const activeButton = Array.from(document.querySelectorAll(".lang button"))
+        .find(btn => btn.textContent.toLowerCase() === lang);
+
+      if(activeButton) activeButton.classList.add("active");
+    }
+  </script>
 </body>
 </html>
