@@ -6,14 +6,11 @@
   <title>Contact | BridgeKorea</title>
 
   <style>
-
     :root{
       --navy:#0f2742;
-      --navy-dark:#091728;
       --blue:#2f5f9f;
       --gold:#b68a3a;
       --bg:#f5f7fa;
-      --white:#ffffff;
       --text:#152033;
       --muted:#667085;
       --line:#d9e1ec;
@@ -21,28 +18,22 @@
       --radius:22px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
 
     body{
       margin:0;
       background:var(--bg);
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,
-      "Segoe UI","Noto Sans KR",Arial,sans-serif;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;
       color:var(--text);
       font-size:14px;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{text-decoration:none;color:inherit}
 
     .container{
-      width:min(920px,calc(100% - 32px));
+      width:min(960px,calc(100% - 32px));
       margin:auto;
-      padding:36px 0 64px;
+      padding:34px 0 64px;
     }
 
     .top{
@@ -66,12 +57,11 @@
     .logo{
       width:42px;
       height:42px;
-      border-radius:13px;
+      border-radius:14px;
       background:linear-gradient(135deg,var(--navy),var(--blue));
       color:white;
       display:grid;
       place-items:center;
-      font-size:16px;
       font-weight:900;
       position:relative;
       box-shadow:0 8px 20px rgba(15,39,66,.18);
@@ -143,14 +133,14 @@
     h1{
       margin:0 0 12px;
       color:var(--navy);
-      font-size:42px;
+      font-size:clamp(34px,4vw,44px);
       letter-spacing:-1px;
       line-height:1.1;
     }
 
     .intro{
       margin:0 auto;
-      max-width:700px;
+      max-width:720px;
       color:var(--muted);
       line-height:1.8;
       font-size:14px;
@@ -158,15 +148,13 @@
 
     .image-box{
       margin:34px 0 28px;
-      height:320px;
+      height:310px;
       border-radius:24px;
       overflow:hidden;
       box-shadow:var(--shadow);
-
       background:
         linear-gradient(rgba(15,39,66,.18),rgba(15,39,66,.18)),
-        url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=80");
-
+        url("https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1400&q=80");
       background-size:cover;
       background-position:center;
     }
@@ -183,9 +171,7 @@
       transition:.2s;
     }
 
-    .email-card:hover{
-      transform:translateY(-2px);
-    }
+    .email-card:hover{transform:translateY(-2px)}
 
     .icon{
       width:48px;
@@ -243,11 +229,57 @@
       font-size:14px;
     }
 
+    .process{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:30px;
+      margin-bottom:30px;
+    }
+
+    .process h2{
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:24px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .step{
+      background:#f8fafc;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px;
+    }
+
+    .step strong{
+      color:var(--gold);
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .step h3{
+      margin:10px 0 8px;
+      color:var(--navy);
+      font-size:17px;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+
     .expect{
       background:
         radial-gradient(400px 220px at 80% 20%,rgba(182,138,58,.16),transparent 60%),
         linear-gradient(135deg,var(--navy),#17375e);
-
       color:white;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -287,170 +319,103 @@
     }
 
     @media(max-width:720px){
-
-      .grid{
-        grid-template-columns:1fr;
-      }
-
-      h1{
-        font-size:34px;
-      }
-
-      .image-box{
-        height:220px;
-      }
-
+      .grid,.steps{grid-template-columns:1fr}
+      .image-box{height:220px}
     }
-
   </style>
 </head>
 
 <body>
-
 <main class="container">
 
   <div class="top">
-
     <a class="brand" href="index.html">
-
-      <div class="logo">
-        BK
-      </div>
-
-      <span>
-        BridgeKorea
-      </span>
-
+      <div class="logo">BK</div>
+      <span>BridgeKorea</span>
     </a>
 
     <div class="top-right">
-
       <div class="lang">
-
-        <button onclick="setLang('de')">
-          DE
-        </button>
-
-        <button class="active" onclick="setLang('en')">
-          EN
-        </button>
-
-        <button onclick="setLang('kr')">
-          KR
-        </button>
-
+        <button onclick="setLang('de')">DE</button>
+        <button class="active" onclick="setLang('en')">EN</button>
+        <button onclick="setLang('kr')">KR</button>
       </div>
 
-      <a class="back" href="index.html">
-        Back to Home
-      </a>
-
+      <a class="back" href="index.html" data-i18n="back">Back to Home</a>
     </div>
-
   </div>
 
   <section class="hero">
-
-    <div class="badge">
-      Korea–Austria Market Entry
-    </div>
-
-    <h1>
-      Contact BridgeKorea
-    </h1>
-
-    <p class="intro">
-      For Korean companies preparing to enter the Austrian market.
-      Contact BridgeKorea for partner search, local communication,
-      and market entry support.
+    <div class="badge" data-i18n="badge">Korea–Austria Market Entry</div>
+    <h1 data-i18n="title">Contact BridgeKorea</h1>
+    <p class="intro" data-i18n="intro">
+      For Korean companies preparing to enter the Austrian market. Contact BridgeKorea for partner search, local communication, and market entry support.
     </p>
-
   </section>
 
   <div class="image-box"></div>
 
   <a class="email-card" href="mailto:bridgekorea.at@gmail.com">
-
-    <div class="icon">
-      ✉
-    </div>
-
-    <div class="label">
-      Email
-    </div>
-
-    <div class="value">
-      bridgekorea.at@gmail.com
-    </div>
-
+    <div class="icon">✉</div>
+    <div class="label" data-i18n="email">Email</div>
+    <div class="value">bridgekorea.at@gmail.com</div>
   </a>
 
   <div class="grid">
-
     <div class="info-card">
-
-      <div class="icon">
-        ⌖
-      </div>
-
-      <h3>
-        Austria
-      </h3>
-
-      <p>
+      <div class="icon">⌖</div>
+      <h3 data-i18n="card1Title">Austria</h3>
+      <p data-i18n="card1Text">
         Local partner search<br>
         Market entry support<br>
         Business communication
       </p>
-
     </div>
 
     <div class="info-card">
-
-      <div class="icon">
-        🌐
-      </div>
-
-      <h3>
-        Korea ↔ Austria
-      </h3>
-
-      <p>
+      <div class="icon">🌐</div>
+      <h3 data-i18n="card2Title">Korea ↔ Austria</h3>
+      <p data-i18n="card2Text">
         German · English · Korean<br>
         B2B communication<br>
         First meeting support
       </p>
-
     </div>
-
   </div>
 
-  <section class="expect">
+  <section class="process">
+    <h2 data-i18n="processTitle">Inquiry process</h2>
 
-    <h2>
-      What You Can Expect
-    </h2>
+    <div class="steps">
+      <div class="step">
+        <strong>01</strong>
+        <h3 data-i18n="step1Title">Initial message</h3>
+        <p data-i18n="step1Text">Send a short introduction of your company, product, and Austria-related goals.</p>
+      </div>
+
+      <div class="step">
+        <strong>02</strong>
+        <h3 data-i18n="step2Title">Market discussion</h3>
+        <p data-i18n="step2Text">We review your needs and discuss possible market entry or partner search options.</p>
+      </div>
+
+      <div class="step">
+        <strong>03</strong>
+        <h3 data-i18n="step3Title">Next steps</h3>
+        <p data-i18n="step3Text">If there is a fit, we define a practical first step for Austria market development.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="expect">
+    <h2 data-i18n="expectTitle">What You Can Expect</h2>
 
     <ul>
-
-      <li>
-        Response within 24 hours
-      </li>
-
-      <li>
-        Non-binding initial consultation
-      </li>
-
-      <li>
-        Support in German, English and Korean
-      </li>
-
-      <li>
-        Partner search and Austria market entry support
-      </li>
-
+      <li data-i18n="expect1">Response within 24 hours</li>
+      <li data-i18n="expect2">Non-binding initial consultation</li>
+      <li data-i18n="expect3">Support in German, English and Korean</li>
+      <li data-i18n="expect4">Partner search and Austria market entry support</li>
     </ul>
-
   </section>
 
   <footer>
@@ -460,23 +425,100 @@
 </main>
 
 <script>
+const translations = {
+  en:{
+    back:"Back to Home",
+    badge:"Korea–Austria Market Entry",
+    title:"Contact BridgeKorea",
+    intro:"For Korean companies preparing to enter the Austrian market. Contact BridgeKorea for partner search, local communication, and market entry support.",
+    email:"Email",
+    card1Title:"Austria",
+    card1Text:"Local partner search<br>Market entry support<br>Business communication",
+    card2Title:"Korea ↔ Austria",
+    card2Text:"German · English · Korean<br>B2B communication<br>First meeting support",
+    processTitle:"Inquiry process",
+    step1Title:"Initial message",
+    step1Text:"Send a short introduction of your company, product, and Austria-related goals.",
+    step2Title:"Market discussion",
+    step2Text:"We review your needs and discuss possible market entry or partner search options.",
+    step3Title:"Next steps",
+    step3Text:"If there is a fit, we define a practical first step for Austria market development.",
+    expectTitle:"What You Can Expect",
+    expect1:"Response within 24 hours",
+    expect2:"Non-binding initial consultation",
+    expect3:"Support in German, English and Korean",
+    expect4:"Partner search and Austria market entry support"
+  },
+  de:{
+    back:"Zurück zur Startseite",
+    badge:"Korea–Austria Market Entry",
+    title:"Kontakt BridgeKorea",
+    intro:"Für koreanische Unternehmen, die den österreichischen Markt erschließen möchten. Kontaktieren Sie BridgeKorea für Partnersuche, lokale Kommunikation und Unterstützung beim Markteintritt.",
+    email:"E-Mail",
+    card1Title:"Österreich",
+    card1Text:"Suche nach lokalen Partnern<br>Unterstützung beim Markteintritt<br>Business-Kommunikation",
+    card2Title:"Korea ↔ Österreich",
+    card2Text:"Deutsch · Englisch · Koreanisch<br>B2B-Kommunikation<br>Unterstützung bei Erstgesprächen",
+    processTitle:"Ablauf der Anfrage",
+    step1Title:"Erste Nachricht",
+    step1Text:"Senden Sie eine kurze Vorstellung Ihres Unternehmens, Produkts und Ihrer Ziele für Österreich.",
+    step2Title:"Marktgespräch",
+    step2Text:"Wir besprechen Ihren Bedarf und mögliche Optionen für Markteintritt oder Partnersuche.",
+    step3Title:"Nächste Schritte",
+    step3Text:"Wenn es passt, definieren wir einen konkreten ersten Schritt für den österreichischen Markt.",
+    expectTitle:"Was Sie erwarten können",
+    expect1:"Antwort innerhalb von 24 Stunden",
+    expect2:"Unverbindliches Erstgespräch",
+    expect3:"Unterstützung auf Deutsch, Englisch und Koreanisch",
+    expect4:"Partnersuche und Unterstützung beim Markteintritt in Österreich"
+  },
+  kr:{
+    back:"홈으로 돌아가기",
+    badge:"한국 기업의 오스트리아 시장 진출",
+    title:"BridgeKorea 문의",
+    intro:"오스트리아 시장 진출을 준비하는 한국 기업을 위한 문의 페이지입니다. 파트너 발굴, 현지 커뮤니케이션, 시장 진출 지원에 대해 문의해보세요.",
+    email:"이메일",
+    card1Title:"오스트리아",
+    card1Text:"현지 파트너 발굴<br>시장 진출 지원<br>비즈니스 커뮤니케이션",
+    card2Title:"한국 ↔ 오스트리아",
+    card2Text:"독일어 · 영어 · 한국어<br>B2B 커뮤니케이션<br>초기 미팅 지원",
+    processTitle:"문의 진행 과정",
+    step1Title:"첫 문의",
+    step1Text:"회사, 제품 또는 서비스, 오스트리아 진출 목표를 간단히 보내주세요.",
+    step2Title:"시장 상담",
+    step2Text:"필요 사항을 검토하고 시장 진출 또는 파트너 발굴 가능성을 함께 논의합니다.",
+    step3Title:"다음 단계",
+    step3Text:"적합성이 있다면 오스트리아 시장 개발을 위한 첫 실행 단계를 정합니다.",
+    expectTitle:"BridgeKorea가 제공하는 것",
+    expect1:"24시간 이내 답변",
+    expect2:"부담 없는 초기 상담",
+    expect3:"독일어·영어·한국어 지원",
+    expect4:"오스트리아 시장 진출 및 파트너 발굴 지원"
+  }
+};
 
 function setLang(lang){
+  document.documentElement.lang = lang === "kr" ? "ko" : lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang][key]){
+      el.innerHTML = translations[lang][key];
+    }
+  });
 
   document.querySelectorAll(".lang button").forEach(btn=>{
     btn.classList.remove("active");
   });
 
-  document.querySelectorAll(".lang button").forEach(btn=>{
+  const target = lang === "kr" ? "KR" : lang.toUpperCase();
 
-    if(btn.textContent.toLowerCase() === lang){
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    if(btn.textContent.trim() === target){
       btn.classList.add("active");
     }
-
   });
-
 }
-
 </script>
 
 </body>
