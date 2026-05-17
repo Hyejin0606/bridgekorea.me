@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="en">
+<div class="lang">
+  <button onclick="setLang('de')">DE</button>
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('kr')">KR</button>
+</div>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -278,3 +282,28 @@
 
 </body>
 </html>
+
+<script>
+const savedLang = localStorage.getItem("bridgekorea_lang") || "kr";
+
+document.addEventListener("DOMContentLoaded", function(){
+  setLang(savedLang);
+});
+
+function setLang(lang){
+  localStorage.setItem("bridgekorea_lang", lang);
+  document.documentElement.lang = lang === "kr" ? "ko" : lang;
+
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  const target = lang === "kr" ? "KR" : lang.toUpperCase();
+
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    if(btn.textContent.trim() === target){
+      btn.classList.add("active");
+    }
+  });
+}
+</script>
