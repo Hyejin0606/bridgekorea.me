@@ -129,15 +129,6 @@ nav a:hover{
   box-shadow:0 4px 14px rgba(10,22,40,.08);
 }
 
-.nav-cta{
-  background:var(--ink);
-  color:white;
-  padding:11px 16px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:850;
-}
-
 .hero{
   background:
     radial-gradient(820px 420px at 85% 10%,rgba(31,95,191,.22),transparent 60%),
@@ -320,6 +311,54 @@ section{
   font-weight:900;
 }
 
+.proof{
+  background:var(--soft);
+}
+
+.method{
+  background:white;
+}
+
+.credibility{
+  background:var(--bg);
+}
+
+.credibility-box{
+  background:
+    radial-gradient(520px 260px at 85% 20%,rgba(185,151,91,.18),transparent 60%),
+    linear-gradient(135deg,#07111f,#0e2746 58%,#143f73);
+  color:white;
+  border-radius:34px;
+  padding:44px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  box-shadow:var(--shadow);
+}
+
+.credibility-box span{
+  color:var(--gold);
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.credibility-box h2{
+  margin:10px 0 14px;
+  font-size:clamp(28px,3.8vw,42px);
+  line-height:1.18;
+  letter-spacing:-1.1px;
+}
+
+.credibility-box p{
+  margin:0;
+  max-width:760px;
+  color:rgba(255,255,255,.82);
+  line-height:1.85;
+}
+
 .contact-strip{
   background:
     radial-gradient(520px 260px at 80% 20%,rgba(185,151,91,.18),transparent 60%),
@@ -432,6 +471,11 @@ footer{
   .hero-grid,
   .cards{
     grid-template-columns:1fr;
+  }
+
+  .credibility-box{
+    flex-direction:column;
+    align-items:flex-start;
   }
 }
 </style>
@@ -557,6 +601,106 @@ BridgeKorea의 기술적 배경, 언어 역량, 오스트리아 현지 파트너
 </div>
 </section>
 
+<section class="proof">
+<div class="container">
+
+<div class="section-head">
+<span data-i18n="proofSmall">Why Austria</span>
+<h2 data-i18n="proofTitle">오스트리아를 유럽 진출의 시작점으로</h2>
+<p data-i18n="proofText">
+오스트리아는 독일어권 시장, 중부유럽 산업 네트워크, 제조업 기반을 함께 가진 전략적인 진출 거점입니다.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<strong>01</strong>
+<h3 data-i18n="proof1Title">중부유럽 접근성</h3>
+<p data-i18n="proof1Text">
+오스트리아는 독일, 체코, 헝가리, 슬로바키아 등 주요 유럽 산업 시장과 가까운 위치에 있습니다.
+</p>
+</div>
+
+<div class="card">
+<strong>02</strong>
+<h3 data-i18n="proof2Title">기술·제조업 기반</h3>
+<p data-i18n="proof2Text">
+기계, 부품, 자동화, 산업 솔루션 분야에서 한국 기업이 진입할 수 있는 B2B 기회가 존재합니다.
+</p>
+</div>
+
+<div class="card">
+<strong>03</strong>
+<h3 data-i18n="proof3Title">신뢰 기반 비즈니스 문화</h3>
+<p data-i18n="proof3Text">
+오스트리아 시장에서는 전문적인 커뮤니케이션, 정확한 자료, 장기적인 관계 구축이 중요합니다.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="method">
+<div class="container">
+
+<div class="section-head">
+<span data-i18n="methodSmall">BridgeKorea Method</span>
+<h2 data-i18n="methodTitle">단순 연결이 아닌, 시장 진입 과정 설계</h2>
+<p data-i18n="methodText">
+BridgeKorea는 기업 소개, 파트너 조사, 현지 연락, 미팅 준비까지 실제 실행 중심으로 지원합니다.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<strong>01</strong>
+<h3 data-i18n="method1Title">기업·제품 이해</h3>
+<p data-i18n="method1Text">
+먼저 기업의 기술, 제품, 목표 산업, 유럽 시장 가능성을 이해합니다.
+</p>
+</div>
+
+<div class="card">
+<strong>02</strong>
+<h3 data-i18n="method2Title">현지 파트너 조사</h3>
+<p data-i18n="method2Text">
+오스트리아 내 관련 기업, 기관, 유통사, 산업 네트워크를 조사합니다.
+</p>
+</div>
+
+<div class="card">
+<strong>03</strong>
+<h3 data-i18n="method3Title">비즈니스 커뮤니케이션</h3>
+<p data-i18n="method3Text">
+독일어·영어 기반의 첫 연락, 회사 소개, 미팅 준비를 지원합니다.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="credibility">
+<div class="container">
+
+<div class="credibility-box">
+<div>
+<span data-i18n="credSmall">Technical B2B Focus</span>
+<h2 data-i18n="credTitle">기술을 이해하는 시장 진출 파트너</h2>
+<p data-i18n="credText">
+BridgeKorea는 기계공학 기반의 기술 이해, 한국어·독일어·영어 커뮤니케이션, 오스트리아 현지 산업 경험을 결합해 한국 기업의 B2B 시장 진출을 지원합니다.
+</p>
+</div>
+
+<a class="btn primary" href="services.html" data-i18n="credBtn">서비스 자세히 보기</a>
+</div>
+
+</div>
+</section>
+
 <section class="contact-strip">
 <div class="container">
 
@@ -642,6 +786,31 @@ const translations = {
     card3Text:"오스트리아 시장 진출 또는 현지 파트너 발굴이 필요하다면 문의해주세요.",
     card3Link:"문의하기 →",
 
+    proofSmall:"Why Austria",
+    proofTitle:"오스트리아를 유럽 진출의 시작점으로",
+    proofText:"오스트리아는 독일어권 시장, 중부유럽 산업 네트워크, 제조업 기반을 함께 가진 전략적인 진출 거점입니다.",
+    proof1Title:"중부유럽 접근성",
+    proof1Text:"오스트리아는 독일, 체코, 헝가리, 슬로바키아 등 주요 유럽 산업 시장과 가까운 위치에 있습니다.",
+    proof2Title:"기술·제조업 기반",
+    proof2Text:"기계, 부품, 자동화, 산업 솔루션 분야에서 한국 기업이 진입할 수 있는 B2B 기회가 존재합니다.",
+    proof3Title:"신뢰 기반 비즈니스 문화",
+    proof3Text:"오스트리아 시장에서는 전문적인 커뮤니케이션, 정확한 자료, 장기적인 관계 구축이 중요합니다.",
+
+    methodSmall:"BridgeKorea Method",
+    methodTitle:"단순 연결이 아닌, 시장 진입 과정 설계",
+    methodText:"BridgeKorea는 기업 소개, 파트너 조사, 현지 연락, 미팅 준비까지 실제 실행 중심으로 지원합니다.",
+    method1Title:"기업·제품 이해",
+    method1Text:"먼저 기업의 기술, 제품, 목표 산업, 유럽 시장 가능성을 이해합니다.",
+    method2Title:"현지 파트너 조사",
+    method2Text:"오스트리아 내 관련 기업, 기관, 유통사, 산업 네트워크를 조사합니다.",
+    method3Title:"비즈니스 커뮤니케이션",
+    method3Text:"독일어·영어 기반의 첫 연락, 회사 소개, 미팅 준비를 지원합니다.",
+
+    credSmall:"Technical B2B Focus",
+    credTitle:"기술을 이해하는 시장 진출 파트너",
+    credText:"BridgeKorea는 기계공학 기반의 기술 이해, 한국어·독일어·영어 커뮤니케이션, 오스트리아 현지 산업 경험을 결합해 한국 기업의 B2B 시장 진출을 지원합니다.",
+    credBtn:"서비스 자세히 보기",
+
     contactTitle:"오스트리아 시장 진출을 시작하세요",
     contactText:"기술 B2B 시장 진출, 현지 파트너 발굴, 다국어 커뮤니케이션 지원이 필요하다면 BridgeKorea와 이야기해보세요.",
     contactBtn:"BridgeKorea 문의하기",
@@ -686,6 +855,31 @@ const translations = {
     card3Text:"Contact BridgeKorea if you need Austria market entry or local partner search support.",
     card3Link:"Contact →",
 
+    proofSmall:"Why Austria",
+    proofTitle:"Austria as a starting point for European market entry",
+    proofText:"Austria combines access to the German-speaking market, Central European industry networks, and a strong manufacturing base.",
+    proof1Title:"Central European Access",
+    proof1Text:"Austria is close to important European industrial markets such as Germany, Czechia, Hungary, and Slovakia.",
+    proof2Title:"Technology & Manufacturing Base",
+    proof2Text:"There are B2B opportunities for Korean companies in machinery, components, automation, and industrial solutions.",
+    proof3Title:"Trust-based Business Culture",
+    proof3Text:"In Austria, professional communication, accurate materials, and long-term relationship building are important.",
+
+    methodSmall:"BridgeKorea Method",
+    methodTitle:"Designing the market entry process, not just making introductions",
+    methodText:"BridgeKorea supports practical execution from company introduction and partner research to local outreach and meeting preparation.",
+    method1Title:"Company & Product Understanding",
+    method1Text:"We first understand the company’s technology, product, target industry, and European market potential.",
+    method2Title:"Local Partner Research",
+    method2Text:"We research relevant companies, institutions, distributors, and industry networks in Austria.",
+    method3Title:"Business Communication",
+    method3Text:"We support first outreach, company introduction, and meeting preparation in German and English.",
+
+    credSmall:"Technical B2B Focus",
+    credTitle:"A market entry partner that understands technology",
+    credText:"BridgeKorea combines mechanical engineering understanding, Korean·German·English communication, and Austrian industry experience to support Korean companies entering the B2B market.",
+    credBtn:"View services",
+
     contactTitle:"Start your Austria market entry",
     contactText:"If you need support for technical B2B market entry, local partner search, or multilingual communication, talk to BridgeKorea.",
     contactBtn:"Contact BridgeKorea",
@@ -729,6 +923,31 @@ const translations = {
     card3Title:"Kontakt",
     card3Text:"Kontaktieren Sie BridgeKorea, wenn Sie Unterstützung beim Markteintritt oder bei der Partnersuche benötigen.",
     card3Link:"Kontakt →",
+
+    proofSmall:"Warum Österreich",
+    proofTitle:"Österreich als Startpunkt für den europäischen Markteintritt",
+    proofText:"Österreich verbindet Zugang zum deutschsprachigen Markt, zentraleuropäische Industrienetzwerke und eine starke Produktionsbasis.",
+    proof1Title:"Zugang zu Mitteleuropa",
+    proof1Text:"Österreich liegt nahe an wichtigen europäischen Industriemärkten wie Deutschland, Tschechien, Ungarn und der Slowakei.",
+    proof2Title:"Technologie- und Produktionsbasis",
+    proof2Text:"Für koreanische Unternehmen bestehen B2B-Chancen in Maschinenbau, Komponenten, Automatisierung und industriellen Lösungen.",
+    proof3Title:"Vertrauensbasierte Geschäftskultur",
+    proof3Text:"In Österreich sind professionelle Kommunikation, präzise Unterlagen und langfristige Beziehungen wichtig.",
+
+    methodSmall:"BridgeKorea Method",
+    methodTitle:"Markteintritt gestalten statt nur Kontakte vermitteln",
+    methodText:"BridgeKorea unterstützt die praktische Umsetzung von Unternehmensvorstellung und Partnerrecherche bis zu lokaler Ansprache und Meeting-Vorbereitung.",
+    method1Title:"Unternehmens- und Produktverständnis",
+    method1Text:"Wir verstehen zunächst Technologie, Produkt, Zielbranche und europäisches Marktpotenzial des Unternehmens.",
+    method2Title:"Lokale Partnerrecherche",
+    method2Text:"Wir recherchieren relevante Unternehmen, Institutionen, Distributoren und Industrienetzwerke in Österreich.",
+    method3Title:"Business-Kommunikation",
+    method3Text:"Wir unterstützen Erstansprache, Unternehmensvorstellung und Meeting-Vorbereitung auf Deutsch und Englisch.",
+
+    credSmall:"Technical B2B Focus",
+    credTitle:"Ein Markteintrittspartner mit technischem Verständnis",
+    credText:"BridgeKorea verbindet Maschinenbauverständnis, Kommunikation auf Koreanisch·Deutsch·Englisch und österreichische Industrieerfahrung, um koreanische Unternehmen beim B2B-Markteintritt zu unterstützen.",
+    credBtn:"Services ansehen",
 
     contactTitle:"Starten Sie Ihren Markteintritt in Österreich",
     contactText:"Wenn Sie Unterstützung beim technischen B2B-Markteintritt, bei der Partnersuche oder mehrsprachiger Kommunikation benötigen, sprechen Sie mit BridgeKorea.",
