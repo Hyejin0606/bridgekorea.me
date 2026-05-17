@@ -992,11 +992,6 @@ function updateLegalLinks(lang){
 const savedLang = localStorage.getItem("bridgekorea_lang") || "kr";
 setLang(savedLang);
 
-function acceptCookies(){
-  localStorage.setItem("bridgekorea_cookie","accepted");
-  document.getElementById("cookiePopup").style.display="none";
-}
-
 function rejectCookies(){
   localStorage.setItem("bridgekorea_cookie","essential_only");
   document.getElementById("cookiePopup").style.display="none";
