@@ -8,7 +8,6 @@
 <style>
 :root{
   --ink:#0a1628;
-  --navy:#0e2746;
   --blue:#1f5fbf;
   --gold:#b9975b;
   --bg:#f6f8fb;
@@ -40,7 +39,7 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(10,22,40,.06);
 }
@@ -88,14 +87,19 @@ header{
 nav{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:22px;
   flex-wrap:wrap;
 }
 
 nav a{
-  font-size:13px;
+  font-size:15px;
   font-weight:800;
   color:var(--muted);
+}
+
+nav a.active,
+nav a:hover{
+  color:var(--blue);
 }
 
 .lang{
@@ -121,15 +125,6 @@ nav a{
   background:white;
   color:var(--ink);
   box-shadow:0 4px 14px rgba(10,22,40,.08);
-}
-
-.nav-cta{
-  background:var(--ink);
-  color:white;
-  padding:11px 16px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:850;
 }
 
 .hero{
@@ -347,16 +342,55 @@ main{
 }
 
 footer{
-  margin-top:46px;
-  text-align:center;
-  color:var(--muted);
+  background:#06101d;
+  color:rgba(255,255,255,.68);
+  padding:32px 0;
   font-size:13px;
 }
 
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.footer-social{
+  display:flex;
+  gap:12px;
+}
+
+.social-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+  color:white;
+  font-weight:900;
+}
+
 @media(max-width:760px){
-  nav{width:100%}
-  .grid,.steps{grid-template-columns:1fr}
-  .image-box{height:230px}
+  nav{
+    width:100%;
+  }
+
+  .grid,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .image-box{
+    height:230px;
+  }
 }
 </style>
 </head>
@@ -389,16 +423,15 @@ footer{
 
 <nav>
 <a href="index.html" data-i18n="navHome">홈</a>
-<a href="about.html" data-i18n="navTeam">팀 소개</a>
-<a href="index.html#expertise" data-i18n="navExpertise">전문성</a>
+<a href="services.html" data-i18n="navServices">서비스</a>
+<a href="about.html" data-i18n="navAbout">팀 소개</a>
+<a class="active" href="contact.html" data-i18n="navContact">문의</a>
 
 <div class="lang">
 <button onclick="setLang('de')">DE</button>
 <button onclick="setLang('en')">EN</button>
 <button class="active" onclick="setLang('kr')">KR</button>
 </div>
-
-<a class="nav-cta" href="contact.html" data-i18n="navContact">문의하기</a>
 </nav>
 
 </div>
@@ -406,7 +439,7 @@ footer{
 
 <section class="hero">
 <div class="container">
-<div class="badge" data-i18n="badge">한국 기업의 오스트리아 시장 진출</div>
+<div class="badge" data-i18n="badge">Contact</div>
 <h1 data-i18n="title">BridgeKorea 문의</h1>
 <p data-i18n="intro">
 오스트리아 시장 진출, 현지 파트너 발굴, 기술 B2B 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.
@@ -488,22 +521,34 @@ footer{
 </ul>
 </section>
 
-<footer>
-© 2026 BridgeKorea. All rights reserved.
-</footer>
-
 </div>
 </main>
+
+<footer>
+<div class="container footer-inner">
+
+<div class="footer-links">
+<a href="privacy.html" id="privacyLink">개인정보처리방침</a>
+<a href="impressum.html" id="impressumLink">Impressum</a>
+</div>
+
+<div class="footer-social">
+<a class="social-icon" href="#" aria-label="Instagram">IG</a>
+<a class="social-icon" href="#" aria-label="YouTube">YT</a>
+</div>
+
+</div>
+</footer>
 
 <script>
 const translations = {
   kr:{
     navHome:"홈",
-    navTeam:"팀 소개",
-    navExpertise:"전문성",
-    navContact:"문의하기",
+    navServices:"서비스",
+    navAbout:"팀 소개",
+    navContact:"문의",
 
-    badge:"한국 기업의 오스트리아 시장 진출",
+    badge:"Contact",
     title:"BridgeKorea 문의",
     intro:"오스트리아 시장 진출, 현지 파트너 발굴, 기술 B2B 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.",
     email:"이메일",
@@ -529,11 +574,11 @@ const translations = {
 
   en:{
     navHome:"Home",
-    navTeam:"Team",
-    navExpertise:"Expertise",
+    navServices:"Services",
+    navAbout:"About Us",
     navContact:"Contact",
 
-    badge:"Korea–Austria Technical Market Entry",
+    badge:"Contact",
     title:"Contact BridgeKorea",
     intro:"If you need support for Austria market entry, local partner search, or technical B2B communication, contact BridgeKorea.",
     email:"Email",
@@ -559,11 +604,11 @@ const translations = {
 
   de:{
     navHome:"Home",
-    navTeam:"Team",
-    navExpertise:"Expertise",
+    navServices:"Services",
+    navAbout:"Über uns",
     navContact:"Kontakt",
 
-    badge:"Korea–Austria Technical Market Entry",
+    badge:"Kontakt",
     title:"Kontakt BridgeKorea",
     intro:"Wenn Sie Unterstützung beim Markteintritt in Österreich, bei der Partnersuche oder bei technischer B2B-Kommunikation benötigen, kontaktieren Sie BridgeKorea.",
     email:"E-Mail",
@@ -610,13 +655,30 @@ function setLang(lang){
       btn.classList.add("active");
     }
   });
+
+  updateLegalLinks(lang);
+}
+
+function updateLegalLinks(lang){
+  const privacy = document.getElementById("privacyLink");
+  const impressum = document.getElementById("impressumLink");
+
+  if(!privacy || !impressum) return;
+
+  if(lang === "de"){
+    privacy.textContent = "Datenschutz";
+    impressum.textContent = "Impressum";
+  }else if(lang === "en"){
+    privacy.textContent = "Privacy Policy";
+    impressum.textContent = "Imprint";
+  }else{
+    privacy.textContent = "개인정보처리방침";
+    impressum.textContent = "Impressum";
+  }
 }
 
 const savedLang = localStorage.getItem("bridgekorea_lang") || "kr";
-
-document.addEventListener("DOMContentLoaded", function(){
-  setLang(savedLang);
-});
+setLang(savedLang);
 </script>
 
 </body>
