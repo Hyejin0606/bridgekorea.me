@@ -27,7 +27,10 @@ body{
   font-size:14px;
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
 .container{
   width:min(980px,calc(100% - 36px));
@@ -38,7 +41,7 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(10,22,40,.06);
 }
@@ -80,19 +83,24 @@ header{
   font-size:11px;
   text-transform:uppercase;
   letter-spacing:.08em;
+  margin-top:4px;
 }
 
 nav{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:22px;
   flex-wrap:wrap;
 }
 
 nav a{
-  font-size:13px;
+  font-size:15px;
   font-weight:800;
   color:var(--muted);
+}
+
+nav a:hover{
+  color:var(--blue);
 }
 
 .lang{
@@ -122,11 +130,10 @@ nav a{
 
 .hero{
   background:
-    radial-gradient(720px 320px at 85% 10%,rgba(31,95,191,.18),transparent 60%),
-    linear-gradient(135deg,#07111f,#0e2746);
+    radial-gradient(720px 360px at 85% 10%,rgba(31,95,191,.22),transparent 60%),
+    linear-gradient(135deg,#07111f,#0e2746 58%,#143f73);
   color:white;
-  padding:72px 0 64px;
-  text-align:center;
+  padding:90px 0 78px;
 }
 
 .badge{
@@ -141,57 +148,90 @@ nav a{
 }
 
 h1{
-  margin:0 0 18px;
-  font-size:clamp(34px,4.5vw,56px);
-  line-height:1.06;
-  letter-spacing:-1.8px;
+  margin:0 0 16px;
+  font-size:clamp(34px,4.8vw,58px);
+  line-height:1.08;
+  letter-spacing:-1.6px;
   font-weight:950;
 }
 
 .hero p{
-  margin:0 auto;
-  max-width:700px;
-  color:rgba(255,255,255,.82);
+  max-width:760px;
+  color:rgba(255,255,255,.84);
   line-height:1.85;
+  margin:0;
 }
 
 main{
-  padding:52px 0 80px;
+  padding:70px 0;
 }
 
-.card{
+.policy-box{
   background:white;
   border:1px solid var(--line);
-  border-radius:30px;
+  border-radius:34px;
+  padding:42px;
   box-shadow:var(--shadow);
-  padding:36px;
 }
 
-.section{
-  margin-bottom:34px;
-}
-
-.section:last-child{
-  margin-bottom:0;
-}
-
-.section h2{
-  margin:0 0 14px;
+.policy-box h2{
+  margin:42px 0 12px;
   color:var(--ink);
-  font-size:24px;
+  font-size:26px;
+  letter-spacing:-.5px;
 }
 
-.section p{
-  margin:0;
+.policy-box h2:first-child{
+  margin-top:0;
+}
+
+.policy-box p{
+  margin:0 0 18px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.policy-box ul{
+  margin:0 0 22px 18px;
   color:var(--muted);
   line-height:1.9;
 }
 
 footer{
-  text-align:center;
-  color:var(--muted);
-  padding:28px 0 40px;
+  background:#06101d;
+  color:rgba(255,255,255,.68);
+  padding:32px 0;
   font-size:13px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.footer-social{
+  display:flex;
+  gap:12px;
+}
+
+.social-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+  color:white;
+  font-weight:900;
 }
 
 @media(max-width:760px){
@@ -199,8 +239,8 @@ footer{
     width:100%;
   }
 
-  .card{
-    padding:24px;
+  .policy-box{
+    padding:28px;
   }
 }
 </style>
@@ -212,7 +252,6 @@ footer{
 <div class="container nav">
 
 <a class="brand" href="index.html">
-
 <svg class="logo-mark" viewBox="0 0 64 64">
 <defs>
 <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
@@ -243,18 +282,18 @@ stroke-linecap="round"/>
 <strong>BridgeKorea</strong>
 <span>Korea · Austria · Industry</span>
 </span>
-
 </a>
 
 <nav>
 <a href="index.html" data-i18n="navHome">홈</a>
+<a href="services.html" data-i18n="navServices">서비스</a>
 <a href="about.html" data-i18n="navAbout">팀 소개</a>
-<a href="contact.html" data-i18n="navContact">문의하기</a>
+<a href="contact.html" data-i18n="navContact">문의</a>
 
 <div class="lang">
 <button onclick="setLang('de')">DE</button>
 <button onclick="setLang('en')">EN</button>
-<button onclick="setLang('kr')">KR</button>
+<button class="active" onclick="setLang('kr')">KR</button>
 </div>
 </nav>
 
@@ -264,12 +303,12 @@ stroke-linecap="round"/>
 <section class="hero">
 <div class="container">
 
-<div class="badge">BridgeKorea</div>
+<div class="badge" data-i18n="badge">Privacy Policy</div>
 
 <h1 data-i18n="title">개인정보처리방침</h1>
 
 <p data-i18n="intro">
-BridgeKorea는 개인정보 보호를 중요하게 생각하며 관련 법률을 준수합니다.
+BridgeKorea는 방문자의 개인정보 보호를 중요하게 생각하며 관련 법률을 준수하기 위해 노력합니다.
 </p>
 
 </div>
@@ -278,44 +317,55 @@ BridgeKorea는 개인정보 보호를 중요하게 생각하며 관련 법률을
 <main>
 <div class="container">
 
-<div class="card">
+<div class="policy-box">
 
-<div class="section">
-<h2 data-i18n="s1Title">1. 외부 링크</h2>
+<h2 data-i18n="s1Title">1. General Information</h2>
 
 <p data-i18n="s1Text">
-본 웹사이트에는 제3자 웹사이트 링크가 포함될 수 있습니다.
-외부 사이트의 콘텐츠에 대해서는 해당 운영자가 책임을 집니다.
+This website is operated by BridgeKorea. We take the protection of personal data seriously and process personal data only within the framework of applicable laws.
 </p>
-</div>
 
-<div class="section">
-<h2 data-i18n="s2Title">2. 개인정보</h2>
+<h2 data-i18n="s2Title">2. Server Log Files</h2>
 
 <p data-i18n="s2Text">
-웹사이트 방문 시 브라우저 정보, IP 주소, 방문 시간 등이 자동으로 저장될 수 있습니다.
-이 정보는 웹사이트 안정성과 통계 분석 목적으로만 사용됩니다.
+The hosting provider may automatically collect technical information such as IP address, browser type, operating system, access time, and requested pages in order to ensure website security and stability.
 </p>
-</div>
 
-<div class="section">
-<h2 data-i18n="s3Title">3. 쿠키</h2>
+<h2 data-i18n="s3Title">3. Cookies & Analytics</h2>
 
-<p data-i18n="s3Text">
-본 웹사이트는 사용자 경험 향상을 위해 쿠키를 사용할 수 있습니다.
-사용자는 브라우저 설정을 통해 쿠키 저장을 제한하거나 삭제할 수 있습니다.
+<p data-i18n="s3Text1">
+This website does not use tracking cookies, advertising cookies, or analytics services such as Google Analytics.
 </p>
-</div>
 
-<div class="section">
-<h2 data-i18n="s4Title">4. 문의</h2>
+<p data-i18n="s3Text2">
+Only technically necessary data may be processed temporarily by the hosting provider in order to ensure website security, stability, and proper operation.
+</p>
+
+<p data-i18n="s3Text3">
+No personal tracking profiles are created.
+</p>
+
+<h2 data-i18n="s4Title">4. Contact</h2>
 
 <p data-i18n="s4Text">
-개인정보 처리 관련 문의는 아래 이메일로 연락해주시기 바랍니다.<br><br>
-
-bridgekorea.at@gmail.com
+If you contact us by email, your transmitted data may be stored for the purpose of processing your request and possible follow-up communication.
 </p>
-</div>
+
+<ul>
+<li>Email: bridgekorea.at@gmail.com</li>
+</ul>
+
+<h2 data-i18n="s5Title">5. External Links</h2>
+
+<p data-i18n="s5Text">
+This website may contain links to external websites. BridgeKorea is not responsible for the content of external websites operated by third parties.
+</p>
+
+<h2 data-i18n="s6Title">6. Your Rights</h2>
+
+<p data-i18n="s6Text">
+You may request information about stored personal data, correction, deletion, or restriction of processing within the framework of applicable laws.
+</p>
 
 </div>
 
@@ -323,76 +373,116 @@ bridgekorea.at@gmail.com
 </main>
 
 <footer>
-© 2026 BridgeKorea
+<div class="container footer-inner">
+
+<div class="footer-links">
+<a href="privacy.html" id="privacyLink">개인정보처리방침</a>
+<a href="impressum.html" id="impressumLink">Impressum</a>
+</div>
+
+<div class="footer-social">
+<a class="social-icon" href="#">IG</a>
+<a class="social-icon" href="#">YT</a>
+</div>
+
+</div>
 </footer>
 
 <script>
-
 const translations = {
 
 kr:{
-  navHome:"홈",
-  navAbout:"팀 소개",
-  navContact:"문의하기",
+navHome:"홈",
+navServices:"서비스",
+navAbout:"팀 소개",
+navContact:"문의",
 
-  title:"개인정보처리방침",
-  intro:"BridgeKorea는 개인정보 보호를 중요하게 생각하며 관련 법률을 준수합니다.",
+badge:"Privacy Policy",
+title:"개인정보처리방침",
+intro:"BridgeKorea는 방문자의 개인정보 보호를 중요하게 생각하며 관련 법률을 준수하기 위해 노력합니다.",
 
-  s1Title:"1. 외부 링크",
-  s1Text:"본 웹사이트에는 제3자 웹사이트 링크가 포함될 수 있습니다. 외부 사이트의 콘텐츠에 대해서는 해당 운영자가 책임을 집니다.",
+s1Title:"1. 일반 정보",
+s1Text:"본 웹사이트는 BridgeKorea에서 운영합니다. 당사는 개인정보 보호를 중요하게 생각하며 관련 법률 범위 내에서만 개인정보를 처리합니다.",
 
-  s2Title:"2. 개인정보",
-  s2Text:"웹사이트 방문 시 브라우저 정보, IP 주소, 방문 시간 등이 자동으로 저장될 수 있습니다. 이 정보는 웹사이트 안정성과 통계 분석 목적으로만 사용됩니다.",
+s2Title:"2. 서버 로그 파일",
+s2Text:"호스팅 제공업체는 웹사이트 보안과 안정성 유지를 위해 IP 주소, 브라우저 유형, 운영체제, 접속 시간 및 요청 페이지와 같은 기술 정보를 자동으로 처리할 수 있습니다.",
 
-  s3Title:"3. 쿠키",
-  s3Text:"본 웹사이트는 사용자 경험 향상을 위해 쿠키를 사용할 수 있습니다. 사용자는 브라우저 설정을 통해 쿠키 저장을 제한하거나 삭제할 수 있습니다.",
+s3Title:"3. 쿠키 및 분석",
+s3Text1:"본 웹사이트는 추적 쿠키, 광고 쿠키 또는 Google Analytics와 같은 분석 서비스를 사용하지 않습니다.",
+s3Text2:"웹사이트의 보안과 정상 운영을 위해 기술적으로 필요한 데이터만 일시적으로 처리될 수 있습니다.",
+s3Text3:"개인 사용자 추적 프로필은 생성되지 않습니다.",
 
-  s4Title:"4. 문의",
-  s4Text:"개인정보 처리 관련 문의는 아래 이메일로 연락해주시기 바랍니다.<br><br>bridgekorea.at@gmail.com"
+s4Title:"4. 문의",
+s4Text:"이메일로 문의할 경우 문의 처리 및 후속 커뮤니케이션을 위해 전달된 정보가 저장될 수 있습니다.",
+
+s5Title:"5. 외부 링크",
+s5Text:"본 웹사이트에는 외부 웹사이트 링크가 포함될 수 있습니다. BridgeKorea는 제3자가 운영하는 외부 사이트의 내용에 대해 책임지지 않습니다.",
+
+s6Title:"6. 이용자의 권리",
+s6Text:"관련 법률 범위 내에서 저장된 개인정보에 대한 정보 제공, 수정, 삭제 또는 처리 제한을 요청할 수 있습니다."
 },
 
 en:{
-  navHome:"Home",
-  navAbout:"Team",
-  navContact:"Contact",
+navHome:"Home",
+navServices:"Services",
+navAbout:"About Us",
+navContact:"Contact",
 
-  title:"Privacy Policy",
-  intro:"BridgeKorea values the protection of personal data and complies with applicable privacy regulations.",
+badge:"Privacy Policy",
+title:"Privacy Policy",
+intro:"BridgeKorea takes the protection of personal data seriously and strives to comply with applicable laws.",
 
-  s1Title:"1. External Links",
-  s1Text:"This website may contain links to third-party websites. The respective operators are responsible for the content of external sites.",
+s1Title:"1. General Information",
+s1Text:"This website is operated by BridgeKorea. We take the protection of personal data seriously and process personal data only within the framework of applicable laws.",
 
-  s2Title:"2. Personal Data",
-  s2Text:"When visiting this website, browser information, IP address, and visit time may be automatically stored. This information is used solely for website security and statistical analysis.",
+s2Title:"2. Server Log Files",
+s2Text:"The hosting provider may automatically collect technical information such as IP address, browser type, operating system, access time, and requested pages in order to ensure website security and stability.",
 
-  s3Title:"3. Cookies",
-  s3Text:"This website may use cookies to improve user experience. Users may restrict or delete cookies through browser settings.",
+s3Title:"3. Cookies & Analytics",
+s3Text1:"This website does not use tracking cookies, advertising cookies, or analytics services such as Google Analytics.",
+s3Text2:"Only technically necessary data may be processed temporarily by the hosting provider in order to ensure website security, stability, and proper operation.",
+s3Text3:"No personal tracking profiles are created.",
 
-  s4Title:"4. Contact",
-  s4Text:"For questions regarding personal data processing, please contact:<br><br>bridgekorea.at@gmail.com"
+s4Title:"4. Contact",
+s4Text:"If you contact us by email, your transmitted data may be stored for the purpose of processing your request and possible follow-up communication.",
+
+s5Title:"5. External Links",
+s5Text:"This website may contain links to external websites. BridgeKorea is not responsible for the content of external websites operated by third parties.",
+
+s6Title:"6. Your Rights",
+s6Text:"You may request information about stored personal data, correction, deletion, or restriction of processing within the framework of applicable laws."
 },
 
 de:{
-  navHome:"Home",
-  navAbout:"Team",
-  navContact:"Kontakt",
+navHome:"Home",
+navServices:"Services",
+navAbout:"Über uns",
+navContact:"Kontakt",
 
-  title:"Datenschutzerklärung",
-  intro:"BridgeKorea legt großen Wert auf den Schutz personenbezogener Daten und hält geltende Datenschutzbestimmungen ein.",
+badge:"Datenschutz",
+title:"Datenschutzerklärung",
+intro:"BridgeKorea nimmt den Schutz personenbezogener Daten ernst und bemüht sich um die Einhaltung der geltenden Gesetze.",
 
-  s1Title:"1. Externe Links",
-  s1Text:"Diese Website kann Links zu Websites Dritter enthalten. Für die Inhalte externer Seiten sind ausschließlich deren Betreiber verantwortlich.",
+s1Title:"1. Allgemeine Informationen",
+s1Text:"Diese Website wird von BridgeKorea betrieben. Wir nehmen den Schutz personenbezogener Daten ernst und verarbeiten personenbezogene Daten nur im Rahmen der geltenden Gesetze.",
 
-  s2Title:"2. Personenbezogene Daten",
-  s2Text:"Beim Besuch dieser Website können Browserinformationen, IP-Adresse und Besuchszeit automatisch gespeichert werden. Diese Informationen werden ausschließlich zur Sicherheit der Website und zu statistischen Zwecken verwendet.",
+s2Title:"2. Server-Log-Dateien",
+s2Text:"Der Hosting-Anbieter kann technische Informationen wie IP-Adresse, Browsertyp, Betriebssystem, Zugriffszeit und aufgerufene Seiten automatisch verarbeiten, um Sicherheit und Stabilität der Website zu gewährleisten.",
 
-  s3Title:"3. Cookies",
-  s3Text:"Diese Website kann Cookies verwenden, um die Benutzererfahrung zu verbessern. Nutzer können Cookies über ihre Browsereinstellungen einschränken oder löschen.",
+s3Title:"3. Cookies & Analyse",
+s3Text1:"Diese Website verwendet keine Tracking-Cookies, Werbe-Cookies oder Analysedienste wie Google Analytics.",
+s3Text2:"Es können ausschließlich technisch notwendige Daten verarbeitet werden, um Sicherheit, Stabilität und ordnungsgemäßen Betrieb der Website zu gewährleisten.",
+s3Text3:"Es werden keine persönlichen Nutzerprofile erstellt.",
 
-  s4Title:"4. Kontakt",
-  s4Text:"Bei Fragen zur Verarbeitung personenbezogener Daten kontaktieren Sie bitte:<br><br>bridgekorea.at@gmail.com"
+s4Title:"4. Kontakt",
+s4Text:"Wenn Sie uns per E-Mail kontaktieren, können die übermittelten Daten zur Bearbeitung Ihrer Anfrage und für mögliche Anschlusskommunikation gespeichert werden.",
+
+s5Title:"5. Externe Links",
+s5Text:"Diese Website kann Links zu externen Websites enthalten. BridgeKorea übernimmt keine Verantwortung für Inhalte externer Websites Dritter.",
+
+s6Title:"6. Ihre Rechte",
+s6Text:"Sie können im Rahmen der geltenden Gesetze Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung personenbezogener Daten verlangen."
 }
-
 };
 
 function setLang(lang){
@@ -425,15 +515,35 @@ btn.classList.add("active");
 }
 });
 
+updateLegalLinks(lang);
+}
+
+function updateLegalLinks(lang){
+
+const privacy =
+document.getElementById("privacyLink");
+
+const impressum =
+document.getElementById("impressumLink");
+
+if(lang === "de"){
+privacy.textContent = "Datenschutz";
+impressum.textContent = "Impressum";
+}
+else if(lang === "en"){
+privacy.textContent = "Privacy Policy";
+impressum.textContent = "Imprint";
+}
+else{
+privacy.textContent = "개인정보처리방침";
+impressum.textContent = "Impressum";
+}
 }
 
 const savedLang =
 localStorage.getItem("bridgekorea_lang") || "kr";
 
-document.addEventListener("DOMContentLoaded",function(){
 setLang(savedLang);
-});
-
 </script>
 
 </body>
