@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services | BridgeKorea</title>
+
+<style>
+:root{
+  --ink:#0a1628;
+  --blue:#1f5fbf;
+  --gold:#b9975b;
+  --bg:#f6f8fb;
+  --line:#e1e7f0;
+  --soft:#eef3f9;
+  --text:#142033;
+  --muted:#617085;
+  --shadow:0 18px 48px rgba(10,22,40,.10);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,"Pretendard","Noto Sans KR",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:14px;
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+  width:min(1180px,calc(100% - 36px));
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(10,22,40,.06);
+}
+
+.nav{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:10px 0;
+  flex-wrap:wrap;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-mark{
+  width:50px;
+  height:50px;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.brand-text strong{
+  color:var(--ink);
+  font-size:22px;
+  font-weight:950;
+}
+
+.brand-text span{
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-top:4px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  font-size:15px;
+  font-weight:800;
+  color:var(--muted);
+}
+
+nav a.active,
+nav a:hover{
+  color:var(--blue);
+}
+
+.lang{
+  display:flex;
+  gap:6px;
+  background:#eef3f9;
+  padding:4px;
+  border-radius:999px;
+}
+
+.lang button{
+  border:0;
+  background:transparent;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  color:var(--muted);
+}
+
+.lang button.active{
+  background:white;
+  color:var(--ink);
+  box-shadow:0 4px 14px rgba(10,22,40,.08);
+}
+
+.hero{
+  background:
+    radial-gradient(820px 420px at 85% 10%,rgba(31,95,191,.22),transparent 60%),
+    radial-gradient(520px 320px at 25% 30%,rgba(185,151,91,.16),transparent 65%),
+    linear-gradient(135deg,#07111f,#0e2746 58%,#143f73);
+  color:white;
+  padding:90px 0 82px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-flex;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);
+  margin-bottom:18px;
+  font-size:12px;
+  font-weight:850;
+}
+
+h1{
+  margin:0 0 18px;
+  font-size:clamp(36px,4.8vw,60px);
+  line-height:1.08;
+  letter-spacing:-1.8px;
+  font-weight:950;
+}
+
+.hero p{
+  max-width:780px;
+  margin:0 auto;
+  color:rgba(255,255,255,.84);
+  line-height:1.85;
+  font-size:15px;
+}
+
+section{
+  padding:78px 0;
+}
+
+.section-head{
+  max-width:780px;
+  margin:0 auto 42px;
+  text-align:center;
+}
+
+.section-head span{
+  color:var(--gold);
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.section-head h2{
+  margin:10px 0 12px;
+  color:var(--ink);
+  font-size:clamp(28px,3.8vw,42px);
+  line-height:1.18;
+  letter-spacing:-1.1px;
+}
+
+.section-head p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14.5px;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.service-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:32px;
+  box-shadow:var(--shadow);
+}
+
+.service-card strong{
+  color:var(--gold);
+  font-size:13px;
+  font-weight:950;
+}
+
+.service-card h3{
+  margin:12px 0 10px;
+  color:var(--ink);
+  font-size:23px;
+  letter-spacing:-.4px;
+}
+
+.service-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.78;
+}
+
+.process{
+  background:var(--soft);
+}
+
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.process-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 12px 30px rgba(10,22,40,.05);
+}
+
+.process-card strong{
+  color:var(--gold);
+  font-weight:950;
+}
+
+.process-card h3{
+  margin:12px 0 8px;
+  color:var(--ink);
+  font-size:18px;
+}
+
+.process-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.industries{
+  background:white;
+}
+
+.industry-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.industry-grid div{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  color:var(--ink);
+  font-weight:850;
+  box-shadow:0 10px 24px rgba(10,22,40,.04);
+}
+
+.contact{
+  background:
+    radial-gradient(520px 260px at 80% 20%,rgba(185,151,91,.18),transparent 60%),
+    linear-gradient(135deg,#07111f,#0b1f3a);
+  color:white;
+  text-align:center;
+}
+
+.contact h2{color:white}
+.contact p{color:rgba(255,255,255,.82)}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 18px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:850;
+  background:white;
+  color:var(--ink);
+  margin-top:28px;
+}
+
+footer{
+  background:#06101d;
+  color:rgba(255,255,255,.68);
+  padding:32px 0;
+  font-size:13px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.footer-links{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.footer-social{
+  display:flex;
+  gap:12px;
+}
+
+.social-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+  color:white;
+  font-weight:900;
+}
+
+@media(max-width:920px){
+  nav{
+    width:100%;
+  }
+
+  .service-grid,
+  .process-grid,
+  .industry-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<a class="brand" href="index.html">
+<svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+<defs>
+<linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+<stop stop-color="#0b1f3a"/>
+<stop offset="1" stop-color="#1f5fbf"/>
+</linearGradient>
+</defs>
+<rect width="64" height="64" rx="18" fill="url(#g)"/>
+<path d="M18 38c6-13 22-13 28 0" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+<path d="M18 27c6-13 22-13 28 0" fill="none" stroke="#c7a55b" stroke-width="5" stroke-linecap="round"/>
+<circle cx="20" cy="42" r="3" fill="#fff"/>
+<circle cx="44" cy="42" r="3" fill="#fff"/>
+</svg>
+
+<span class="brand-text">
+<strong>BridgeKorea</strong>
+<span>Korea · Austria · Industry</span>
+</span>
+</a>
+
+<nav>
+<a href="index.html" data-i18n="navHome">홈</a>
+<a class="active" href="services.html" data-i18n="navServices">서비스</a>
+<a href="about.html" data-i18n="navAbout">팀 소개</a>
+<a href="contact.html" data-i18n="navContact">문의</a>
+
+<div class="lang">
+<button onclick="setLang('de')">DE</button>
+<button onclick="setLang('en')">EN</button>
+<button class="active" onclick="setLang('kr')">KR</button>
+</div>
+</nav>
+
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="badge" data-i18n="badge">Services</div>
+<h1 data-i18n="heroTitle">오스트리아 시장 진출 지원 서비스</h1>
+<p data-i18n="heroText">
+BridgeKorea는 한국 기술 기업이 오스트리아 및 유럽 시장에 진입할 수 있도록 시장 조사, 파트너 발굴, 현지 커뮤니케이션, 미팅 준비를 지원합니다.
+</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-head">
+<span data-i18n="servicesSmall">Services</span>
+<h2 data-i18n="servicesTitle">BridgeKorea가 제공하는 서비스</h2>
+<p data-i18n="servicesText">
+단순한 번역이나 소개가 아니라, 기술적 이해와 현지 산업 맥락을 바탕으로 시장 진출을 지원합니다.
+</p>
+</div>
+
+<div class="service-grid">
+
+<div class="service-card">
+<strong>01</strong>
+<h3 data-i18n="s1Title">Market Entry Check</h3>
+<p data-i18n="s1Text">
+제품 또는 서비스가 오스트리아 시장에 적합한지 검토하고, 어떤 산업군과 파트너를 우선적으로 볼지 방향을 설정합니다.
+</p>
+</div>
+
+<div class="service-card">
+<strong>02</strong>
+<h3 data-i18n="s2Title">Partner & Lead Research</h3>
+<p data-i18n="s2Text">
+오스트리아 내 잠재 고객, 유통사, 제조 파트너, 기관, 산업 네트워크를 조사하고 우선순위를 정리합니다.
+</p>
+</div>
+
+<div class="service-card">
+<strong>03</strong>
+<h3 data-i18n="s3Title">Technical B2B Communication</h3>
+<p data-i18n="s3Text">
+기술 제품과 산업 솔루션을 한국어, 독일어, 영어로 명확하게 설명할 수 있도록 비즈니스 커뮤니케이션을 지원합니다.
+</p>
+</div>
+
+<div class="service-card">
+<strong>04</strong>
+<h3 data-i18n="s4Title">Meeting & Follow-up Support</h3>
+<p data-i18n="s4Text">
+첫 미팅 준비, 발표 자료 정리, 현지 커뮤니케이션, 후속 연락까지 실질적인 실행 단계를 지원합니다.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="process">
+<div class="container">
+
+<div class="section-head">
+<span data-i18n="processSmall">Process</span>
+<h2 data-i18n="processTitle">진행 과정</h2>
+<p data-i18n="processText">
+처음 상담부터 파트너 발굴과 첫 비즈니스 연락까지 단계별로 진행합니다.
+</p>
+</div>
+
+<div class="process-grid">
+
+<div class="process-card">
+<strong>01</strong>
+<h3 data-i18n="p1Title">초기 상담</h3>
+<p data-i18n="p1Text">회사, 제품, 목표 시장, 필요한 지원 범위를 파악합니다.</p>
+</div>
+
+<div class="process-card">
+<strong>02</strong>
+<h3 data-i18n="p2Title">시장 및 파트너 조사</h3>
+<p data-i18n="p2Text">오스트리아 내 관련 기업, 기관, 네트워크를 조사합니다.</p>
+</div>
+
+<div class="process-card">
+<strong>03</strong>
+<h3 data-i18n="p3Title">현지 커뮤니케이션</h3>
+<p data-i18n="p3Text">독일어·영어 기반의 첫 연락과 비즈니스 커뮤니케이션을 지원합니다.</p>
+</div>
+
+<div class="process-card">
+<strong>04</strong>
+<h3 data-i18n="p4Title">미팅 및 후속 지원</h3>
+<p data-i18n="p4Text">미팅 준비, 자료 정리, 후속 연락과 다음 단계 설정을 돕습니다.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="industries">
+<div class="container">
+
+<div class="section-head">
+<span data-i18n="industrySmall">Industries</span>
+<h2 data-i18n="industryTitle">주요 산업 분야</h2>
+<p data-i18n="industryText">
+기술 중심 B2B 기업과 산업 분야에 특히 적합합니다.
+</p>
+</div>
+
+<div class="industry-grid">
+<div data-i18n="i1">기계공학</div>
+<div data-i18n="i2">제조업</div>
+<div data-i18n="i3">산업 부품</div>
+<div data-i18n="i4">자동화</div>
+<div data-i18n="i5">모빌리티</div>
+<div data-i18n="i6">기술 솔루션</div>
+<div data-i18n="i7">소비재</div>
+<div data-i18n="i8">스타트업</div>
+</div>
+
+</div>
+</section>
+
+<section class="contact">
+<div class="container">
+<div class="section-head">
+<span>Contact</span>
+<h2 data-i18n="contactTitle">오스트리아 시장 진출을 준비하고 계신가요?</h2>
+<p data-i18n="contactText">
+시장 조사, 파트너 발굴, 기술 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.
+</p>
+<a class="btn" href="contact.html" data-i18n="contactBtn">문의하기</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container footer-inner">
+
+<div class="footer-links">
+<a href="privacy.html" id="privacyLink">개인정보처리방침</a>
+<a href="impressum.html" id="impressumLink">Impressum</a>
+</div>
+
+<div class="footer-social">
+<a class="social-icon" href="#" aria-label="Instagram">IG</a>
+<a class="social-icon" href="#" aria-label="YouTube">YT</a>
+</div>
+
+</div>
+</footer>
+
+<script>
+const translations = {
+  kr:{
+    navHome:"홈",
+    navServices:"서비스",
+    navAbout:"팀 소개",
+    navContact:"문의",
+
+    badge:"Services",
+    heroTitle:"오스트리아 시장 진출 지원 서비스",
+    heroText:"BridgeKorea는 한국 기술 기업이 오스트리아 및 유럽 시장에 진입할 수 있도록 시장 조사, 파트너 발굴, 현지 커뮤니케이션, 미팅 준비를 지원합니다.",
+
+    servicesSmall:"Services",
+    servicesTitle:"BridgeKorea가 제공하는 서비스",
+    servicesText:"단순한 번역이나 소개가 아니라, 기술적 이해와 현지 산업 맥락을 바탕으로 시장 진출을 지원합니다.",
+
+    s1Title:"Market Entry Check",
+    s1Text:"제품 또는 서비스가 오스트리아 시장에 적합한지 검토하고, 어떤 산업군과 파트너를 우선적으로 볼지 방향을 설정합니다.",
+    s2Title:"Partner & Lead Research",
+    s2Text:"오스트리아 내 잠재 고객, 유통사, 제조 파트너, 기관, 산업 네트워크를 조사하고 우선순위를 정리합니다.",
+    s3Title:"Technical B2B Communication",
+    s3Text:"기술 제품과 산업 솔루션을 한국어, 독일어, 영어로 명확하게 설명할 수 있도록 비즈니스 커뮤니케이션을 지원합니다.",
+    s4Title:"Meeting & Follow-up Support",
+    s4Text:"첫 미팅 준비, 발표 자료 정리, 현지 커뮤니케이션, 후속 연락까지 실질적인 실행 단계를 지원합니다.",
+
+    processSmall:"Process",
+    processTitle:"진행 과정",
+    processText:"처음 상담부터 파트너 발굴과 첫 비즈니스 연락까지 단계별로 진행합니다.",
+    p1Title:"초기 상담",
+    p1Text:"회사, 제품, 목표 시장, 필요한 지원 범위를 파악합니다.",
+    p2Title:"시장 및 파트너 조사",
+    p2Text:"오스트리아 내 관련 기업, 기관, 네트워크를 조사합니다.",
+    p3Title:"현지 커뮤니케이션",
+    p3Text:"독일어·영어 기반의 첫 연락과 비즈니스 커뮤니케이션을 지원합니다.",
+    p4Title:"미팅 및 후속 지원",
+    p4Text:"미팅 준비, 자료 정리, 후속 연락과 다음 단계 설정을 돕습니다.",
+
+    industrySmall:"Industries",
+    industryTitle:"주요 산업 분야",
+    industryText:"기술 중심 B2B 기업과 산업 분야에 특히 적합합니다.",
+    i1:"기계공학",
+    i2:"제조업",
+    i3:"산업 부품",
+    i4:"자동화",
+    i5:"모빌리티",
+    i6:"기술 솔루션",
+    i7:"소비재",
+    i8:"스타트업",
+
+    contactTitle:"오스트리아 시장 진출을 준비하고 계신가요?",
+    contactText:"시장 조사, 파트너 발굴, 기술 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.",
+    contactBtn:"문의하기"
+  },
+
+  en:{
+    navHome:"Home",
+    navServices:"Services",
+    navAbout:"About Us",
+    navContact:"Contact",
+
+    badge:"Services",
+    heroTitle:"Austria market entry services",
+    heroText:"BridgeKorea supports Korean technology companies entering Austria and Europe through market research, partner search, local communication, and meeting preparation.",
+
+    servicesSmall:"Services",
+    servicesTitle:"Services provided by BridgeKorea",
+    servicesText:"We support market entry based on technical understanding and local industry context, not just translation or introductions.",
+
+    s1Title:"Market Entry Check",
+    s1Text:"We review whether your product or service fits the Austrian market and define which sectors and partners should be prioritized.",
+    s2Title:"Partner & Lead Research",
+    s2Text:"We research potential customers, distributors, manufacturing partners, institutions, and industry networks in Austria.",
+    s3Title:"Technical B2B Communication",
+    s3Text:"We support clear business communication for technical products and industrial solutions in Korean, German, and English.",
+    s4Title:"Meeting & Follow-up Support",
+    s4Text:"We support practical steps such as meeting preparation, presentation material review, local communication, and follow-ups.",
+
+    processSmall:"Process",
+    processTitle:"Process",
+    processText:"We proceed step by step from initial consultation to partner search and first business contact.",
+    p1Title:"Initial Consultation",
+    p1Text:"We understand your company, product, target market, and required support.",
+    p2Title:"Market & Partner Research",
+    p2Text:"We research relevant companies, institutions, and networks in Austria.",
+    p3Title:"Local Communication",
+    p3Text:"We support first outreach and business communication in German and English.",
+    p4Title:"Meeting & Follow-up",
+    p4Text:"We help with meeting preparation, materials, follow-up communication, and next steps.",
+
+    industrySmall:"Industries",
+    industryTitle:"Relevant industries",
+    industryText:"Especially suitable for technical B2B companies and industrial sectors.",
+    i1:"Mechanical Engineering",
+    i2:"Manufacturing",
+    i3:"Industrial Components",
+    i4:"Automation",
+    i5:"Mobility",
+    i6:"Technology Solutions",
+    i7:"Consumer Goods",
+    i8:"Startups",
+
+    contactTitle:"Preparing to enter the Austrian market?",
+    contactText:"If you need support with market research, partner search, or technical communication, contact BridgeKorea.",
+    contactBtn:"Contact"
+  },
+
+  de:{
+    navHome:"Home",
+    navServices:"Services",
+    navAbout:"Über uns",
+    navContact:"Kontakt",
+
+    badge:"Services",
+    heroTitle:"Services für den Markteintritt in Österreich",
+    heroText:"BridgeKorea unterstützt koreanische Technologieunternehmen beim Eintritt in Österreich und Europa durch Marktrecherche, Partnersuche, lokale Kommunikation und Meeting-Vorbereitung.",
+
+    servicesSmall:"Services",
+    servicesTitle:"Leistungen von BridgeKorea",
+    servicesText:"Wir unterstützen Markteintritt auf Basis von technischem Verständnis und lokalem Industriekontext, nicht nur durch Übersetzung oder Vorstellung.",
+
+    s1Title:"Market Entry Check",
+    s1Text:"Wir prüfen, ob Ihr Produkt oder Ihre Dienstleistung zum österreichischen Markt passt und welche Branchen und Partner priorisiert werden sollten.",
+    s2Title:"Partner & Lead Research",
+    s2Text:"Wir recherchieren potenzielle Kunden, Distributoren, Produktionspartner, Institutionen und Industrienetzwerke in Österreich.",
+    s3Title:"Technische B2B-Kommunikation",
+    s3Text:"Wir unterstützen klare Business-Kommunikation für technische Produkte und industrielle Lösungen auf Koreanisch, Deutsch und Englisch.",
+    s4Title:"Meeting & Follow-up Support",
+    s4Text:"Wir unterstützen praktische Schritte wie Meeting-Vorbereitung, Präsentationsunterlagen, lokale Kommunikation und Follow-ups.",
+
+    processSmall:"Ablauf",
+    processTitle:"Ablauf",
+    processText:"Wir gehen Schritt für Schritt von der Erstberatung über Partnersuche bis zum ersten Geschäftskontakt vor.",
+    p1Title:"Erstberatung",
+    p1Text:"Wir verstehen Ihr Unternehmen, Produkt, Zielmarkt und den benötigten Support.",
+    p2Title:"Markt- & Partnerrecherche",
+    p2Text:"Wir recherchieren relevante Unternehmen, Institutionen und Netzwerke in Österreich.",
+    p3Title:"Lokale Kommunikation",
+    p3Text:"Wir unterstützen erste Ansprache und Business-Kommunikation auf Deutsch und Englisch.",
+    p4Title:"Meeting & Follow-up",
+    p4Text:"Wir helfen bei Meeting-Vorbereitung, Unterlagen, Follow-up-Kommunikation und nächsten Schritten.",
+
+    industrySmall:"Branchen",
+    industryTitle:"Relevante Branchen",
+    industryText:"Besonders geeignet für technische B2B-Unternehmen und industrielle Bereiche.",
+    i1:"Maschinenbau",
+    i2:"Produktion",
+    i3:"Industriekomponenten",
+    i4:"Automatisierung",
+    i5:"Mobilität",
+    i6:"Technologielösungen",
+    i7:"Konsumgüter",
+    i8:"Startups",
+
+    contactTitle:"Bereiten Sie den Markteintritt in Österreich vor?",
+    contactText:"Wenn Sie Unterstützung bei Marktrecherche, Partnersuche oder technischer Kommunikation benötigen, kontaktieren Sie BridgeKorea.",
+    contactBtn:"Kontakt"
+  }
+};
+
+function setLang(lang){
+  localStorage.setItem("bridgekorea_lang",lang);
+  document.documentElement.lang = lang === "kr" ? "ko" : lang;
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang] && translations[lang][key]){
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  const target = lang === "kr" ? "KR" : lang.toUpperCase();
+
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    if(btn.textContent.trim() === target){
+      btn.classList.add("active");
+    }
+  });
+
+  updateLegalLinks(lang);
+}
+
+function updateLegalLinks(lang){
+  const privacy = document.getElementById("privacyLink");
+  const impressum = document.getElementById("impressumLink");
+
+  if(!privacy || !impressum) return;
+
+  if(lang === "de"){
+    privacy.textContent = "Datenschutz";
+    impressum.textContent = "Impressum";
+  }else if(lang === "en"){
+    privacy.textContent = "Privacy Policy";
+    impressum.textContent = "Imprint";
+  }else{
+    privacy.textContent = "개인정보처리방침";
+    impressum.textContent = "Impressum";
+  }
+}
+
+const savedLang = localStorage.getItem("bridgekorea_lang") || "kr";
+setLang(savedLang);
+</script>
+
+</body>
+</html>
