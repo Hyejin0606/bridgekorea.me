@@ -613,7 +613,10 @@ function setLang(lang){
 }
 
 const savedLang = localStorage.getItem("bridgekorea_lang") || "kr";
-setLang(savedLang);
+
+document.addEventListener("DOMContentLoaded", function(){
+  setLang(savedLang);
+});
 </script>
 
 </body>
