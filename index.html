@@ -1224,74 +1224,342 @@ Reject Non-Essential
 </div>
 
 <script>
+const translations = {
+  kr:{
+    navAbout:"소개",
+    navTeam:"About Us",
+    navExpertise:"전문성",
+    navBusiness:"Business Plan",
+    navCard:"Visitenkarte",
+    navQna:"Q&A",
+    navContact:"문의하기",
+
+    badge:"한국 기업의 오스트리아 시장 진출",
+    heroTitle:"한국 기업의 오스트리아 기술·산업 시장 진출을 지원합니다",
+    heroText:"BridgeKorea는 기계공학 기반의 기술 이해와 오스트리아 현지 산업 네트워크를 바탕으로 한국 기업의 오스트리아 및 유럽 시장 진출을 지원합니다.",
+    heroBtn1:"BridgeKorea 문의하기",
+    heroBtn2:"더 알아보기",
+
+    focusTitle:"BridgeKorea의 강점",
+    focus1:"기계공학 기반 기술 이해",
+    focus2:"오스트리아 현지 산업 경험",
+    focus3:"한국어 · 독일어 · 영어 지원",
+    focus4:"B2B 파트너 발굴 및 커뮤니케이션",
+    focus5:"오스트리아를 통한 유럽 시장 접근",
+
+    aboutSmall:"About",
+    aboutTitle:"BridgeKorea 소개",
+    aboutText:"BridgeKorea는 한국 기업과 오스트리아 산업 시장 사이를 연결하는 기술 기반 비즈니스 브릿지입니다.",
+    about1Title:"기계공학 기반",
+    about1Text:"기술 제품과 산업 구조를 이해하며 단순 번역이 아닌 실제 산업 커뮤니케이션을 지원합니다.",
+    about2Title:"오스트리아 현지 네트워크",
+    about2Text:"현지 산업 경험이 있는 오스트리아 파트너와 함께 시장 접근을 지원합니다.",
+    about3Title:"다국어 비즈니스",
+    about3Text:"한국어 · 독일어 · 영어 커뮤니케이션을 통해 국제 B2B 연결을 돕습니다.",
+    about4Title:"시장 진출 지원",
+    about4Text:"파트너 발굴, 첫 연락, 미팅 준비 및 시장 진출 과정을 지원합니다.",
+
+    teamSmall:"About Us",
+    teamTitle:"BridgeKorea Team",
+    teamText:"한국과 오스트리아 산업 시장을 연결하기 위해 기술 이해와 현지 경험을 기반으로 협업합니다.",
+    role1:"Founder · Korea–Austria Business Development",
+    team1Text:"TU Wien 기계공학 기반의 기술 이해와 한국어 · 독일어 · 영어 커뮤니케이션을 바탕으로 한국 기업의 오스트리아 시장 진출과 현지 비즈니스 연결을 지원합니다.",
+    partnerTitle:"Austrian Industry Partner",
+    role2:"Local Industry & Technical Advisor",
+    team2Text:"오스트리아 현지 산업 경험과 기술 분야 실무 이해를 기반으로 현지 시장 접근, 산업 네트워크, B2B 커뮤니케이션을 지원합니다.",
+
+    expertSmall:"Expertise",
+    expertTitle:"기술과 현지 경험을 기반으로 한 비즈니스 연결",
+    expertText:"BridgeKorea는 TU Wien 기계공학 배경과 오스트리아 산업 현장 경험을 바탕으로 기술 중심 기업의 유럽 시장 진출을 지원합니다.",
+    ex1Title:"Technical Communication",
+    ex1Text:"기술 제품 및 산업 솔루션에 필요한 전문적인 B2B 커뮤니케이션 지원",
+    ex2Title:"Market Entry",
+    ex2Text:"오스트리아 및 유럽 시장 진출을 위한 시장 조사 및 현지 접근",
+    ex3Title:"Business Matching",
+    ex3Text:"오스트리아 기업 및 산업 네트워크와의 파트너 연결 지원",
+    ex4Title:"Local Support",
+    ex4Text:"현지 미팅 준비, 연락, 후속 비즈니스 커뮤니케이션 지원",
+
+    businessSmall:"Business Plan",
+    businessTitle:"BridgeKorea Business Vision",
+    businessText:"BridgeKorea의 목표는 한국 기술 기업이 오스트리아 및 유럽 시장에 보다 쉽게 접근할 수 있도록 지원하는 것입니다. 기술 이해, 현지 산업 경험, 다국어 커뮤니케이션을 기반으로 장기적인 한국–오스트리아 산업 협력 네트워크를 구축합니다.",
+    plan1Title:"Market Entry",
+    plan1Text:"한국 기업의 오스트리아 및 유럽 시장 진출 지원",
+    plan2Title:"Business Matching",
+    plan2Text:"현지 기업 및 산업 파트너 연결",
+    plan3Title:"Technical Communication",
+    plan3Text:"기술 중심 B2B 커뮤니케이션 및 현지 지원",
+
+    cardTitle:"Business Card",
+    cardText:"BridgeKorea의 기본 비즈니스 카드 디자인입니다.",
+    v1Title:"Professional Identity",
+    v1Text:"한국–오스트리아 산업 연결 전문 브랜드 아이덴티티",
+    v2Title:"International Presence",
+    v2Text:"유럽 시장 진출 및 국제 B2B 비즈니스 커뮤니케이션 중심",
+
+    qnaTitle:"자주 묻는 질문",
+    faq1q:"어떤 기업과 협업하나요?",
+    faq1a:"기계공학, 제조업, 산업 부품, 기술 솔루션 등 기술 중심 B2B 기업과 협업합니다.",
+    faq2q:"오스트리아 외 유럽도 가능한가요?",
+    faq2a:"현재는 오스트리아 중심으로 진행하지만 유럽 시장 진출의 시작점으로 연결 가능합니다.",
+    faq3q:"어떤 지원을 받을 수 있나요?",
+    faq3a:"시장 조사, 파트너 발굴, 현지 연락, 미팅 준비 및 기술 커뮤니케이션 지원이 가능합니다.",
+    faq4q:"언어 지원은 어떻게 되나요?",
+    faq4a:"한국어, 독일어, 영어로 비즈니스 커뮤니케이션을 지원합니다.",
+
+    contactTitle:"오스트리아 프로젝트를 시작하세요",
+    contactText:"오스트리아 시장 진출, 현지 파트너 발굴, 기술 B2B 커뮤니케이션 지원이 필요하다면 BridgeKorea에 문의해주세요.",
+    contactBtn:"BridgeKorea 문의하기",
+
+    cookieTitle:"쿠키 설정",
+    cookieText:"이 웹사이트는 필수 쿠키를 사용합니다. 선택적 쿠키는 사용자 경험 개선 및 방문 분석을 위해 사용될 수 있으며, 동의하지 않아도 사이트 이용이 가능합니다.",
+    cookieAccept:"모두 동의",
+    cookieReject:"필수 쿠키만 허용"
+  },
+
+  en:{
+    navAbout:"About",
+    navTeam:"About Us",
+    navExpertise:"Expertise",
+    navBusiness:"Business Plan",
+    navCard:"Business Card",
+    navQna:"Q&A",
+    navContact:"Contact",
+
+    badge:"Korea–Austria Technical Market Entry",
+    heroTitle:"Supporting Korean companies entering the Austrian industrial market",
+    heroText:"BridgeKorea supports Korean companies entering Austria and Europe through mechanical engineering understanding, Austrian industry experience, and multilingual business communication.",
+    heroBtn1:"Contact BridgeKorea",
+    heroBtn2:"Learn More",
+
+    focusTitle:"Why BridgeKorea",
+    focus1:"Mechanical engineering background",
+    focus2:"Austrian local industry experience",
+    focus3:"Korean · German · English support",
+    focus4:"B2B partner search and communication",
+    focus5:"Austria as a gateway to Europe",
+
+    aboutSmall:"About",
+    aboutTitle:"About BridgeKorea",
+    aboutText:"BridgeKorea is a technical business bridge connecting Korean companies with the Austrian industrial market.",
+    about1Title:"Engineering Background",
+    about1Text:"We understand technical products and industrial structures, supporting real industrial communication beyond simple translation.",
+    about2Title:"Austrian Local Network",
+    about2Text:"We support market access together with an Austrian partner experienced in local industry.",
+    about3Title:"Multilingual Business",
+    about3Text:"We support international B2B communication in Korean, German, and English.",
+    about4Title:"Market Entry Support",
+    about4Text:"We support partner search, first outreach, meeting preparation, and market entry steps.",
+
+    teamSmall:"About Us",
+    teamTitle:"BridgeKorea Team",
+    teamText:"We combine technical understanding and local experience to connect Korea and Austria’s industrial markets.",
+    role1:"Founder · Korea–Austria Business Development",
+    team1Text:"With a TU Wien mechanical engineering background and Korean, German, and English communication skills, Hyejin supports Korean companies entering Austria and building local business connections.",
+    partnerTitle:"Austrian Industry Partner",
+    role2:"Local Industry & Technical Advisor",
+    team2Text:"Our Austrian-side partner supports local market access, industry networks, and B2B communication based on practical technical and industrial experience.",
+
+    expertSmall:"Expertise",
+    expertTitle:"Business connection based on technical and local expertise",
+    expertText:"BridgeKorea supports technology-oriented companies entering Europe through TU Wien mechanical engineering background and Austrian industry experience.",
+    ex1Title:"Technical Communication",
+    ex1Text:"Professional B2B communication support for technical products and industrial solutions.",
+    ex2Title:"Market Entry",
+    ex2Text:"Market research and local access for entering Austria and Europe.",
+    ex3Title:"Business Matching",
+    ex3Text:"Partner connection with Austrian companies and industry networks.",
+    ex4Title:"Local Support",
+    ex4Text:"Meeting preparation, local contact, and follow-up business communication.",
+
+    businessSmall:"Business Plan",
+    businessTitle:"BridgeKorea Business Vision",
+    businessText:"BridgeKorea aims to help Korean technology companies access Austria and Europe more effectively. Based on technical understanding, local industry experience, and multilingual communication, we build long-term Korea–Austria industrial cooperation networks.",
+    plan1Title:"Market Entry",
+    plan1Text:"Support for Korean companies entering Austria and Europe.",
+    plan2Title:"Business Matching",
+    plan2Text:"Connecting with local companies and industry partners.",
+    plan3Title:"Technical Communication",
+    plan3Text:"Technical B2B communication and local support.",
+
+    cardTitle:"Business Card",
+    cardText:"Basic BridgeKorea business card design.",
+    v1Title:"Professional Identity",
+    v1Text:"A professional brand identity for Korea–Austria industrial connection.",
+    v2Title:"International Presence",
+    v2Text:"Focused on European market entry and international B2B communication.",
+
+    qnaTitle:"Frequently Asked Questions",
+    faq1q:"What types of companies do you work with?",
+    faq1a:"We work with technical B2B companies in mechanical engineering, manufacturing, industrial components, and technology solutions.",
+    faq2q:"Do you support Europe beyond Austria?",
+    faq2a:"Our focus is Austria, but Austria can serve as a starting point for broader European market access.",
+    faq3q:"What support can we receive?",
+    faq3a:"We support market research, partner search, local outreach, meeting preparation, and technical communication.",
+    faq4q:"Which languages do you support?",
+    faq4a:"We support business communication in Korean, German, and English.",
+
+    contactTitle:"Start your Austria project",
+    contactText:"If you need support for Austria market entry, local partner search, or technical B2B communication, contact BridgeKorea.",
+    contactBtn:"Contact BridgeKorea",
+
+    cookieTitle:"Cookie Settings",
+    cookieText:"This website uses essential cookies. Optional cookies may be used to improve user experience and analyze visits. You can reject non-essential cookies and still use the website.",
+    cookieAccept:"Accept All",
+    cookieReject:"Essential Only"
+  },
+
+  de:{
+    navAbout:"Über uns",
+    navTeam:"About Us",
+    navExpertise:"Expertise",
+    navBusiness:"Business Plan",
+    navCard:"Visitenkarte",
+    navQna:"Q&A",
+    navContact:"Kontakt",
+
+    badge:"Korea–Austria Technical Market Entry",
+    heroTitle:"Unterstützung koreanischer Unternehmen beim Eintritt in den österreichischen Industriemarkt",
+    heroText:"BridgeKorea unterstützt koreanische Unternehmen beim Eintritt in den österreichischen und europäischen Markt durch Maschinenbauverständnis, österreichische Industrieerfahrung und mehrsprachige Business-Kommunikation.",
+    heroBtn1:"BridgeKorea kontaktieren",
+    heroBtn2:"Mehr erfahren",
+
+    focusTitle:"Warum BridgeKorea",
+    focus1:"Maschinenbau-Hintergrund",
+    focus2:"Österreichische Industrieerfahrung",
+    focus3:"Koreanisch · Deutsch · Englisch",
+    focus4:"B2B Partnersuche und Kommunikation",
+    focus5:"Österreich als Zugang zu Europa",
+
+    aboutSmall:"Über uns",
+    aboutTitle:"Über BridgeKorea",
+    aboutText:"BridgeKorea ist eine technische Business-Brücke zwischen koreanischen Unternehmen und dem österreichischen Industriemarkt.",
+    about1Title:"Maschinenbau-Hintergrund",
+    about1Text:"Wir verstehen technische Produkte und industrielle Strukturen und unterstützen echte Industriekommunikation über reine Übersetzung hinaus.",
+    about2Title:"Österreichisches Netzwerk",
+    about2Text:"Wir unterstützen Marktzugang gemeinsam mit einem österreichischen Partner mit lokaler Industrieerfahrung.",
+    about3Title:"Mehrsprachiges Business",
+    about3Text:"Wir unterstützen internationale B2B-Kommunikation auf Koreanisch, Deutsch und Englisch.",
+    about4Title:"Markteintritt",
+    about4Text:"Wir unterstützen Partnersuche, erste Kontaktaufnahme, Meeting-Vorbereitung und Markteintrittsschritte.",
+
+    teamSmall:"About Us",
+    teamTitle:"BridgeKorea Team",
+    teamText:"Wir verbinden Korea und Österreichs Industriemärkte auf Basis von technischem Verständnis und lokaler Erfahrung.",
+    role1:"Founder · Korea–Austria Business Development",
+    team1Text:"Mit TU Wien Maschinenbau-Hintergrund und Koreanisch, Deutsch und Englisch unterstützt Hyejin koreanische Unternehmen beim Eintritt in Österreich und beim Aufbau lokaler Geschäftsbeziehungen.",
+    partnerTitle:"Österreichischer Industriepartner",
+    role2:"Local Industry & Technical Advisor",
+    team2Text:"Unser österreichischer Partner unterstützt lokalen Marktzugang, Industrienetzwerke und B2B-Kommunikation auf Basis praktischer technischer und industrieller Erfahrung.",
+
+    expertSmall:"Expertise",
+    expertTitle:"Business-Verbindung auf Basis technischer und lokaler Expertise",
+    expertText:"BridgeKorea unterstützt technologieorientierte Unternehmen beim Eintritt in Europa durch TU Wien Maschinenbau-Hintergrund und österreichische Industrieerfahrung.",
+    ex1Title:"Technische Kommunikation",
+    ex1Text:"Professionelle B2B-Kommunikation für technische Produkte und industrielle Lösungen.",
+    ex2Title:"Markteintritt",
+    ex2Text:"Marktrecherche und lokaler Zugang für Österreich und Europa.",
+    ex3Title:"Business Matching",
+    ex3Text:"Verbindung mit österreichischen Unternehmen und Industrienetzwerken.",
+    ex4Title:"Lokale Unterstützung",
+    ex4Text:"Meeting-Vorbereitung, lokale Kontaktaufnahme und Follow-up-Kommunikation.",
+
+    businessSmall:"Business Plan",
+    businessTitle:"BridgeKorea Business Vision",
+    businessText:"BridgeKorea unterstützt koreanische Technologieunternehmen beim effektiveren Zugang zu Österreich und Europa. Auf Basis von technischem Verständnis, lokaler Industrieerfahrung und mehrsprachiger Kommunikation bauen wir langfristige Korea–Österreich Industriekooperationen auf.",
+    plan1Title:"Markteintritt",
+    plan1Text:"Unterstützung koreanischer Unternehmen beim Eintritt in Österreich und Europa.",
+    plan2Title:"Business Matching",
+    plan2Text:"Verbindung mit lokalen Unternehmen und Industriepartnern.",
+    plan3Title:"Technische Kommunikation",
+    plan3Text:"Technische B2B-Kommunikation und lokale Unterstützung.",
+
+    cardTitle:"Visitenkarte",
+    cardText:"Grunddesign der BridgeKorea Visitenkarte.",
+    v1Title:"Professionelle Identität",
+    v1Text:"Professionelle Markenidentität für Korea–Österreich Industrie-Verbindungen.",
+    v2Title:"Internationale Präsenz",
+    v2Text:"Fokus auf europäischen Markteintritt und internationale B2B-Kommunikation.",
+
+    qnaTitle:"Häufige Fragen",
+    faq1q:"Mit welchen Unternehmen arbeiten Sie?",
+    faq1a:"Wir arbeiten mit technischen B2B-Unternehmen aus Maschinenbau, Produktion, Industriekomponenten und Technologielösungen.",
+    faq2q:"Unterstützen Sie auch Europa außerhalb Österreichs?",
+    faq2a:"Unser Fokus liegt auf Österreich, aber Österreich kann als Startpunkt für den europäischen Markt dienen.",
+    faq3q:"Welche Unterstützung bieten Sie?",
+    faq3a:"Wir unterstützen Marktrecherche, Partnersuche, lokale Kontaktaufnahme, Meeting-Vorbereitung und technische Kommunikation.",
+    faq4q:"Welche Sprachen unterstützen Sie?",
+    faq4a:"Wir unterstützen Business-Kommunikation auf Koreanisch, Deutsch und Englisch.",
+
+    contactTitle:"Starten wir Ihr Österreich-Projekt",
+    contactText:"Wenn Sie Unterstützung beim Markteintritt in Österreich, bei der Partnersuche oder bei technischer B2B-Kommunikation benötigen, kontaktieren Sie BridgeKorea.",
+    contactBtn:"BridgeKorea kontaktieren",
+
+    cookieTitle:"Cookie-Einstellungen",
+    cookieText:"Diese Website verwendet notwendige Cookies. Optionale Cookies können zur Verbesserung der Nutzererfahrung und Analyse verwendet werden. Sie können nicht notwendige Cookies ablehnen und die Website weiterhin nutzen.",
+    cookieAccept:"Alle akzeptieren",
+    cookieReject:"Nur notwendige Cookies"
+  }
+};
 
 function setLang(lang){
+  localStorage.setItem("bridgekorea_lang",lang);
+  document.documentElement.lang = lang === "kr" ? "ko" : lang;
 
-localStorage.setItem("bridgekorea_lang",lang);
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang] && translations[lang][key]){
+      el.innerHTML = translations[lang][key];
+    }
+  });
 
-document.documentElement.lang =
-lang === "kr" ? "ko" : lang;
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    btn.classList.remove("active");
+  });
 
-document.querySelectorAll(".lang button").forEach(btn=>{
-btn.classList.remove("active");
-});
+  const target = lang === "kr" ? "KR" : lang.toUpperCase();
 
-const target =
-lang === "kr" ? "KR" : lang.toUpperCase();
+  document.querySelectorAll(".lang button").forEach(btn=>{
+    if(btn.textContent.trim() === target){
+      btn.classList.add("active");
+    }
+  });
 
-document.querySelectorAll(".lang button").forEach(btn=>{
-if(btn.textContent.trim() === target){
-btn.classList.add("active");
-}
-});
-
-updateLegalLinks(lang);
+  updateLegalLinks(lang);
 }
 
 function updateLegalLinks(lang){
+  const privacy = document.getElementById("privacyLink");
+  const impressum = document.getElementById("impressumLink");
 
-const privacy =
-document.getElementById("privacyLink");
+  if(!privacy || !impressum) return;
 
-const impressum =
-document.getElementById("impressumLink");
-
-if(lang === "de"){
-privacy.textContent = "Datenschutz";
-impressum.textContent = "Impressum";
+  if(lang === "de"){
+    privacy.textContent = "Datenschutz";
+    impressum.textContent = "Impressum";
+  }else if(lang === "en"){
+    privacy.textContent = "Privacy Policy";
+    impressum.textContent = "Imprint";
+  }else{
+    privacy.textContent = "개인정보처리방침";
+    impressum.textContent = "Impressum";
+  }
 }
 
-else if(lang === "en"){
-privacy.textContent = "Privacy Policy";
-impressum.textContent = "Imprint";
-}
-
-else{
-privacy.textContent = "개인정보처리방침";
-impressum.textContent = "Impressum";
-}
-}
-
-const savedLang =
-localStorage.getItem("bridgekorea_lang") || "kr";
-
+const savedLang = localStorage.getItem("bridgekorea_lang") || "kr";
 setLang(savedLang);
 
 function acceptCookies(){
-localStorage.setItem("bridgekorea_cookie","accepted");
-document.getElementById("cookiePopup").style.display="none";
+  localStorage.setItem("bridgekorea_cookie","accepted");
+  document.getElementById("cookiePopup").style.display="none";
 }
 
 function rejectCookies(){
-localStorage.setItem("bridgekorea_cookie","rejected");
-document.getElementById("cookiePopup").style.display="none";
+  localStorage.setItem("bridgekorea_cookie","essential_only");
+  document.getElementById("cookiePopup").style.display="none";
 }
 
 if(localStorage.getItem("bridgekorea_cookie")){
-document.getElementById("cookiePopup").style.display="none";
+  document.getElementById("cookiePopup").style.display="none";
 }
-
 </script>
-
-</body>
-</html>
